@@ -1,0 +1,13 @@
+#image{
+    width: 30%;
+    height: 30%;
+    object-position: center;
+    object-fit: cover;
+}
+
+#galeria{
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
