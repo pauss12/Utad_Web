@@ -1,0 +1,14 @@
+html{
+    background-color: blue;
+}
+
+form{
+    margin: 0 auto;
+    width: 400px;
+    padding: 1em;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+}
