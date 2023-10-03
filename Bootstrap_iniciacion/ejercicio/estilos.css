@@ -1,0 +1,13 @@
+header{
+    background-color: blue;
+    text-align: center;
+}
+
+footer{
+    background-color: green;
+    text-align: center;
+}
+
+section{
+    display: inline-block;
+}

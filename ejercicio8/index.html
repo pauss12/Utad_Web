@@ -8,23 +8,22 @@
     <script src="javascript.js"></script>
 </head>
 <body>
-    <form id = "form">
-        <input name = "figura" id="rectangulo" type="radio" checked = "checked" />Rectangulo 
-        <input name = "figura" id="triangulo" type="radio" checked = "checked" />Triangulo
-
+    <form id="form">
+        <input type="radio" name="figura" id="rectangulo" checked>Rectángulo
+        <input type="radio" name="figura" id="triangulo">Triángulo
+        <br>
         <label for="base">Introduce la base:</label>
-        <input type="text" id="base" size = "3">
+        <input type="number" id="base" type="text" size="3">
         <br>
         <label for="altura">Introduce la altura:</label>
-        <input type="text" id="altura" size = "3">
+        <input type="number" id="altura" type="text" size="3">
         <br>
-        <button onclick="calcular()">Calcular</button>
+        <button type="button" onclick="calcular()">Calcular</button>
         <br>
-        <label for="miInput" >El area es:</label>
-        <input type="text" for="miInput" id="resultado" size = "3" readonly>
+        <label for="resultado">El área es:</label>
+        <input type="text" id="resultado" size="3" readonly>
         <br>
-        <button onclick="borrar()">Borrar</button>
-
+        <button type="reset">Borrar</button>
     </form>
 </body>
 </html>
