@@ -1,5 +1,5 @@
 import './App.css';
-import TeamMember from './components/teamMember.jsx';
+import TeamMember from './components/teamMember';
 import data from './data/data.json';
 
 
