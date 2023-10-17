@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import TeamMember from './components/teamMember.jsx';
+import data from './data/data.json';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <div className='main-container'>
+        <h1>Profesores internacionales de primer nivel</h1>
+        {data.map((element, index) => (
+          <TeamMember
+            name={element.name}
+            position={element.position}
+            description={element.description}
+            image={element.image} />
+        ))}
+      </div>
     </div>
   );
 }
