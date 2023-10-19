@@ -47,14 +47,14 @@ function MostrarResultados() {
     document.querySelector(".resultado-empate").innerHTML = resultado;
 }
 
-
-
+var botonSeleccionado = document.getElementById("botonSeleccionado")
 const Jugar = () => {
     // Leer la selección del dropdown
     ObtenerSeleccion();
 
     // Generar las jugadas
     if (jugadores === 0) {
+        botonSeleccionado.innerText = "0 Jugadores"
         jugada1 = GenerarJugada();
         jugada2 = GenerarJugada();
     } else if (jugadores === 1) {
