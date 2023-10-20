@@ -1,76 +1,126 @@
-function ObtenerSeleccion() {
-    // Obtener el valor de la selección del dropdown
-    let seleccion = document.querySelector(".dropdown-menu .active").textContent;
 
-    // Convertir la selección a un número
-    jugadores = parseInt(seleccion);
+/*Tener un elemento jugadores, para no tener que estar pasandole ese valor a todas las funciones */
+let jugadorSelecccionado = 0;
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    //Obtener el elemento
+    const dropdown = document.getElementById("dropdown");
+
+    //Obtener todas las opciones disponibles dentro de ese elemento
+    const opciones = document.querySelectorAll('.dropdown-item');
+
+    //Recorrer cada una de esas opciones
+    opciones.forEach(function (opcion, index) {
+        //Agregar un evento click a cada una de las opciones
+        opcion.addEventListener('click', function () {
+            //Cuando detecta que ese elemento se ha clickeado, se guarda el valor de ese elemento en el dropdown (es decir el numero de jugadores seleccionado)
+            jugadorSelecccionado = index;
+        });
+    });
+});
+
+function Seleccionar() {
+
+    if (jugadorSelecccionado == null) {
+        console.log("No hay jugadores seleccionados");
+    } else {
+        if (jugadorSelecccionado == 0) {
+            //cambiar el texto del boton
+            document.getElementById("botonSeleccionado").innerText = "0 Seres Humanos";
+        } else if (jugadorSelecccionado == 1) {
+            document.getElementById("botonSeleccionado").innerText = "1 Ser Humano";
+        } else if (jugadorSelecccionado == 2) {
+            document.getElementById("botonSeleccionado").innerText = "2 Seres Humanos";
+        }
+    }
+    
 }
 
-function CompararJugadas(jugada1, jugada2) {
-    if (jugada1 === jugada2) {
+function generarJugada() {
+
+    const opcion = Math.floor(Math.random() * 3) + 1;
+
+    switch (opcion) {
+        case 1:
+            return "piedra";
+        case 2:
+            return "papel";
+        case 3:
+            return "tijera";
+    }
+}
+
+function determinarGanador(jugada1, jugada2) {
+
+    if (jugador1 == jugador2) {
         return "Empate";
-    } else if ((jugada1 === 1 && jugada2 === 3) ||
-        (jugada1 === 2 && jugada2 === 1) ||
-        (jugada1 === 3 && jugada2 === 2)) {
-        return "Jugador 1 gana";
-    } else {
-        return "Jugador 2 gana";
+    } else if (jugador1 == "piedra") {
+        if (jugador2 == "papel") {
+            return "Gana el jugador 2";
+        } else {
+            return "Gana el jugador 1";
+        }
+    } else if (jugador1 == "papel") {
+        if (jugador2 == "tijera") {
+            return "Gana el jugador 2";
+        } else {
+            return "Gana el jugador 1";
+        }
+    } else if (jugador1 == "tijera") {
+        if (jugador2 == "piedra") {
+            return "Gana el jugador 2";
+        } else {
+            return "Gana el jugador 1";
+        }
     }
 }
 
-function ActualizarContadores(resultado) {
-    if (resultado === "Jugador 1 gana") {
-        jugador1++;
-    } else if (resultado === "Jugador 2 gana") {
-        jugador2++;
-    } else {
-        empates++;
-    }
+//Crear un event listener para que este atento de si el boton ha sido clickeado o no
+const button = document.getElementById("botonJugar");
+
+if (button !== null) {
+    button.addEventListener("click", Jugar);
 }
 
-function MostrarResultados() {
-    // Mostrar la jugada de la máquina
-    document.querySelector(".resultado-jugador1").innerHTML = `
-    <img src="images/piedra.jpg" class="resultado-img" alt="piedra">
-    <img src="images/papel.png" class="resultado-img" alt="papel">
-    <img src="images/tijera.png" class="resultado-img" alt="tijera">
-  `;
+function Jugar() {
 
-    // Mostrar la jugada del jugador
-    document.querySelector(".resultado-jugador2").innerHTML = `
-    <img src="images/piedra.jpg" class="resultado-img" alt="piedra">
-    <img src="images/papel.png" class="resultado-img" alt="papel">
-    <img src="images/tijera.png" class="resultado-img" alt="tijera">
-  `;
+    //Ya tengo los jugadores seleccionados, ahora tengo que empezar la partida
+    if (jugadorSelecccionado == 0)
+    { 
+        //Significa que va a haber 2 maquinas, 0 seres humanos
+        var jugadaMaquina1 = generarJugada();
+        var jugadaMaquina2 = generarJugada();
 
-    // Mostrar el resultado
-    document.querySelector(".resultado-empate").innerHTML = resultado;
-}
+        alert("HOLA 0 jugador");
 
-var botonSeleccionado = document.getElementById("botonSeleccionado")
-const Jugar = () => {
-    // Leer la selección del dropdown
-    ObtenerSeleccion();
+        //Ver quien ha ganado
+        const ganador = determinarGanador(jugadaMaquina1, jugadaMaquina2);
 
-    // Generar las jugadas
-    if (jugadores === 0) {
-        botonSeleccionado.innerText = "0 Jugadores"
-        jugada1 = GenerarJugada();
-        jugada2 = GenerarJugada();
-    } else if (jugadores === 1) {
-        jugada1 = GenerarJugada();
-        jugada2 = prompt("Elige tu jugada: 1 (piedra), 2 (papel) o 3 (tijera)");
-    } else if (jugadores === 2) {
-        jugada1 = prompt("Jugador 1, elige tu jugada: 1 (piedra), 2 (papel) o 3 (tijera)");
-        jugada2 = prompt("Jugador 2, elige tu jugada: 1 (piedra), 2 (papel) o 3 (tijera)");
+        //Mostrar mensaje
+        alert(ganador);
+
+    } else if (jugadorSelecccionado == 1) {
+        
+        var jugadaMaquina1 = generarJugada();
+        var jugada2 = prompt("Elige tu jugada: Piedra, Papel o Tijera");
+
+        alert("El jugador 2 es " + jugada2);
+        //Ver quien ha ganado
+        const ganador = determinarGanador(jugadaMaquina1, jugada2);
+
+        //Mostrar mensaje
+        alert(ganador);
+
+    } else if (jugadorSelecccionado == 2) {
+       
+        var jugada1 = prompt("Jugador 1, elige tu jugada: Piedra, Papel o Tijera");
+        var jugada2 = prompt("Jugador 2, elige tu jugada: Piedra, Papel o Tijera");
+
+        //Ver quien ha ganado
+        const ganador = determinarGanador(jugada1, jugada2);
+
+        //Mostrar mensaje
+        alert(ganador);
     }
-
-    // Comparar las jugadas
-    resultado = CompararJugadas(jugada1, jugada2);
-
-    // Actualizar los contadores
-    ActualizarContadores(resultado);
-
-    // Mostrar los resultados
-    MostrarResultados();
-};
+}

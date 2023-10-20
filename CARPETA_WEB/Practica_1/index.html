@@ -4,14 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piedra, papel o tijera</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="./style.css    ">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="javascript.js"></script>
+    <script src="./javascript.js"></script>
 </head>
 <body>
 
-    <container>
+    <!-- Aquí va el título de la página -->
+    <div class="fotos">
+        <div class="row">
+            <div class="col-12">
+                <h1>Piedra, papel o tijera</h1>
+                <!-- Añadir imagenes -->
+                <img src="./images/piedra.jpg" alt="Piedra" width="100" height="100">
+                <img src="./images/papel.png" alt="Papel" width="100" height="100">
+                <img src="./images/tijera.png" alt="Tijera" width="100" height="100">
+            </div>
+        </div>
+    </div>
+
+    <!-- Aquí va los botones para seleccionar el numero de jugadores humanos -->
+    <container class="container">
         
         <!--Hazme un dropdown con las opciones de 1 humano, 2 humanos y 3 humanos -->
         <div class="dropdown">
@@ -19,23 +33,19 @@
                Nº de jugadores
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" id="uno" href="#">1 humano</a></li>
-                <li><a class="dropdown-item" id="dos" href="#">2 Humanos</a></li>
-                <li><a class="dropdown-item" id="tres" href="#"> 3 humanos</a></li>
+                <li><a class="dropdown-item" id="jugadores" href="#">0 humano</a></li>
+                <li><a class="dropdown-item" id="jugadores" href="#">1 Humanos</a></li>
+                <li><a class="dropdown-item" id="jugadores" href="#">2 humanos</a></li>
             </ul>
         </div>
 
-        <!-- Boton para iniciar el juego-->
-        <button type="button" id="botonJugar" onclick="Jugar()" class="btn btn-outline-secondary">Jugar</button>
-
-        <!-- Boton para mostrar los resultados-->
-        <div class="resultados">
-            <div class="resultado-jugador1"></div>
-            <div class="resultado-jugador2"></div>
-            <div class="resultado-empate"></div>
-        </div>
+        <!-- Boton para Seleccionar el numero de Jugadores-->
+        <button type="button" id="botonSeleccionar" onclick="Seleccionar()" class="btn btn-outline-secondary">Seleccionar</button>
 
     </container>
+
+    <!-- Boton para iniciar el juego-->
+    <button type="button" id="botonJugar" onclick="Jugar()" class="btn btn-outline-secondary">Jugar</button>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
