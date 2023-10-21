@@ -1,37 +1,57 @@
 
-.container {
-    margin-top: auto;
-    display: flex;
-    justify-content: center;
-}
-
+/* Aquí va el título de la página */
 .fotos {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
 }
 
-.dropdown {
+input {
+    width: 200px;
+    height: 50px;
+    border: none;
+}
+
+.fotos h1 {
+    font-size: 60px;
+}
+
+.fotos img {
+    margin: 10px;
+}
+
+#botonSeleccionado{
     position: relative;
-    display: inline-block;
     justify-content: center;
-    margin-top: 20px;
-    margin-right: 10px;
+    align-items: center;
 }
 
-/*El contenido del dropdown*/
-.dropdown-content {
+/* Aquí va los botones para seleccionar el numero de jugadores humanos */
+#seleccion {
+    margin: 20px;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1;
 }
 
-#botonSeleccionar{
-    display: inline-block;
+/* Aquí van dos cuadrados para ver las opciones que han salido */
+.row {
+    margin-top: 100%;
+    margin-bottom: auto;
+}
+
+.col-4 {
+    text-align: center;
+}
+
+.h2 {
+    font-size: 30px;
+}
+
+/* Aquí va el botones para empezar y reiniciar la partida */
+#botones{
+    margin: 20px;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    margin-top: 20px;
 }

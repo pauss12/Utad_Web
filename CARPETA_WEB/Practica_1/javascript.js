@@ -1,6 +1,13 @@
 
-/*Tener un elemento jugadores, para no tener que estar pasandole ese valor a todas las funciones */
-let jugadorSelecccionado = 0;
+// Variables globales -----------------------------------------------------------------------------------
+var jugadorSelecccionado = 0;
+var ganador = "";
+var jugadaMaquina1 = "";
+var jugadaMaquina2 = "";
+var jugada1 = "";
+var jugada2 = "";
+
+//SELECCIONAR JUGADORES ---------------------------------------------------------------------------------
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -37,6 +44,7 @@ function Seleccionar() {
     
 }
 
+//GENERAR JUGADA ----------------------------------------------------------------------------------------
 function generarJugada() {
 
     const opcion = Math.floor(Math.random() * 3) + 1;
@@ -51,24 +59,26 @@ function generarJugada() {
     }
 }
 
+//DETERMINAR EL GANADOR ---------------------------------------------------------------------------------
+
 function determinarGanador(jugada1, jugada2) {
 
-    if (jugador1 == jugador2) {
+    if (jugada1 === jugada2) {
         return "Empate";
-    } else if (jugador1 == "piedra") {
-        if (jugador2 == "papel") {
+    } else if (jugada1 === "piedra") {
+        if (jugada2 === "papel") {
             return "Gana el jugador 2";
         } else {
             return "Gana el jugador 1";
         }
-    } else if (jugador1 == "papel") {
-        if (jugador2 == "tijera") {
+    } else if (jugada1 === "papel") {
+        if (jugada2 === "tijera") {
             return "Gana el jugador 2";
         } else {
             return "Gana el jugador 1";
         }
-    } else if (jugador1 == "tijera") {
-        if (jugador2 == "piedra") {
+    } else if (jugada1 === "tijera") {
+        if (jugada2 === "piedra") {
             return "Gana el jugador 2";
         } else {
             return "Gana el jugador 1";
@@ -76,51 +86,134 @@ function determinarGanador(jugada1, jugada2) {
     }
 }
 
-//Crear un event listener para que este atento de si el boton ha sido clickeado o no
-const button = document.getElementById("botonJugar");
-
-if (button !== null) {
-    button.addEventListener("click", Jugar);
-}
-
+//CODIGO PARA JUGAR EL JUEGO ---------------------------------------------------------------------------
 function Jugar() {
 
     //Ya tengo los jugadores seleccionados, ahora tengo que empezar la partida
     if (jugadorSelecccionado == 0)
     { 
         //Significa que va a haber 2 maquinas, 0 seres humanos
-        var jugadaMaquina1 = generarJugada();
-        var jugadaMaquina2 = generarJugada();
+        jugadaMaquina1 = generarJugada();
+        jugadaMaquina2 = generarJugada();
 
-        alert("HOLA 0 jugador");
+        MostrarJugada(jugadaMaquina1, jugadaMaquina2);
 
-        //Ver quien ha ganado
-        const ganador = determinarGanador(jugadaMaquina1, jugadaMaquina2);
+        ganador = determinarGanador(jugadaMaquina1, jugadaMaquina2);
 
-        //Mostrar mensaje
-        alert(ganador);
+        mostrarResultado(ganador);
 
     } else if (jugadorSelecccionado == 1) {
         
-        var jugadaMaquina1 = generarJugada();
-        var jugada2 = prompt("Elige tu jugada: Piedra, Papel o Tijera");
+        jugadaMaquina1 = generarJugada();
+        
+        jugada2 = prompt("Jugador 2 => Elige tu jugada: Piedra, Papel o Tijera");
+        jugada2 = jugada2.toLowerCase();
 
-        alert("El jugador 2 es " + jugada2);
-        //Ver quien ha ganado
-        const ganador = determinarGanador(jugadaMaquina1, jugada2);
+        while (jugada2 !== "piedra" && jugada2 !== "papel" && jugada2 !== "tijera") {
+            alert("La jugada no es válida. Por favor, escribe 'piedra', 'papel' o 'tijera'.");
+            jugada2 = prompt("Jugador 2 => Elige tu jugada: Piedra, Papel o Tijera");
+            jugada2 = jugada2.toLowerCase();
+        }
 
-        //Mostrar mensaje
-        alert(ganador);
+        MostrarJugada(jugadaMaquina1, jugada2);
+
+        ganador = determinarGanador(jugadaMaquina1, jugada2);
+
+        mostrarResultado(ganador);
 
     } else if (jugadorSelecccionado == 2) {
        
-        var jugada1 = prompt("Jugador 1, elige tu jugada: Piedra, Papel o Tijera");
-        var jugada2 = prompt("Jugador 2, elige tu jugada: Piedra, Papel o Tijera");
+        jugada1 = prompt("Jugador 1 => Elige tu jugada: Piedra, Papel o Tijera");
+        jugada1 = jugada1.toLowerCase();
 
-        //Ver quien ha ganado
-        const ganador = determinarGanador(jugada1, jugada2);
+        while (jugada1 !== "piedra" && jugada1 !== "papel" && jugada1 !== "tijera") {
+            alert("La jugada no es válida. Por favor, escribe 'piedra', 'papel' o 'tijera'.");
+            jugada1 = prompt("Jugador 1 => Elige tu jugada: Piedra, Papel o Tijera");
+            jugada1 = jugada1.toLowerCase();
+        }
 
-        //Mostrar mensaje
-        alert(ganador);
+        jugada2 = prompt("Jugador 2 => Elige tu jugada: Piedra, Papel o Tijera");
+        jugada2 = jugada2.toLowerCase();
+
+        while (jugada2 !== "piedra" && jugada2 !== "papel" && jugada2 !== "tijera") {
+            alert("La jugada no es válida. Por favor, escribe 'piedra', 'papel' o 'tijera'.");
+            jugada2 = prompt("Jugador 2 => Elige tu jugada: Piedra, Papel o Tijera");
+            jugada2 = jugada2.toLowerCase();
+        }
+
+        MostrarJugada(jugada1, jugada2);
+
+        ganador = determinarGanador(jugada1, jugada2);
+
+        mostrarResultado(ganador);
+    }
+}
+
+// Función para mostrar el resultado -----------------------------------------------------------------------
+//Quiero que solo cuando haya determinado el ganador, que aparezca el texto del resultado
+
+function mostrarResultado(ganador) {
+
+    // Establecer la propiedad `hidden` del elemento HTML a `false`
+    const elemento = document.getElementById("resultado");
+    elemento.hidden = false;
+
+    // Establecer el valor del elemento HTML
+    let input = "";
+    
+    if (ganador == "Gana el jugador 1") {
+        input = "¡¡GANA EL JUGADOR 1!!";
+    } else if (ganador == "Gana el jugador 2") {
+        input = "¡¡GANA EL JUGADOR 2!!";
+    }
+    else if (ganador == "Empate") {
+        input = "¡¡EMPATE!!";
+    }
+
+    // Actualizar la interfaz
+    document.getElementById("resultado").value = input;
+}
+
+// Función para reiniciar el juego -----------------------------------------------------------------------
+function Reiniciar() {
+    // Resetear las variables
+    ganador = "";
+    jugadaMaquina1 = "";
+    jugadaMaquina2 = "";
+    jugada1 = "";
+    jugada2 = "";
+
+    // Actualizar la interfaz
+    document.getElementById("resultado").hidden = true;
+    document.getElementById("jugador1img").src = "./images/carta_sin_revelar.jpg";
+    document.getElementById("jugador2img").src = "./images/carta_sin_revelar.jpg";
+}
+
+// Función para mostrar las cartas -----------------------------------------------------------------------
+function MostrarJugada(jugada1, jugada2) {
+    // Obtener la imagen correspondiente a la jugada 1
+    const imgJugada1 = document.getElementById("jugador1img");
+
+    // Modificar la imagen
+    imgJugada1.src = mostrarJugada1(jugada1);
+
+    // Obtener la imagen correspondiente a la jugada 2
+    const imgJugada2 = document.getElementById("jugador2img");
+
+    // Modificar la imagen
+    imgJugada2.src = mostrarJugada1(jugada2);
+}
+
+function mostrarJugada1(jugada) {
+    // Obtener la imagen correspondiente a la jugada
+    switch (jugada) {
+        case "piedra":
+            return "./images/piedra.jpg";
+        case "papel":
+            return "./images/papel.png";
+        case "tijera":
+            return "./images/tijera.png";
+        default:
+            return "";
     }
 }
