@@ -17,9 +17,9 @@
             <div class="col-12">
                 <h1>Piedra, papel o tijera</h1>
                 <!-- Añadir imagenes -->
-                <img src="./images/piedra.jpg" alt="Piedra" width="100" height="100">
-                <img src="./images/papel.png" alt="Papel" width="100" height="100">
-                <img src="./images/tijera.png" alt="Tijera" width="100" height="100">
+                <img src="./images/piedra.png" alt="Piedra" width="100" height="100" alt="Foto de una piedra">
+                <img src="./images/papel.png" alt="Papel" width="100" height="100" alt="Foto de papel">
+                <img src="./images/tijera.png" alt="Tijera" width="100" height="100" alt="Foto de tijeras">
             </div>
         </div>
     </div>
@@ -33,8 +33,8 @@
                Nº de jugadores
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" id="jugadores" href="#">0 humano</a></li>
-                <li><a class="dropdown-item" id="jugadores" href="#">1 Humanos</a></li>
+                <li><a class="dropdown-item" id="jugadores" href="#">0 humanos</a></li>
+                <li><a class="dropdown-item" id="jugadores" href="#">1 Humano</a></li>
                 <li><a class="dropdown-item" id="jugadores" href="#">2 humanos</a></li>
             </ul>
         </div>
@@ -45,33 +45,42 @@
     </container>
 
     <!-- Aquí va el botón para iniciar el juego -->
-    <div class="container" id="batalla">
+    <div class="container col-12" id="batalla">
     
         <!-- Aquí van dos cuadrados para ver las opciones que han salido -->
         <div class="row" id="opciones">
             <div class="col-4">
                 <h2 id="jugador1">Jugador 1</h2>
-                <img id="jugador1img" src="./images/carta_sin_revelar.jpg" alt="Piedra" width="150">
+                <img id="jugador1img" src="./images/carta_sin_revelar.jpg" alt="Piedra" width="150" alt="Foto de parte de atras de una carta">
             </div>
             <!--AÑADIR UN CUADRADO PARA EL RESULTADO-->
             <div class="col-4">
-                <input type="text" id="resultado" size="3" readonly hidden>
+                <input type="text" id="resultado" size="10" readonly hidden>
             </div>
                 
             <div class="col-4">
                 <h2 id="jugador2">Jugador 2</h2>
-                <img id="jugador2img" src="./images/carta_sin_revelar.jpg" alt="Piedra" width="150">
+                <img id="jugador2img" src="./images/carta_sin_revelar.jpg" alt="Piedra" width="150" alt="Foto de parte de atras de una carta">
             </div>
 
     </div>
 
     <div class="container" id="botones">
         <!-- Boton para iniciar el juego-->
-        <button type="button" id="botonJugar" onclick="Jugar()" class="btn btn-outline-secondary">Jugar</button>
+        <button type="button" id="botonJugar" onclick="Jugar()" class="btn btn-outline-secondary" hidden>Jugar</button>
         
         <!-- Boton para reiniciar el juego-->
-        <button type="button" id="botonReiniciar" onclick="Reiniciar()" class="btn btn-outline-secondary">Reiniciar</button>
+        <button type="button" id="botonReiniciar"  onclick="hacer()" class="btn btn-outline-secondary" hidden>Reiniciar</button>
     </div>
+
+    <!-- Contador de  puntos, tanto de Ganadas por jugador 1 como el jugador 2-->
+    <div class="contador" hidden>
+        <p>Contador Jugador 1:</p>
+        <input id="contadorJugador1" readonly>
+        <p>Contador Jugador 2:</p>
+        <input id="contadorJugador2" readonly>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
