@@ -30,8 +30,11 @@ function App() {
     };
 
     const randomInit = () => {
+        //LLamar a la API, usar el cliente HTTP de JavaScript (fetch)
         fetch('https://www.randomnumberapi.com/api/v1.0/randomnumber')
+            //Cuando tengas la respuesta, entonces lo pasamos a json
             .then((response) => response.json())
+            //Cuando lo tengo en el json, capturo el numero del array[0] y me lo guarda.
             .then((numbers) => setNumClicks(numbers[0]));
     };
 
