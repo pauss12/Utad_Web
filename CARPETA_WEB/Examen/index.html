@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="./javascript.js"></script>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <title>1 0 2</title>
+</head>
+<body>
+    
+    <!-- Aquí va los botones para seleccionar el numero de jugadores humanos -->
+    <container class="container" id="seleccion">
+    
+        <!--Hazme un dropdown con las opciones de 1 humano, 2 humanos y 3 humanos -->
+        <div class="dropdown">
+            <button id="botonSeleccionado" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Nº de Humanos
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" id="jugadores" href="#">0 humanos</a></li>
+                <li><a class="dropdown-item" id="jugadores" href="#">1 Humano</a></li>
+                <li><a class="dropdown-item" id="jugadores" href="#">2 humanos</a></li>
+                <li><a class="dropdown-item" id="jugadores" href="#">3 humanos</a></li>
+            </ul>
+        </div>
+
+        <!-- Input para seleccionar el numero de partidas que va a jugar-->
+        <div class="dropdown">
+            <button id="botonPartidas" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Nº de Partidas
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" id="partidas" href="#">1 partida</a></li>
+                <li><a class="dropdown-item" id="partidas" href="#">2 partidas</a></li>
+                <li><a class="dropdown-item" id="partidas" href="#">3 partidas</a></li>
+                <li><a class="dropdown-item" id="partidas" href="#">4 partidas</a></li>
+                <li><a class="dropdown-item" id="partidas" href="#">5 partidas</a></li>
+            </ul>
+        </div>
+    
+    </container>
+
+    <div class="container" id="botonesDropdown">
+        <!-- Boton para Seleccionar el numero de Jugadores-->
+        <button type="button" class="boton" id="botonSeleccionar" onclick="SeleccionarHumanos()"
+            class="btn btn-outline-secondary">Seleccionar Humanos</button>
+        
+        <!-- Boton para Seleccionar el numero de Jugadores-->
+        <button type="button" class="boton" id="botonPartidas" onclick="SeleccionarPartidas()"
+            class="btn btn-outline-secondary">Seleccionar Partidas</button>
+    </div>
+
+    <!-- BATALLA -->
+    <div class="container col-12 col-md-6" id="batalla">
+    
+        <!-- Aquí van dos cuadrados para ver las opciones que han salido -->
+        <div class="row" id="opciones">
+            <div class="col-4">
+                <h2 id="jugador1">Jugador 1</h2>
+                <img id="jugador1img" src="./imagenes/cero.png" alt="cero" width="150">
+            </div>
+    
+            <div class="col-4">
+                <h2 id="jugador2">Jugador 2</h2>
+                <img id="jugador2img" src="./imagenes/cero.png" alt="cero" width="150">
+            </div>
+
+            <div class="col-4">
+                <h2 id="jugador3">Jugador 3</h2>
+                <img id="jugador3img" src="./imagenes/cero.png" alt="cero" width="150">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="botones">
+        <!-- Boton para iniciar el juego-->
+        <button type="button" id="botonJugar" onclick="Jugar()" class="btn btn-outline-secondary" hidden>Jugar</button>
+    
+        <!-- Boton para reiniciar el juego-->
+        <button type="button" id="botonReiniciar" onclick="hacer()" class="btn btn-outline-secondary"
+            hidden>Reiniciar</button>
+
+        <!-- Boton para reiniciar el juego-->
+        <button type="button" id="botonPista" onclick="Pista()" class="btn btn-outline-secondary" hidden>PISTA</button>
+    </div>
+    
+    <!-- Contador de  puntos, tanto de Ganadas por jugador 1 como el jugador 2-->
+    <div class="contador" hidden>
+        <p>Contador Jugador 1:</p>
+        <input id="contadorJugador1" readonly>
+        <p>Contador Jugador 2:</p>
+        <input id="contadorJugador2" readonly>
+        <p>Contador Jugador 3:</p>
+        <input id="contadorJugador2" readonly>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+</body>
+</html>
