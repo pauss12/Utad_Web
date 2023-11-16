@@ -15,7 +15,7 @@ function App() {
     const addNote = (note) =>
     {
         //Añadir la nota a la lista de tareas
-        setTasks({ note, ...tasks });     
+        setTasks({ note, ...tasks });   
     };
 
   return (

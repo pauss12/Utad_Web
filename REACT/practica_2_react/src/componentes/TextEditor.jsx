@@ -4,12 +4,12 @@ import React, { useState } from 'react';
 function TextEditor(props) {
 
     //Crearme una variable de estado para guardar el titulo
-    const [titulo, setTitulo] = useState("");
-    const [contenido, setContenido] = useState("");
+    const [titulo, setTitulo] = useState('');
+    const [contenido, setContenido] = useState('');
     
 
     //Funcion que se ejecuta cuando el usuario cambia el input
-    const handleChange = () => {
+    const handleSubmit = () => {
 
         //Si hay tanto titulo como nota, las fusiono en un objeto
         if (titulo && contenido) {
@@ -24,8 +24,8 @@ function TextEditor(props) {
         }
 
         //Reseteo el titulo y la nota
-        setTitulo("");
-        setContenido("");
+        setTitulo('');
+        setContenido('');
     };
     
     //RETURN -------
@@ -35,15 +35,21 @@ function TextEditor(props) {
             <div className="input-group">
 
                 <input type="text"
-                    name="message"
-                    placeholder="Hello!"
+                       placeholder="Titulo:"
+                       value = {titulo}
+                       onChange={(e) => setTitulo(e.target.value)}
                 /> Introduce el nombre y el titulo
                 
-                <input type="text" name="message" placeholder="Hello!" />
     
             </div>
 
-            <button type="button" onClick={handleChange()}>
+            <textarea placeholder="Nota:"
+                value={contenido}
+                onChange={(e) => setContenido(e.target.value)}
+
+            ></textarea>
+
+            <button type="button" onClick={handleSubmit}>
                 Añadir nota
             </button>
 
