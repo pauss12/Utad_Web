@@ -4,6 +4,7 @@ export const metadata = {
     title: "Contacto",
 }
 
+
 export default function BookLayout({ children }) {
     return (
         <>
