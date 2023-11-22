@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import '../styles/TextEditor.css';
 
 function TextEditor(props) {
 
@@ -38,7 +39,7 @@ function TextEditor(props) {
                        placeholder="Titulo:"
                        value = {titulo}
                        onChange={(e) => setTitulo(e.target.value)}
-                /> Introduce el nombre y el titulo
+                />
                 
     
             </div>
