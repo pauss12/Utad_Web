@@ -2,6 +2,7 @@
 //Meter la imagen que va a ir al principio del todo, es decir, la de la u-tad
 
 import Title from './componentes/Title'
+import Logo from './componentes/logo'
 import TextEditor from './componentes/TextEditor'
 import React, { useState } from 'react';
 import './App.css';
@@ -19,9 +20,12 @@ function App() {
     };
 
   return (
-    <div className="App">
+      <div className="App">
+        
+        <Logo />
         <Title />
         <TextEditor addNota={addNote} />
+    
     </div>
   );
 }
