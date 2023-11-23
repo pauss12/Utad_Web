@@ -1,10 +1,9 @@
 
-//Meter la imagen que va a ir al principio del todo, es decir, la de la u-tad
-
 import Title from './componentes/Title'
 import Logo from './componentes/logo'
 import TextEditor from './componentes/TextEditor'
 import React, { useState } from 'react';
+
 import './App.css';
 
 function App() {
@@ -18,6 +17,10 @@ function App() {
         //Añadir la nota a la lista de tareas
         setTasks({ note, ...tasks });   
     };
+  
+  //Delete
+
+
 
   return (
     
@@ -25,7 +28,12 @@ function App() {
         
         <Logo />
         <Title />
+        Insertar nota:
         <TextEditor addNota={addNote} />
+
+        <div className="notes">
+          
+        </div>
     
     </div>
   );

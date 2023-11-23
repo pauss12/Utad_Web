@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import '../styles/TextEditor.css';
+import { v4 as uuidv4 } from 'uuid';
 
 function TextEditor(props) {
 
@@ -16,8 +17,10 @@ function TextEditor(props) {
         if (titulo && contenido) {
 
             const nota = {
+                id: uuidv4(),
                 titulo,
-                contenido
+                contenido,
+                completed: false
             };
 
             //Llamo a la funcion que me ha pasado el padre

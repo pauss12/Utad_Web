@@ -19,4 +19,4 @@ function ToDo({ id, text, completed, completeToDo, deleteToDo }) {
     )
 }
 
-export default ToDo
+export default ToDo;
