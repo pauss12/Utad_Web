@@ -1,5 +1,6 @@
 //Posterior (tema suspense)
 import Posts from '../page'
+
 import { Suspense } from 'react'
 
 async function loadPost(id) {
