@@ -7,6 +7,7 @@ import './Posts.css'
 async function loadPosts() {
     
     const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+    
     const data = await res.json()
 
     /* Fuerzo para que tarde 3 segundos, solo para probar el "Loading..." */
