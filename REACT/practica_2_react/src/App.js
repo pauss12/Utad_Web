@@ -14,13 +14,34 @@ function App() {
   //Crear 
     const addNote = (note) =>
     {
-        //Añadir la nota a la lista de tareas
-        setTasks({ note, ...tasks });   
+        const updatedTasks = [note, ...tasks];
+
+        //Actualizar el estado de la lista de notas
+        setTasks(updatedTasks);
+
     };
-  
-  //Delete
 
+    //Eliminar una nota
+    const eliminarNota = (id) =>
+    {
+        const updatedTasks = tasks.filter((task) => task.id !== id);
 
+        setTasks(updatedTasks);
+    };
+
+    //Completar una nota
+    const completarNota = (id) =>
+    {
+        let updatedTasks = tasks.map((task) =>
+        {
+            if (task.id === id){
+                task.isComplete = !task.isComplete;
+            }
+
+            return task;
+        });
+        setTasks(updatedTasks);
+    };
 
   return (
     
@@ -30,9 +51,18 @@ function App() {
         <Title />
         Insertar nota:
         <TextEditor addNota={addNote} />
-
         
-    
+            <div className="notes">
+              {tasks.map((task) => (
+                  <div className="note" key={task.id}>
+                        <h2>{task.titulo}</h2>
+                        <p>{task.contenido}</p>
+                      
+                  </div>
+              ))}
+
+            </div>
+        
     </div>
   );
 }

@@ -18,8 +18,8 @@ function TextEditor(props) {
 
             const nota = {
                 id: uuidv4(),
-                titulo,
-                contenido,
+                titulo: titulo,
+                contenido: contenido,
                 completed: false
             };
 
