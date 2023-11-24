@@ -31,9 +31,7 @@ function App() {
         Insertar nota:
         <TextEditor addNota={addNote} />
 
-        <div className="notes">
-          
-        </div>
+        
     
     </div>
   );
