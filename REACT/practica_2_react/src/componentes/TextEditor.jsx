@@ -36,16 +36,19 @@ function TextEditor(props) {
     //RETURN -------
     return (
         <form>
-            <div className="input-group">
-
-                <input type="text"
+            
+            <div class="input-group mb-3">
+                <span class="input-group-text">Titulo</span>
+                <div class="form-floating">
+                    <input type="text" 
                         className="form-control"
                         placeholder="Titulo:"
-                        value = {titulo}
+                        value={titulo}
                         onChange={(e) => setTitulo(e.target.value)}
-                />
-                
-    
+                    />
+                    <label for="floatingInputGroup1">Titulo</label>
+                    
+                </div>
             </div>
 
             <textarea placeholder="Nota:"

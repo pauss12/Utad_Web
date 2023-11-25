@@ -1,6 +1,8 @@
 
 import React, { useState } from "react";
 import TextEditor from "./TextEditor";
+import Buscador from "./Buscador";
+
 import Other from "./Other";
 
 import '../styles/NoteList.css';
@@ -50,6 +52,8 @@ function ListaNotas() {
     return (
 
         <>
+            <Buscador />
+            Inserta una nota:
             <TextEditor addNota={addNote} />
 
             <div className="lista-notas">
