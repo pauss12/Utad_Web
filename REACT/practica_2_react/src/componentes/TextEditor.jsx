@@ -37,8 +37,8 @@ function TextEditor(props) {
     return (
         <form>
             
-            <div className="input-group mb-3">
-                <span className="input-group-text height-min" >Titulo</span>
+            <div className="input-group input-group-sm mb-3">
+                <span className="input-group-text input-group-text-lg" >Titulo</span>
                 <div className="form-floating ">
                     <input type="text" 
                         className="height-min form-control "
