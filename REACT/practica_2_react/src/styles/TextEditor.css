@@ -1,14 +1,17 @@
 
 .text-area-contenedor {
+
     width: 75%;
     display: flex;
     justify-content: center;
     margin: 0 auto;
     align-items: center;
     border-radius: 4px;
+    
 }
 
 .boton-add {
+
     padding: 10px;
     background-color: blue;
     color: white;
@@ -16,14 +19,28 @@
 }
 
 .input-group {
+
     display: flex;
     width: 75%;
     margin: 0 auto;
+    background-color: blue;
+
 }
 
 .form-control {
+
     width: 100%;
     margin: 0 auto;
     justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+
+}
+
+.height-min{
+
+    padding:0!important;
+    min-height: 10px!important;
+    height:22px!important;
 
 }
