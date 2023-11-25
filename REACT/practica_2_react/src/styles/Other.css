@@ -1,7 +1,7 @@
 
 /* Contenedor de tarea */
 .todo-container {
-    width: 500px;
+    width: 200%;
     min-height: 65px;
     background-color: aquamarine;
     padding: 8px 15px 8px 20px;
@@ -11,12 +11,6 @@
     border: 1px solid white;
     flex-direction: column;
     cursor: pointer;
-}
-
-/* Tarea completada */
-.todo-container.completed {
-    background-color: #5a01a7;
-    text-decoration: line-through
 }
 
 /* Texto */
@@ -35,17 +29,4 @@
     border-radius: 4px;
     color: white;;
     background-color: red;
-}
-
-/* Iconos */
-.todo-icon-container {
-    width: 25px;
-    height: 25px;
-    margin: 5px;
-}
-
-.todo-icon {
-    width: 25px;
-    height: 25px;
-    margin: 5px;
 }

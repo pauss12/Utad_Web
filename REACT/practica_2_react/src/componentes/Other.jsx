@@ -1,24 +1,17 @@
 
-
-import { AiOutlineCloseCircle } from 'react-icons/ai';
 import '../styles/Other.css';
 
-function Other({ id, titulo, contenido, completed, completarNota, eliminarNota }) {
+function Other({ id, titulo, contenido, eliminarNota }) {
 
     return (
-        <div className={completed ? "todo-container completed" : "todo-container"}>
-            <div
-                className="todo-text"
-                onClick={() => completarNota(id)}>
+        <div className="todo-icon-container">
+            <div className="todo-title">
                 {titulo}
             </div>
-            <div
-                className="todo-text"
-                onClick={() => completarNota(id)}>
+            <div className="todo-content">
                 {contenido}
             </div>
             <div
-                className="todo-icon-container"
                 onClick={() => eliminarNota(id)}>
                 <button className="boton-delete">Eliminar </button>
             </div>
