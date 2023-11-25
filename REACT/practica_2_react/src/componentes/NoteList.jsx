@@ -24,21 +24,6 @@ function ListaNotas() {
         setTasks(updatedTasks);
 
     };
-
-    //Completar una nota
-    const completarNota = (id) => {
-
-        let updatedTasks = tasks.map((task) => {
-
-            if (task.id === id) {
-                task.isComplete = !task.isComplete;
-            }
-
-            return task;
-        });
-
-        setTasks(updatedTasks);
-    };
   
     //Eliminar una nota
     const eliminarNota = (id) => {
@@ -64,8 +49,6 @@ function ListaNotas() {
                         id={task.id}
                         titulo={task.titulo}
                         contenido={task.contenido}
-                        completed={task.completed}
-                        completarNota={completarNota}
                         eliminarNota={eliminarNota}
 
                     />
