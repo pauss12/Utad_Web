@@ -1,0 +1,9 @@
+.lista-notas {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 15px;
+    background-color: lightblue;
+}

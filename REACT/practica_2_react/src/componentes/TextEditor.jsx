@@ -32,32 +32,36 @@ function TextEditor(props) {
         setContenido('');
     };
     
+    
     //RETURN -------
     return (
-
-        <>
+        <form>
             <div className="input-group">
 
                 <input type="text"
-                       placeholder="Titulo:"
-                       value = {titulo}
-                       onChange={(e) => setTitulo(e.target.value)}
+                        className="form-control"
+                        placeholder="Titulo:"
+                        value = {titulo}
+                        onChange={(e) => setTitulo(e.target.value)}
                 />
                 
     
             </div>
 
             <textarea placeholder="Nota:"
+                className="text-area-contenedor"
                 value={contenido}
                 onChange={(e) => setContenido(e.target.value)}
 
             ></textarea>
 
-            <button type="button" onClick={handleSubmit}>
+            <button className='boton-add'
+                type="button"
+                onClick={handleSubmit}>
                 Añadir nota
             </button>
 
-        </>
+        </form>
     );
 
 }
