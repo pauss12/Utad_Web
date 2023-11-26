@@ -16,6 +16,8 @@
     background-color: blue;
     color: white;
     border-radius: 4px;
+    margin: 0 auto;
+    display: flex;
 }
 
 .input-group {
@@ -23,7 +25,8 @@
     display: flex;
     width: 75%;
     margin: 0 auto;
-    background-color: blue;
+    background-color: lightcoral;
+    padding: 0 0 0 0;
 
 }
 
@@ -36,7 +39,7 @@
     border-radius: 4px;
 
 }
-
+/*
 .height-min{
 
     padding:0!important;
@@ -44,3 +47,4 @@
     height:22px!important;
 
 }
+*/
