@@ -37,7 +37,7 @@ function ListaNotas() {
     return (
 
         <>
-            <Buscador tasks={tasks} />
+            <Buscador tasks={tasks} setTasks={setTasks} />
             Inserta una nota:
 
             <TextEditor addNota={addNote} />
