@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import TextEditor from "./TextEditor";
 import Buscador from "./Buscador";
 
-import Other from "./Other";
+import Note from "./Note";
 
 import '../styles/NoteList.css';
 
@@ -42,7 +42,7 @@ function ListaNotas() {
                     
                     <div className="una-nota">
 
-                        <Other
+                        <Note
 
                             id={task.id}
                             titulo={task.titulo}
