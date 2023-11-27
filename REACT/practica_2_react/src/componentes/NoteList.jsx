@@ -38,20 +38,27 @@ function ListaNotas() {
         <>
             <Buscador tasks={tasks} />
             Inserta una nota:
+
             <TextEditor addNota={addNote} />
 
             <div className="lista-notas">
-                
+
                 {tasks.map((task) => (
+                    
+                    <div className="una-nota">
 
-                    <Other
+                        <Other
 
-                        id={task.id}
-                        titulo={task.titulo}
-                        contenido={task.contenido}
-                        eliminarNota={eliminarNota}
+                            id={task.id}
+                            titulo={task.titulo}
+                            contenido={task.contenido}
+                            eliminarNota={eliminarNota}
 
-                    />
+                        />
+
+                        <hr></hr>
+
+                    </div>
 
                 ))}
             </div>
