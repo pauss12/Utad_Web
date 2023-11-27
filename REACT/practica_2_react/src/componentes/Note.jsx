@@ -1,7 +1,7 @@
 
 import '../styles/Other.css';
 
-function Other({ id, titulo, contenido, eliminarNota }) {
+function Note({ id, titulo, contenido, eliminarNota }) {
 
     return (
         <div className="todo-icon-container">
@@ -19,4 +19,4 @@ function Other({ id, titulo, contenido, eliminarNota }) {
     );
 }
 
-export default Other;
+export default Note;
