@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
+    width: 75%;
     align-items: center;
     margin-top: 15px;
     background-color: lightblue;

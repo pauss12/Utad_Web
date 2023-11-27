@@ -38,20 +38,18 @@ function TextEditor(props) {
         <form>
             
             <div className="input-group mb-3">
-                <span className="input-group-text height-min" >Titulo</span>
-                <div className="form-floating ">
-                    <input type="text" 
-                        className="height-min form-control"
-                        placeholder="Titulo:"
-                        value={titulo}
-                        onChange={(e) => setTitulo(e.target.value)}
-                    />
-                    
-                </div>
+                <span className="input-group-text">Titulo</span>
+                <input
+                    type="text"
+                    className="form-control"
+                    id="floatingInputGroup1"
+                    placeholder="Titulo"
+                />
             </div>
 
             <textarea placeholder="Nota:"
                 className="text-area-contenedor"
+                style={{ height: '100px' }}
                 value={contenido}
                 onChange={(e) => setContenido(e.target.value)}
 
