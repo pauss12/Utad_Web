@@ -35,7 +35,8 @@ function TextEditor(props) {
     
     //RETURN -------
     return (
-        <form>
+
+        <>
             
             <div className="input-group mb-3">
                 <span className="input-group-text">Titulo</span>
@@ -44,6 +45,8 @@ function TextEditor(props) {
                     className="form-control"
                     id="floatingInputGroup1"
                     placeholder="Titulo"
+                    value={titulo}
+                    onChange={(e) => setTitulo(e.target.value)}
                 />
             </div>
 
@@ -61,7 +64,7 @@ function TextEditor(props) {
                 Añadir nota
             </button>
 
-        </form>
+        </>
     );
 
 }

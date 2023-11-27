@@ -16,7 +16,7 @@ function Other({ id, titulo, contenido, eliminarNota }) {
                 <button className="boton-delete">Eliminar </button>
             </div>
         </div>
-    )
+    );
 }
 
 export default Other;

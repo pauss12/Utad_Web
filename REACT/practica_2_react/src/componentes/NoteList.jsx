@@ -29,7 +29,6 @@ function ListaNotas() {
     const eliminarNota = (id) => {
 
         const updatedTasks = tasks.filter((task) => task.id !== id);
-
         setTasks(updatedTasks);
     };
 
@@ -42,6 +41,7 @@ function ListaNotas() {
             <TextEditor addNota={addNote} />
 
             <div className="lista-notas">
+                
                 {tasks.map((task) => (
 
                     <Other
