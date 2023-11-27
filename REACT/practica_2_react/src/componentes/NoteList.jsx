@@ -32,6 +32,7 @@ function ListaNotas() {
         setTasks(updatedTasks);
     };
 
+
     //RETURN -------
     return (
 
@@ -55,8 +56,6 @@ function ListaNotas() {
                             eliminarNota={eliminarNota}
 
                         />
-
-                        <hr></hr>
 
                     </div>
 
