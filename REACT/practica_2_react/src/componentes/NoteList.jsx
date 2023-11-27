@@ -9,18 +9,12 @@ import '../styles/NoteList.css';
 
 function ListaNotas() {
 
-    //Crear una lista de tareas
     const [tasks, setTasks] = useState([]);
 
     //Crear 
     const addNote = (note) => {
 
-        console.log(note);
-        
-        //Añadir la nota a la lista
         const updatedTasks = [note, ...tasks];
-
-        //Actualizar el estado de la lista de notas
         setTasks(updatedTasks);
 
     };
