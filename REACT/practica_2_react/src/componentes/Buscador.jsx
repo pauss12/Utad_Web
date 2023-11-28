@@ -1,6 +1,4 @@
 
-import '../styles/Buscador.css';
-
 import React, { useState } from 'react';
 
 function Buscador(props) {
@@ -30,6 +28,7 @@ function Buscador(props) {
 
     return (
         <div className="input-group mb-3">
+            
             <span className="input-group-text">Buscador</span>
             <input
                 type="text"
@@ -39,6 +38,7 @@ function Buscador(props) {
                 value={props.searchTerm}
                 onChange={(e) => handleSearch(e.target.value)}
             />
+
         </div>
     );
 }

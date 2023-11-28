@@ -1,6 +1,7 @@
 import logo from '../imagenes/Logo-U-tad.webp';
 
 function Logo() {
+
     return (
         <div className="utad-logo-container">
             <img
@@ -8,7 +9,7 @@ function Logo() {
                 src={logo}
                 alt="Logo de u-tad" />
         </div>
-    )
+    );
 }
 
 export default Logo;

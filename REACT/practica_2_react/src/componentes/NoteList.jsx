@@ -56,19 +56,22 @@ function ListaNotas() {
             <div className="lista-notas">
 
                 {tasks.map((task) => (
+
+                    <>
                     
-                    <div className="una-nota">
+                        <div className="una-nota">
 
-                        <Note
+                            <Note
 
-                            id={task.id}
-                            titulo={task.titulo}
-                            contenido={task.contenido}
-                            eliminarNota={eliminarNota}
+                                id={task.id}
+                                titulo={task.titulo}
+                                contenido={task.contenido}
+                                eliminarNota={eliminarNota}
 
-                        />
+                            />
 
-                    </div>
+                        </div>
+                    </>
 
                 ))}
             </div>

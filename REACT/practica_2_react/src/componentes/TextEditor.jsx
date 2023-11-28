@@ -27,7 +27,7 @@ function TextEditor(props) {
             props.addNota(nota);
         }
 
-        //Reseteo el titulo y la nota
+        //Reseteo los setters del titulo y de la nota
         setTitulo('');
         setContenido('');
     };
@@ -36,6 +36,7 @@ function TextEditor(props) {
     //RETURN -------
     return (
 
+        //Le ponemos esto porque en el return solamente se puede devolver un elemento, por eso lo agrupamos.
         <>
             
             <div className="input-group mb-3">

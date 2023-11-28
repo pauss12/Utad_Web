@@ -1,9 +1,10 @@
 
-import '../styles/Other.css';
+import '../styles/Note.css';
 
 function Note({ id, titulo, contenido, eliminarNota }) {
 
     return (
+
         <div className="todo-icon-container">
             <div className="todo-title">
                 {titulo}
