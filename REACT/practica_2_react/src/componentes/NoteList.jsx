@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TextEditor from "./TextEditor";
 import Buscador from "./Buscador";
 
@@ -11,11 +11,25 @@ function ListaNotas() {
 
     const [tasks, setTasks] = useState([]);
 
+    //Hacer la funcion useEffect para que se ejecute una sola vez
+    useEffect(() => {
+
+        const data = localStorage.getItem('tasks');
+
+        if (data) {
+            setTasks(JSON.parse(data));
+        }
+
+    }, []);
+
     //Crear 
     const addNote = (note) => {
 
         const updatedTasks = [note, ...tasks];
         setTasks(updatedTasks);
+
+        //Guardo las notas en el localStorage
+        localStorage.setItem('tasks', JSON.stringify(updatedTasks));
 
     };
   
@@ -24,6 +38,9 @@ function ListaNotas() {
 
         const updatedTasks = tasks.filter((task) => task.id !== id);
         setTasks(updatedTasks);
+
+        //Guardo las notas en el localStorage
+        localStorage.setItem('tasks', JSON.stringify(updatedTasks));
     };
 
 
