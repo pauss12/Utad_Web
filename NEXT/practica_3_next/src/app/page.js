@@ -15,13 +15,16 @@ export default function Page() {
                 margin: '0 auto',
             }}>
                 
-            <div className="form-check form-check-inline">
+            <div class="form-check form-check-inline">
                     
-                <input className="form-check-input" type="radio"  value="option1" /> Administrador
-                <input className="form-check-input" type="radio"  value="option2" /> Comercio
-                <input className="form-check-input" type="radio" value="option3" /> Usuario REGISTRADO
-                <input className="form-check-input" type="radio" value="option4" /> Usuario NO REGISTRADO
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" /> Administrador
+                
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" /> Comercio
+                
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" /> Usuario Registrado
                     
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" /> Usuario Anonimo
+                       
             </div>
 
         </div>
