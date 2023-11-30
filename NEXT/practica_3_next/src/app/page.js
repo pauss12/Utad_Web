@@ -6,6 +6,9 @@ export default function Page() {
     <> 
         <div className="contenedor-formulario"
                 
+            //Titulo
+            
+                
             style={{
                 display: 'flex',
                 flexDirection: 'column',
