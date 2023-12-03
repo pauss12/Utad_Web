@@ -1,4 +1,4 @@
-
+/*TITULO*/
 h1 {
 
     margin: 0 auto;
@@ -6,6 +6,8 @@ h1 {
     font-size: 2.5em;
     color: black;
 }
+
+/*CUADRADO DE LOGIN*/
 
 .wrapper {
 
@@ -71,4 +73,21 @@ h1 {
 .forgot:hover {
 
     text-decoration: underline;
+}
+
+/*DROPDOWN DE TIPOS DE CLIENTE*/
+.dropdown {
+
+    margin-top: 10px;
+    width: 40%;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 8px;
+    color: white;
+}
+
+.dropdown:hover {
+
+    background-color: black;
+    color: white;
 }

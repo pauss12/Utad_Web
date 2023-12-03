@@ -3,7 +3,7 @@ import React from 'react';
 
 import '../styles/Form.css';
 
-function Form() { 
+function Form() {
 
     return (
 
@@ -27,6 +27,18 @@ function Form() {
 
                 <div className="forgot">
                     <a href="#">Forgot password?</a>
+                </div>
+
+                <div className="dropdown">
+                    <button id="botonSeleccionado" className="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                       Tipo de cliente
+                    </button>
+                    <ul className="dropdown-menu">
+                        <li><a className="dropdown-item" href="../administrador" target="_blank">Administrador</a></li>
+                        <li><a className="dropdown-item" href="../comercio" target="_blank">Comercios</a></li>
+                        <li><a className="dropdown-item" href="../user_registrado" target="_blank">Usuarios Registrados</a></li>
+                        <li><a className="dropdown-item" href="../anonimo" target="_blank">Usuarios Anonimos</a></li>
+                    </ul>
                 </div>
 
                 <div className="input_box">
