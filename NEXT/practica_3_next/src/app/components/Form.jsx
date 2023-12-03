@@ -5,13 +5,6 @@ import '../styles/Form.css';
 
 function Form() { 
 
-    const crearSpan = () => {
-
-        for (let j = 0; j < 50; j++) {
-            <span style="--i:j;"></span>
-        }
-    };
-
     return (
 
         <div className="container">
@@ -34,8 +27,6 @@ function Form() {
                 
                 </form>
             </div>
-
-            {crearSpan()}
 
             
         </div>
