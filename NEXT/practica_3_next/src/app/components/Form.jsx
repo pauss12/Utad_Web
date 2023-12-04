@@ -1,57 +1,36 @@
 "use client"
 
-import React, {useState, useEffect} from 'react';
-
+import React, { useState, useEffect, useCallback } from 'react';
 import '../styles/Form.css';
 
 function Form() {
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [dropdownEnabled, setDropdownEnabled] = useState(false);
-
-    // Update dropdown state on component mount or username/password changes
-    useEffect(() => {
-        if (username && password) {
-            setDropdownEnabled(true);
-        } else {
-            setDropdownEnabled(false);
-        }
-    }, [username, password]);
-
     return (
-
         <div className="wrapper">
-
             <div className="login-box">
-
                 <div className="login-slogan">
                     <h1>Login</h1>
                 </div>
 
                 <div className="input_box">
-                    <input type="text"
+                    <input
+                        type="text"
                         id="user"
                         placeholder="Usuario"
                         className="input-field"
                         required
-                        value={username}
-                        onChange={(event) => setUsername(event.target.value)}
                     />
-                    <i className="bx bx-lock-alt icon" ></i>
 
                 </div>
 
                 <div className="input_box">
-                    <input type="password"
-                           id="pass"
-                           className="input-field"
-                           placeholder="Password"
-                           required
-                           value={password}
-                           onChange={(event) => setPassword(event.target.value)}
+                    <input
+                        type="password"
+                        id="pass"
+                        className="input-field"
+                        placeholder="Password"
+                        required
                     />
-                    <i className="bx bx-lock-alt icon" ></i>
 
                 </div>
 
@@ -60,15 +39,17 @@ function Form() {
                 </div>
 
                 <div className="dropdown">
-                    <button id="botonSeleccionado"
+
+                    <button
+                        id="botonSeleccionado"
                         className="btn dropdown-toggle"
                         type="button"
                         data-bs-toggle="dropdown"
-                        aria-expanded={dropdownEnabled}
-                        disabled={!dropdownEnabled}    
+                        aria-expanded="false"
                     >
-                       Tipo de cliente
+                        Tipo de cliente
                     </button>
+
                     <ul className="dropdown-menu">
                         <li><a className="dropdown-item" href="../administrador" target="_blank">Administrador</a></li>
                         <li><a className="dropdown-item" href="../comercio" target="_blank">Comercios</a></li>
@@ -80,12 +61,9 @@ function Form() {
                 <div className="input_box">
                     <button type="submit" className="input-submit">Login</button>
                 </div>
-
             </div>
-            
         </div>
     );
-
 }
 
 export default Form;
