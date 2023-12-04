@@ -1,9 +1,23 @@
+"use client"
 
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 import '../styles/Form.css';
 
 function Form() {
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [dropdownEnabled, setDropdownEnabled] = useState(false);
+
+    // Update dropdown state on component mount or username/password changes
+    useEffect(() => {
+        if (username && password) {
+            setDropdownEnabled(true);
+        } else {
+            setDropdownEnabled(false);
+        }
+    }, [username, password]);
 
     return (
 
@@ -16,13 +30,29 @@ function Form() {
                 </div>
 
                 <div className="input_box">
-                    <input type="text" id="user" placeholder="Usuario" className="input-field" required />
+                    <input type="text"
+                        id="user"
+                        placeholder="Usuario"
+                        className="input-field"
+                        required
+                        value={username}
+                        onChange={(event) => setUsername(event.target.value)}
+                    />
                     <i className="bx bx-lock-alt icon" ></i>
+
                 </div>
 
                 <div className="input_box">
-                    <input type="password" id="pass" className="input-field" placeholder="Password" required />
+                    <input type="password"
+                           id="pass"
+                           className="input-field"
+                           placeholder="Password"
+                           required
+                           value={password}
+                           onChange={(event) => setPassword(event.target.value)}
+                    />
                     <i className="bx bx-lock-alt icon" ></i>
+
                 </div>
 
                 <div className="forgot">
@@ -30,7 +60,13 @@ function Form() {
                 </div>
 
                 <div className="dropdown">
-                    <button id="botonSeleccionado" className="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button id="botonSeleccionado"
+                        className="btn dropdown-toggle"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded={dropdownEnabled}
+                        disabled={!dropdownEnabled}    
+                    >
                        Tipo de cliente
                     </button>
                     <ul className="dropdown-menu">
@@ -49,6 +85,7 @@ function Form() {
             
         </div>
     );
+
 }
 
 export default Form;
