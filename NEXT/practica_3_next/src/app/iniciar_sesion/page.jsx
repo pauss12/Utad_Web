@@ -12,7 +12,9 @@ function Iniciar_sesion() {
 
     return (
         <div className="wrapper">
+
             <div className="login-box">
+                
                 <div className="login-slogan">
                     <h1>Login</h1>
                 </div>
@@ -62,10 +64,10 @@ function Iniciar_sesion() {
                     </button>
 
                     <ul className="dropdown-menu">
-                        <li><a className="dropdown-item" href="../administrador" target="_blank">Administrador</a></li>
-                        <li><a className="dropdown-item" href="../comercio" target="_blank">Comercios</a></li>
-                        <li><a className="dropdown-item" href="../user_registrado" target="_blank">Usuarios Registrados</a></li>
-                        <li><a className="dropdown-item" href="../anonimo" target="_blank">Usuarios Anonimos</a></li>
+                        <li><a className="dropdown-item" href="/administrador" target="_blank">Administrador</a></li>
+                        <li><a className="dropdown-item" href="/comercio" target="_blank">Comercios</a></li>
+                        <li><a className="dropdown-item" href="/user_registrado" target="_blank">Usuarios Registrados</a></li>
+                        <li><a className="dropdown-item" href="/anonimo" target="_blank">Usuarios Anonimos</a></li>
                     </ul>
                 </div>
 
