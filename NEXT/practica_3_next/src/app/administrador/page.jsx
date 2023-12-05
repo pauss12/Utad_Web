@@ -8,6 +8,8 @@ se podrá registrar un comercio
 - Teléfono de contacto
 */
 
+import CrearComercio from '../components/CrearComercio.jsx';
+
 function Administrador() { 
 
     return (
@@ -18,7 +20,7 @@ function Administrador() {
             </div>
 
             <div className="crear_comercio">
-                
+                <CrearComercio />
             </div>
         </>
     );
