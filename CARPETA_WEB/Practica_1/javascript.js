@@ -8,7 +8,6 @@ var jugada1 = "";
 var jugada2 = "";
 
 //SELECCIONAR JUGADORES ---------------------------------------------------------------------------------
-
 document.addEventListener("DOMContentLoaded", function () {
 
     //Obtener el elemento

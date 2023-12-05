@@ -1,9 +1,14 @@
 "use client"
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import '../styles/Form.css';
 
-function Form() {
+function Iniciar_sesion() {
+
+    const [usuario, setUsuario] = useState('');
+    const [password, setPassword] = useState('');
+
+    const isDropdownDisabled = usuario && password;
 
     return (
         <div className="wrapper">
@@ -13,11 +18,14 @@ function Form() {
                 </div>
 
                 <div className="input_box">
+
                     <input
                         type="text"
                         id="user"
                         placeholder="Usuario"
                         className="input-field"
+                        value={usuario}
+                        onChange={(e) => setUsuario(e.target.value)}
                         required
                     />
 
@@ -29,6 +37,8 @@ function Form() {
                         id="pass"
                         className="input-field"
                         placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         required
                     />
 
@@ -46,6 +56,7 @@ function Form() {
                         type="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
+                        disabled={!isDropdownDisabled} // Hide dropdown if username or password is empty
                     >
                         Tipo de cliente
                     </button>
@@ -66,4 +77,4 @@ function Form() {
     );
 }
 
-export default Form;
+export default Iniciar_sesion;

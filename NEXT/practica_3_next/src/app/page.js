@@ -1,13 +1,13 @@
-import Head from 'next/head';
-import Form from './components/Form'
+import Link from "next/link";
 
 function Page() {
     
     return (
 
         <>
-                 
-            <Form />
+      
+            <Link href="./registro_usuario" className="btn btn-primary">Registro</Link>
+            <Link href="./iniciar_sesion" className="btn btn-primary">Iniciar sesion</Link>
 
         </>
     );
