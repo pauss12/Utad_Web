@@ -1,10 +1,10 @@
 import '../styles/Form.css';
 
 function CrearComercio() {
-    
+
     return (
         <>
-          
+
             <div className="wrapper">
 
                 <div className="login-box">

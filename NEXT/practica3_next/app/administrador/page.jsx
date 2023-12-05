@@ -10,7 +10,7 @@ se podrá registrar un comercio
 
 import CrearComercio from '../components/CrearComercio.jsx';
 
-function Administrador() { 
+function Administrador() {
 
     return (
 

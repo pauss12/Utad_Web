@@ -14,7 +14,7 @@ function Iniciar_sesion() {
         <div className="wrapper">
 
             <div className="login-box">
-                
+
                 <div className="login-slogan">
                     <h1>Login</h1>
                 </div>
