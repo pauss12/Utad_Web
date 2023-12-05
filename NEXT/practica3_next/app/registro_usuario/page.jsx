@@ -3,12 +3,34 @@
 import React, { useState } from 'react';
 import '../styles/Form.css';
 
+function Seleccionar() {
+
+    const [opcionSeleccionada, setOpcionSeleccionada] = useState('');
+
+    const handleClick = () => {
+        setOpcionSeleccionada(document.getElementById('dropdown').querySelector('.dropdown-item.active').textContent);
+    };
+
+    return (
+        <button
+            onClick={handleClick}
+        >Seleccionar</button>
+    );
+}
+
+//FUNCION REGISTRO DE USUARIOS --------------------------------------------------------------------------------------------------------
 function registro_user() {
 
     const [usuario, setUsuario] = useState('');
     const [password, setPassword] = useState('');
 
     const isDropdownDisabled = usuario && password;
+
+    const handleSeleccionar = (setOpcionSeleccionada) => {
+        const opcionSeleccionada = document.getElementById('dropdown').querySelector('.dropdown-item.active').textContent;
+        setOpcionSeleccionada(opcionSeleccionada);
+    };
+
 
     return (
         <div className="wrapper">
@@ -48,30 +70,38 @@ function registro_user() {
                     <a href="#">Forgot password?</a>
                 </div>
 
-                <div className="dropdown">
+                <div className="container-seleccion">
 
-                    <button
-                        id="botonSeleccionado"
-                        className="btn dropdown-toggle"
-                        type="button"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                        disabled={!isDropdownDisabled} // Hide dropdown if username or password is empty
-                    >
-                        Tipo de cliente
-                    </button>
+                    <div className="dropdown">
 
-                    <ul className="dropdown-menu">
-                        <li><a className="dropdown-item" href="../iniciar_sesion" target="_blank">Administrador</a></li>
-                        <li><a className="dropdown-item" href="../iniciar_sesion" target="_blank">Comercios</a></li>
-                        <li><a className="dropdown-item" href="../iniciar_sesion" target="_blank">Usuarios Registrados</a></li>
-                        <li><a className="dropdown-item" href="../iniciar_sesion" target="_blank">Usuarios Anonimos</a></li>
-                    </ul>
+                        <button
+                            id="botonSeleccionado"
+                            className="btn dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                            disabled={!isDropdownDisabled} // Hide dropdown if username or password is empty
+                            onClick={handleSeleccionar}
+                        >
+                            Tipo de cliente
+                        </button>
+
+                        <ul className="dropdown-menu">
+                            <li><a className="dropdown-item" href="#">Administrador</a></li>
+                            <li><a className="dropdown-item" href="#">Comercios</a></li>
+                            <li><a className="dropdown-item" href="#">Usuarios Registrados</a></li>
+                            <li><a className="dropdown-item" href="#">Usuarios Anonimos</a></li>
+                        </ul>
+
+                    </div>
+
+                    <div className="input_box">
+                        <button type="submit" className="input-submit">Registrar</button>
+                    </div>
+
+                
                 </div>
 
-                <div className="input_box">
-                    <button type="submit" className="input-submit">Registrar</button>
-                </div>
             </div>
         </div>
     );
