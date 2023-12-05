@@ -14,7 +14,7 @@ function registro_user() {
         <div className="wrapper">
             <div className="login-box">
                 <div className="login-slogan">
-                    <h1>Login</h1>
+                    <h1>Sign Up</h1>
                 </div>
 
                 <div className="input_box">
@@ -62,15 +62,15 @@ function registro_user() {
                     </button>
 
                     <ul className="dropdown-menu">
-                        <li><a className="dropdown-item" href="../administrador" target="_blank">Administrador</a></li>
-                        <li><a className="dropdown-item" href="../comercio" target="_blank">Comercios</a></li>
-                        <li><a className="dropdown-item" href="../user_registrado" target="_blank">Usuarios Registrados</a></li>
-                        <li><a className="dropdown-item" href="../anonimo" target="_blank">Usuarios Anonimos</a></li>
+                        <li><a className="dropdown-item" href="../iniciar_sesion" target="_blank">Administrador</a></li>
+                        <li><a className="dropdown-item" href="../iniciar_sesion" target="_blank">Comercios</a></li>
+                        <li><a className="dropdown-item" href="../iniciar_sesion" target="_blank">Usuarios Registrados</a></li>
+                        <li><a className="dropdown-item" href="../iniciar_sesion" target="_blank">Usuarios Anonimos</a></li>
                     </ul>
                 </div>
 
                 <div className="input_box">
-                    <button type="submit" className="input-submit">Login</button>
+                    <button type="submit" className="input-submit">Registrar</button>
                 </div>
             </div>
         </div>
