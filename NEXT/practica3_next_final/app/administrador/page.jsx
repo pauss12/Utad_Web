@@ -11,11 +11,13 @@ se podrá registrar un comercio
 import CrearComercio from '../componentes/CrearComercio.jsx';
 import BusquedaComercios from '../componentes/BusquedaComercios.jsx';
 
+import "../styles/admin.css"
+
 function Administrador() {
 
     return (
 
-        <>
+        <div className="contenedor">
 
             <div className="crear_comercio">
                 <CrearComercio />
@@ -24,7 +26,7 @@ function Administrador() {
             <div className="busqueda-comercios">
                 <BusquedaComercios />
             </div>
-        </>
+        </div>
     );
 }
 

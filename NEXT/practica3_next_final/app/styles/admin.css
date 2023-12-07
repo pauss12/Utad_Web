@@ -1,0 +1,19 @@
+body {
+
+    background-image: url("../../public/imagenes/fondoAdmin.avif");
+}
+
+.crear_comercio {
+    background-color: lightgray;
+    border-radius: 10px;
+    padding: 3px 25px 25px 25px;
+    width: 400px;
+}
+
+.contenedor {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

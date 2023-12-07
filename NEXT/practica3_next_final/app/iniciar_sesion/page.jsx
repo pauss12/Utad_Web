@@ -28,7 +28,7 @@ function iniciar_sesion() {
             
             case 'Comercios':
                 window.location.href = '../comercio';
-                break;
+            break;
             
             case 'Usuario Registrado':
                 window.location.href = '../usuario_registrado';
@@ -36,7 +36,7 @@ function iniciar_sesion() {
             
             case 'Usuario anonimo':
                 window.location.href = '../anonimo';
-               break;
+            break;
             
             default:
                 break;
