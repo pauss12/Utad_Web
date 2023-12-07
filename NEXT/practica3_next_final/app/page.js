@@ -1,17 +1,26 @@
-import Link from 'next/link'
+import Link from 'next/link';
+import "./styles/homePage.css"
 
 export default function Home() {
-
   return (
-
     <>
+        <h1 className="titulo">HOME</h1>
+          
+        <div className="contenedor bg-gray-100 p-8">
+        {/* Sección de Registro */}
+        <div className="cuadrado-registro mb-8">
+            <Link href="./registro">
+            <img src="/imagenes/imagenRegistro.jpg" className="imagen-registro"  alt="Registro" />
+            </Link>
+        </div>
 
-      <h1 className="text-danger">WEB PRACTICA</h1>
-
-      <Link href="./registro" className="btn btn-primary">Registro</Link>
-
-      <Link href="./iniciar_sesion" className="btn btn-primary">Iniciar sesion</Link>
+        {/* Sección de iniciar sesión */}
+        <div className="cuadrado-login">
+            <Link href="./iniciar_sesion">
+            <img src="imagenes/inicioSesion.jpg" className="imagen-inicio" alt="Iniciar sesión" />
+            </Link>
+        </div>
+        </div>
     </>
-
   );
 }

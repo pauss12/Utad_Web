@@ -21,19 +21,19 @@ function iniciar_sesion() {
         // Redirige a la página correspondiente según la opción del Dropdown
         switch (opcionSeleccionada) {
             case 'Administrador':
-                window.location.href = '/administrador';
+                window.location.href = '../administrador';
             break;
             
             case 'Comercios':
-                window.location.href = '/comercio';
+                window.location.href = '../comercio';
                 break;
             
             case 'Usuario Registrado':
-                window.location.href = '/usuario_registrado';
+                window.location.href = '../usuario_registrado';
             break;
             
             case 'Usuario anonimo':
-                window.location.href = '/anonimo';
+                window.location.href = '../anonimo';
                break;
             
             default:
@@ -56,9 +56,7 @@ function iniciar_sesion() {
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                     <form className="space-y-6" action="#" method="POST">
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                                Usuario
-                            </label>
+                            Usuario
                             <div className="mt-2">
                                 <input
                                     id="usuario"
@@ -76,6 +74,7 @@ function iniciar_sesion() {
 
                         <div>
                             <div className="mt-2">
+                                Contraseña
                                 <input
                                     id="password"
                                     name="password"
@@ -89,9 +88,6 @@ function iniciar_sesion() {
                                 />
                             </div>
                             <div className="flex items-center justify-between">
-                                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
-                                    Contraseña
-                                </label>
                                 <div className="text-sm">
                                     <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
                                         ¿Has olvidado la contraseña?
@@ -104,7 +100,7 @@ function iniciar_sesion() {
 
                         <div>
                             <button
-                                type="submit"
+                                
                                 onClick={handleInicioSesion}
                                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500  hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             >
