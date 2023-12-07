@@ -3,7 +3,9 @@ import "./styles/homePage.css"
 
 export default function Home() {
   return (
-    <>
+      <div className="pagina-principal">
+        
+        <br></br>
         <h1 className="titulo">HOME</h1>
           
         <div className="contenedor bg-gray-100 p-8">
@@ -21,6 +23,6 @@ export default function Home() {
             </Link>
         </div>
         </div>
-    </>
+    </div>
   );
 }
