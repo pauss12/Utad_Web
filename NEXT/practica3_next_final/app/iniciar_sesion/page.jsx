@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import Dropdown from "../componentes/Dropdown";
 
+import "../styles/inicioSesion.css"
+
 function iniciar_sesion() {
 
     const [usuario, setUsuario] = useState("");
@@ -43,9 +45,9 @@ function iniciar_sesion() {
 
     return (
 
-        <>
+        <div className="contenedor">
 
-            <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+            <div className=" min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
 
                     <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
@@ -111,7 +113,7 @@ function iniciar_sesion() {
 
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
