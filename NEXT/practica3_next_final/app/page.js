@@ -8,7 +8,7 @@ export default function Home() {
 
       <h1 className="text-danger">WEB PRACTICA</h1>
 
-      <Link href="./registro_usuario" className="btn btn-primary">Registro</Link>
+      <Link href="./registro" className="btn btn-primary">Registro</Link>
 
       <Link href="./iniciar_sesion" className="btn btn-primary">Iniciar sesion</Link>
     </>
