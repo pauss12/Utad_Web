@@ -6,12 +6,13 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Dropdown() {
+function Dropdown({ onSeleccionar }) {
 
     const [selectedOption, setSelectedOption] = useState(null);
 
     const handleMenuClick = (option) => {
         setSelectedOption((prevOption) => (prevOption === option ? null : option));
+        onSeleccionar(option); // Llama a la función proporcionada desde la aplicación
     };
 
     return (
@@ -96,3 +97,5 @@ export default function Dropdown() {
         </Menu>
     )
 }
+
+export default Dropdown;

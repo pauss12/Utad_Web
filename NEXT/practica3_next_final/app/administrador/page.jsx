@@ -9,18 +9,20 @@ se podrá registrar un comercio
 */
 
 import CrearComercio from '../componentes/CrearComercio.jsx';
+import BusquedaComercios from '../componentes/BusquedaComercios.jsx';
 
 function Administrador() {
 
     return (
 
         <>
-            <div>
-                <h1>Bienvenido Administrador</h1>
-            </div>
 
             <div className="crear_comercio">
                 <CrearComercio />
+            </div>
+
+            <div className="busqueda-comercios">
+                <BusquedaComercios />
             </div>
         </>
     );

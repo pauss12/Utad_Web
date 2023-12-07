@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useState } from 'react';
-import { useRouter } from 'next/router';  // Importa el hook useRouter para manejar las redirecciones
 import Dropdown from "../componentes/Dropdown";
 
 function iniciar_sesion() {
@@ -9,34 +8,36 @@ function iniciar_sesion() {
     const [usuario, setUsuario] = useState("");
     const [contrasena, setContrasena] = useState("");
 
-    const router = useRouter();  // Instancia el hook useRouter para manejar las redirecciones
+    const [opcionSeleccionada, setOpcionSeleccionada] = useState(null);
 
-    function validarFormulario(e) {
-        e.preventDefault();
+    function handleInicioSesion() {
 
-        if (usuario.trim() === '' || contrasena.trim() === '') {
-            alert('Por favor, complete ambos campos.');
-        } else {
-            console.log('Formulario válido. Enviar datos al servidor, etc.');
-            // Habilita el Dropdown cuando se ingresan usuario y contraseña
-            setDropdownHabilitado(true);
+        // Valida que se haya seleccionado una opción del Dropdown
+        if (opcionSeleccionada == null) {
+            alert("Debe seleccionar una opción");
+            return;
+        }
 
-            // Redirige a la página correspondiente según la opción del Dropdown
-            switch (opcionSeleccionada) {
-
-                case 'opcion1':
-                    router.push('/pagina1');
-                    break;
-                
-                case 'opcion2':
-                    router.push('/pagina2');
-                    break;
-                
-                // Añade más casos según sea necesario
-                default:
-                    // Si no se selecciona ninguna opción, no realiza ninguna redirección
+        // Redirige a la página correspondiente según la opción del Dropdown
+        switch (opcionSeleccionada) {
+            case 'Administrador':
+                window.location.href = '/administrador';
+            break;
+            
+            case 'Comercios':
+                window.location.href = '/comercio';
                 break;
-            }
+            
+            case 'Usuario Registrado':
+                window.location.href = '/usuario_registrado';
+            break;
+            
+            case 'Usuario anonimo':
+                window.location.href = '/anonimo';
+               break;
+            
+            default:
+                break;
         }
     }
 
@@ -99,11 +100,12 @@ function iniciar_sesion() {
                             </div>
                         </div>
 
-                        <Dropdown />
+                        <Dropdown onSeleccionar={(opcion) => setOpcionSeleccionada(opcion)} />
 
                         <div>
                             <button
                                 type="submit"
+                                onClick={handleInicioSesion}
                                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500  hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             >
                                 Sign in
