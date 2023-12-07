@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';  // Importa el hook useRouter para manejar las redirecciones
 import Dropdown from "../componentes/Dropdown";
 
 function iniciar_sesion() {
@@ -8,21 +9,33 @@ function iniciar_sesion() {
     const [usuario, setUsuario] = useState("");
     const [contrasena, setContrasena] = useState("");
 
-    const[dropdownHabilitado, setDropdownHabilitado] = useState(false);
+    const router = useRouter();  // Instancia el hook useRouter para manejar las redirecciones
 
     function validarFormulario(e) {
         e.preventDefault();
 
-        if (usuarioAnonimo) {
-            // Aquí puedes manejar la lógica para usuario anónimo
-            console.log("Usuario anónimo seleccionado");
+        if (usuario.trim() === '' || contrasena.trim() === '') {
+            alert('Por favor, complete ambos campos.');
         } else {
-            if (usuario.trim() === '' || contrasena.trim() === '') {
-                alert('Por favor, complete ambos campos.');
-            } else {
-                console.log('Formulario válido. Enviar datos al servidor, etc.');
-                // Habilita el Dropdown cuando se ingresan usuario y contraseña
-                setDropdownHabilitado(true);
+            console.log('Formulario válido. Enviar datos al servidor, etc.');
+            // Habilita el Dropdown cuando se ingresan usuario y contraseña
+            setDropdownHabilitado(true);
+
+            // Redirige a la página correspondiente según la opción del Dropdown
+            switch (opcionSeleccionada) {
+
+                case 'opcion1':
+                    router.push('/pagina1');
+                    break;
+                
+                case 'opcion2':
+                    router.push('/pagina2');
+                    break;
+                
+                // Añade más casos según sea necesario
+                default:
+                    // Si no se selecciona ninguna opción, no realiza ninguna redirección
+                break;
             }
         }
     }
@@ -86,7 +99,7 @@ function iniciar_sesion() {
                             </div>
                         </div>
 
-                        <Dropdown disabled={!dropdownHabilitado} />
+                        <Dropdown />
 
                         <div>
                             <button
