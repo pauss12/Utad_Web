@@ -11,6 +11,7 @@ function Page() {
       <Link href="./registro_usuario" className="btn btn-primary">Registro</Link>
 
       <Link href="./iniciar_sesion" className="btn btn-primary">Iniciar sesion</Link>
+      
     </>
 
   );
