@@ -5,6 +5,42 @@ import Buscador from '../componentes/Buscador.jsx';
 
 import "../styles/anonimo.css"
 
+/*
+
+<div className="lista">
+
+    {ComerciosPorCiudad.map((comercio) => (
+        <div key={comercio.id} className="unComercio">
+            <p>{comercio.nombre}</p>
+            <p>{comercio.ciudad}</p>
+        </div>
+    ))}
+</div>
+
+<div className="lista">
+
+    {ComerciosPorActividad.map((comercio) => (
+
+        <div key={comercio.id} className="unComercio">
+            <p>{comercio.nombre}</p>
+            <p>{comercio.actividad}</p>
+        </div>
+
+    ))}
+</div>
+
+<div className="lista">
+                    
+    {ComerciosPorId.map((comercio) => (
+        <div key={comercio.id} className="unComercio">
+            <p>{comercio.nombre}</p>
+            <p>{comercio.id}</p>
+        </div>
+    ))}
+</div>
+
+*/
+
 function anonimo() {
 
     //Busquedas por ciudad
@@ -18,56 +54,61 @@ function anonimo() {
 
     return (
 
-        <div className="contenedor">
-            
-            <div className="busquedaCiudad">
-                <Buscador ComerciosPorCiudad={ComerciosPorCiudad} />
-            </div>
-
-            <div className="listaComerciosCiudad">
-
-                {ComerciosPorCiudad.map((comercio) => (
-                    <div key={comercio.id} className="unComercio">
-                        <p>{comercio.nombre}</p>
-                        <p>{comercio.ciudad}</p>
-                    </div>
-                ))}
+        <>
+            <div className="contenedorBuscadores">
                 
+                <div className="busquedaCiudad">
+                    <Buscador ComerciosPorCiudad={ComerciosPorCiudad} />
+                </div>
+
+                <div className="busquedaCiudad_Actividad">
+                    <Buscador ComerciosPorActividad={ComerciosPorActividad} />
+                </div>
+
+                <div className="busquedaPorId">
+                    <Buscador ComerciosPorId={ComerciosPorId} />
+                </div>
+
             </div>
 
-            <div className="busquedaCiudad_Actividad">
-                <Buscador ComerciosPorActividad={ComerciosPorActividad} />
-            </div>
+            <div className="contenedorListas">
+                    
+                <div className="listaComerciosCiudad">
 
-            <div className="listaComerciosActividad">
+                    {ComerciosPorCiudad.map((comercio) => (
+                        <div key={comercio.id} className="unComercio">
+                            <p>{comercio.nombre}</p>
+                            <p>{comercio.ciudad}</p>
+                        </div>
+                    ))}
+                </div>
 
-                {ComerciosPorActividad.map((comercio) => (
+                <div className="listaComerciosCiudad_Actividad">
 
-                    <>
+                    {ComerciosPorActividad.map((comercio) => (
+
                         <div key={comercio.id} className="unComercio">
                             <p>{comercio.nombre}</p>
                             <p>{comercio.actividad}</p>
                         </div>
-                    </>
 
-                ))}
+                    ))}
+                </div>
+
+                <div className="listaomerciosPorId">
+
+                    {ComerciosPorId.map((comercio) => (
+                        <div key={comercio.id} className="unComercio">
+                            <p>{comercio.nombre}</p>
+                            <p>{comercio.id}</p>
+                        </div>
+                    ))}
+                </div>
+
             </div>
 
-            <div className="busquedaPorId">
-                <Buscador ComerciosPorId={ComerciosPorId} />
-            </div>
+        </>
 
-            <div className="listaComerciosId">
-                    
-                {ComerciosPorId.map((comercio) => (
-                    <div key={comercio.id} className="unComercio">
-                        <p>{comercio.nombre}</p>
-                        <p>{comercio.id}</p>
-                    </div>
-                ))}
-            </div>
-            
-        </div>
     );
 }
 
