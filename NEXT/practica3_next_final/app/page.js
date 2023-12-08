@@ -19,7 +19,7 @@ export default function Home() {
         {/* Sección de iniciar sesión */}
         <div className="cuadrado-login">
             <Link href="./iniciar_sesion">
-            <img src="imagenes/inicioSesion.jpg" className="imagen-inicio" alt="Iniciar sesión" />
+                <img src="imagenes/inicioSesion.jpg" className="imagen-inicio" alt="Iniciar sesión" />
             </Link>
         </div>
         </div>
