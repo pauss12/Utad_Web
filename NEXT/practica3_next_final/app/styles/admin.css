@@ -6,6 +6,7 @@ body {
 .crear_comercio {
     background-color: lightgray;
     border-radius: 10px;
+    margin-left: 5%;
     padding: 3px 25px 25px 25px;
     width: 400px;
 }
@@ -16,4 +17,30 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+.busquedaComercios {
+
+    background-color: lightgray;
+    margin-left: 2%;
+    border-radius: 10px;
+    padding: 1% 2% 1% 2%;
+    width: 300px;
+}
+
+.lista-comercios {
+
+    flex-direction: column;
+    width: 75%;
+    margin: 0 auto;
+    background-color: lightblue;
+}
+
+.un-comercio {
+
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 4px;
 }
