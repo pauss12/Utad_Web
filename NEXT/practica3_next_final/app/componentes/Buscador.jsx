@@ -1,5 +1,7 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 function BuscadorComercios(props) {
 
@@ -33,7 +35,7 @@ function BuscadorComercios(props) {
 
         <div className="input-group mb-3">
 
-            <span className="input-group-text">Buscador</span>
+            <span className="fa-solid fa-magnifying-glass" style={{ marginRight: '7px' }}></span>
             <input
                 type="text"
                 className="form-control"
