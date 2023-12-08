@@ -1,10 +1,21 @@
 //Pagina del comercio
 
+"use client"
+
+import EditarComercio from '../componentes/EditarComercio.jsx';
+
 function comercio() {
 
     return (
         <div>
-            <h1>Comercio</h1>
+            <div className="contenedor">
+
+                <div className="editarComercio">
+                    <EditarComercio />
+                </div>
+
+                
+            </div>
         </div>
     );
 
