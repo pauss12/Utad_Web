@@ -2,25 +2,28 @@
 
 import React, { useState } from 'react';
 
-function BusquedaComercios(props) {
+function Buscador(props) {
 
-    const tasks = props.tasks;
-    const setTasks = props.setTasks;
-
+    const { data, setData, searchTerm } = props;
     const [originalTasks, setOriginalTasks] = useState([]);
+
+    useEffect(() => {
+        // Guardar los datos originales cuando el componente se monta
+        setOriginalTasks(data);
+
+    }, [data]);
 
     const handleSearch = (searchTerm) => {
         
         if (searchTerm === '') {
-            setTasks(originalTasks);
-        } else {
-            // Save current list of tasks
-            setOriginalTasks(tasks);
+            setData(originalTasks);
 
-            const filteredTasks = tasks.filter((task) => {
+        } else {
+        
+            const filteredTasks = originalTasks.filter((item) => {
                 return (
-                    task.titulo.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                    task.contenido.toLowerCase().includes(searchTerm.toLowerCase())
+                    item.titulo.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    item.contenido.toLowerCase().includes(searchTerm.toLowerCase())
                 );
             });
 
@@ -29,6 +32,7 @@ function BusquedaComercios(props) {
     };
 
     return (
+
         <div className="input-group mb-3">
 
             <span className="input-group-text">Buscador</span>
@@ -36,8 +40,8 @@ function BusquedaComercios(props) {
                 type="text"
                 className="form-control"
                 id="floatingInputGroup1"
-                placeholder="Ciudad o Nombre"
-                value={props.searchTerm}
+                placeholder="Buscador"
+                value={searchTerm}
                 onChange={(e) => handleSearch(e.target.value)}
             />
 
@@ -45,4 +49,4 @@ function BusquedaComercios(props) {
     );
 }
 
-export default BusquedaComercios;
+export default Buscador;
