@@ -1,11 +1,13 @@
 "use client"
 
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 function CrearComercio() {
 
     //Guardar los datos de un comercio
     const [datosComercio, setComercio] = useState({
+        idComercio: uuidv4(),
         nombreComercio: "",
         cifComercio: "",
         direccionComercio: "",
