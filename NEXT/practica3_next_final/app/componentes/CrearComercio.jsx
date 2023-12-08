@@ -4,6 +4,34 @@ import React, { useState } from 'react';
 
 function CrearComercio() {
 
+    //Guardar los datos de un comercio
+    const [datosComercio, setComercio] = useState({
+        nombreComercio: "",
+        cifComercio: "",
+        direccionComercio: "",
+        emailComercio: "",
+        telefonoComercio: "",
+        puntuacion: 0,
+        comentario: [],
+
+    });
+
+    //Funcion para guardar los datos de un comercio
+    const handleCrearComercio = async (e) => {
+        e.preventDefault();
+
+        const response = await fetch("/api/comercio", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(datosComercio),
+        });
+
+        const data = await response.json();
+        console.log(data);
+    };
+
     return (
         <>
 
@@ -11,7 +39,7 @@ function CrearComercio() {
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
 
                     <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                        Sign up
+                        Crear Comercio
                     </h2>
                 </div>
 
@@ -25,6 +53,7 @@ function CrearComercio() {
                                     placeholder=" Nombre Comercio"
                                     name="Nombre Comercio"
                                     type="Nombre Comercio"
+                                    value={datosComercio.nombreComercio}
                                     autoComplete="Nombre Comercio"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
@@ -40,6 +69,7 @@ function CrearComercio() {
                                     placeholder=" CIF"
                                     name="CIF"
                                     type="CIF"
+                                    value={datosComercio.cifComercio}
                                     autoComplete="CIF"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
@@ -54,6 +84,7 @@ function CrearComercio() {
                                     placeholder=" Direccion"
                                     name="Direccion"
                                     type="Direccion"
+                                    value={datosComercio.direccionComercio}
                                     autoComplete="Direccion"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
@@ -68,6 +99,7 @@ function CrearComercio() {
                                     placeholder=" Email"
                                     name="Email"
                                     type="Email"
+                                    value={datosComercio.emailComercio}
                                     autoComplete="Email"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
@@ -82,6 +114,7 @@ function CrearComercio() {
                                     placeholder=" Telefono"
                                     name="Telefono"
                                     type="Telefono"
+                                    value={datosComercio.telefonoComercio}
                                     autoComplete="Telefono"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
@@ -91,9 +124,10 @@ function CrearComercio() {
                         <div>
                             <button
                                 type="submit"
+                                onClick={handleCrearComercio}
                                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500  hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             >
-                                Sign up
+                                Crear Comercio
                             </button>
                         </div>
 
