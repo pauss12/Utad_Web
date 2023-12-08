@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import "../styles/comercio.css"
 
 function EditarComercio() {
 
@@ -101,7 +100,7 @@ function EditarComercio() {
                         <div className="mb-4">
                             <label>Subir Foto:</label>
                             <div>
-                                {/* Hidden file input */}
+                                {/* Solo hay que subir el nombre del fichero */}
                                 <input
                                     ref={ReferenciaFoto}
                                     type="file"
@@ -115,7 +114,7 @@ function EditarComercio() {
                                 type="submit"
                                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500  hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             >
-                                Crear Comercio
+                                Editar Comercio
                             </button>
                         </div>
 

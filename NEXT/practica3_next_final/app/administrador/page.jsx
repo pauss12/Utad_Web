@@ -11,7 +11,7 @@ se podrá registrar un comercio
 "use client"
 
 import CrearComercio from '../componentes/CrearComercio.jsx';
-import BusquedaComercios from '../componentes/BusquedaComercios.jsx';
+import Buscador from '../componentes/Buscador.jsx';
 
 import React, { useState } from "react";
 
@@ -30,7 +30,7 @@ function Administrador() {
             </div>
 
             <div className="busquedaComercios">
-                <BusquedaComercios />
+                <Buscador tasks={tasks} />
             </div>
 
             <div className="lista-comercios">
