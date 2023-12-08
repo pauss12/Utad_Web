@@ -10,6 +10,7 @@ function BusquedaComercios(props) {
     const [originalTasks, setOriginalTasks] = useState([]);
 
     const handleSearch = (searchTerm) => {
+        
         if (searchTerm === '') {
             setTasks(originalTasks);
         } else {
@@ -35,7 +36,7 @@ function BusquedaComercios(props) {
                 type="text"
                 className="form-control"
                 id="floatingInputGroup1"
-                placeholder="nota"
+                placeholder="Ciudad o Nombre"
                 value={props.searchTerm}
                 onChange={(e) => handleSearch(e.target.value)}
             />

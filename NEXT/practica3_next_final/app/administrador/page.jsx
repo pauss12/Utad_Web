@@ -8,12 +8,18 @@ se podrá registrar un comercio
 - Teléfono de contacto
 */
 
+"use client"
+
 import CrearComercio from '../componentes/CrearComercio.jsx';
 import BusquedaComercios from '../componentes/BusquedaComercios.jsx';
+
+import React, { useState } from "react";
 
 import "../styles/admin.css"
 
 function Administrador() {
+
+    const [tasks, setTasks] = useState([]);
 
     return (
 
@@ -23,8 +29,25 @@ function Administrador() {
                 <CrearComercio />
             </div>
 
-            <div className="busqueda-comercios">
+            <div className="busquedaComercios">
                 <BusquedaComercios />
+            </div>
+
+            <div className="lista-comercios">
+                
+                {tasks.map((task) => (
+
+                    <>
+
+                        <div className="un-comercio">
+
+                            
+
+                        </div>
+                    </>
+
+                ))}
+
             </div>
         </div>
     );
