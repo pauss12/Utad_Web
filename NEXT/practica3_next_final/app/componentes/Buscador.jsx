@@ -1,29 +1,27 @@
-"use client"
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-function Buscador(props) {
+function BuscadorComercios(props) {
 
-    const { data, setData, searchTerm } = props;
+    const tasks = props.tasks;
+    const setTasks = props.setTasks;
+
     const [originalTasks, setOriginalTasks] = useState([]);
-
-    useEffect(() => {
-        // Guardar los datos originales cuando el componente se monta
-        setOriginalTasks(data);
-
-    }, [data]);
 
     const handleSearch = (searchTerm) => {
         
         if (searchTerm === '') {
-            setData(originalTasks);
+            
+            setTasks(originalTasks);
 
         } else {
+
+            setOriginalTasks(tasks);
         
-            const filteredTasks = originalTasks.filter((item) => {
+            const filteredTasks = originalTasks.filter((task) => {
                 return (
-                    item.titulo.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                    item.contenido.toLowerCase().includes(searchTerm.toLowerCase())
+                    task.titulo.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    task.contenido.toLowerCase().includes(searchTerm.toLowerCase())
                 );
             });
 
@@ -41,7 +39,6 @@ function Buscador(props) {
                 className="form-control"
                 id="floatingInputGroup1"
                 placeholder="Buscador"
-                value={searchTerm}
                 onChange={(e) => handleSearch(e.target.value)}
             />
 
@@ -49,4 +46,4 @@ function Buscador(props) {
     );
 }
 
-export default Buscador;
+export default BuscadorComercios;

@@ -48,17 +48,12 @@ function anonimo() {
             </div>
 
             <div className="listaComerciosId">
-
+                    
                 {tasks.map((comercio) => (
-
-                    <>
-
-                        <div key={comercio.id} className="unComercio">
-                            <p>{comercio.nombre}</p>
-                            <p>{comercio.id}</p>
-                        </div>
-                    </>
-
+                    <div key={comercio.id} className="unComercio">
+                        <p>{comercio.nombre}</p>
+                        <p>{comercio.id}</p>
+                    </div>
                 ))}
             </div>
             
