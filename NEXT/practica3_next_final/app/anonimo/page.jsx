@@ -1,28 +1,38 @@
+"use client"
+
+import React, { useState } from 'react';
+import Buscador from '../componentes/Buscador.jsx';
+
+import "../styles/anonimo.css"
+
 function anonimo() {
 
     //Busquedas por ciudad
-    const [ComerciosPorCiudad, setCiudad] = useState("");
+    const [ComerciosPorCiudad, setCiudad] = useState([]);
 
     //Busquedas por actividad y ciudad
-    const [ComerciosPorActividad, setActividad] = useState("");
+    const [ComerciosPorActividad, setActividad] = useState([]);
 
     //Busquedas por id
-    const [ComerciosPorId, setId] = useState("");
+    const [ComerciosPorId, setId] = useState([]);
 
     return (
-        <>
+
+        <div className="contenedor">
+            
             <div className="busquedaCiudad">
                 <Buscador ComerciosPorCiudad={ComerciosPorCiudad} />
             </div>
 
             <div className="listaComerciosCiudad">
 
-                {tasks.map((comercio) => (
+                {ComerciosPorCiudad.map((comercio) => (
                     <div key={comercio.id} className="unComercio">
                         <p>{comercio.nombre}</p>
                         <p>{comercio.ciudad}</p>
                     </div>
                 ))}
+                
             </div>
 
             <div className="busquedaCiudad_Actividad">
@@ -31,7 +41,7 @@ function anonimo() {
 
             <div className="listaComerciosActividad">
 
-                {tasks.map((comercio) => (
+                {ComerciosPorActividad.map((comercio) => (
 
                     <>
                         <div key={comercio.id} className="unComercio">
@@ -49,7 +59,7 @@ function anonimo() {
 
             <div className="listaComerciosId">
                     
-                {tasks.map((comercio) => (
+                {ComerciosPorId.map((comercio) => (
                     <div key={comercio.id} className="unComercio">
                         <p>{comercio.nombre}</p>
                         <p>{comercio.id}</p>
@@ -57,7 +67,7 @@ function anonimo() {
                 ))}
             </div>
             
-        </>
+        </div>
     );
 }
 
