@@ -9,6 +9,8 @@ function registro_user() {
     const [usuario, setUsuario] = useState("");
     const [contrasena, setContrasena] = useState("");
 
+
+
     return (
         <>
            
