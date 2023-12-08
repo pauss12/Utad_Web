@@ -1,10 +1,27 @@
-function registrado() {
+"use client"
+
+import { useState } from "react";
+
+function usuario_registrado() {
+
+    //Informacion de un usuario registrado
+    const [DatosUsuario, setDatosUsuario] = useState({
+        
+        nombreUsuario: "",
+        emailUsuario: "",
+        passwordUsuario: "",
+        edadUsuario: 0,
+        ciudadUsuario: "",
+        interesesUsuario: "",
+        permiteOfertas: "",
+
+    });
 
     return (
-        <div>
-            <h1>User registrado</h1>
-        </div>
+        
+        hola
+
     );
 }
 
-export default registrado;
+export default usuario_registrado;
