@@ -40,6 +40,7 @@ function BuscadorComercios(props) {
                 type="text"
                 className="form-control"
                 id="floatingInputGroup1"
+                style={{border: 'none'}}
                 placeholder="Buscador"
                 onChange={(e) => handleSearch(e.target.value)}
             />

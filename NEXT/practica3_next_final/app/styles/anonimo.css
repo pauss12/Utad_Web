@@ -8,13 +8,12 @@ body {
     display: flex;
     height: 10vh;
     margin-top: 2%;
-    border: 4px solid purple;
 
 }
 
 .busquedaCiudad {
 
-    background-color: lightgray;
+    background-color: white;
     margin-left: 6%;
     border-radius: 10px;
     border: 4px solid black;
@@ -24,7 +23,7 @@ body {
 
 .busquedaCiudad_Actividad {
 
-    background-color: lightgray;
+    background-color: white;
     margin-left: 10%;
     border-radius: 10px;
     border: 4px solid black;
@@ -33,27 +32,43 @@ body {
 
 .busquedaPorId {
 
-    background-color: lightgray;
+    background-color: white;
     margin-left: 10%;
     border-radius: 10px;
     border: 4px solid black;
     padding: 7px 10px 5px 10px;
 }
+.contenedorListas {
+
+    border: 4px solid white;
+    display: flex;
+    border-radius: 10px;
+    margin-top: 10%;
+    height: 40vh;
+}
 
 .listaComerciosCiudad {
 
     flex-direction: column;
-    display: flex;
     width: 35%;
     height: 100%;
-    background-color: yellow;
+    border: 4px solid green;
 
 }
 
-.contenedorListas {
+.listaComerciosCiudad_Actividad {
 
-    border: 4px solid white;
-    border-radius: 10px;
-    margin-top: 10%;
-    height: 40vh;
+    width: 35%;
+    height: 100%;
+    flex-direction: row;
+    border: 4px solid purple;
+
+}
+
+.listaComerciosPorId {
+
+    width: 35%;
+    height: 100%;
+    flex-direction: row;
+    border: 4px solid darkblue;
 }

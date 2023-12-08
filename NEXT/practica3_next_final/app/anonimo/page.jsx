@@ -95,7 +95,7 @@ function anonimo() {
                     ))}
                 </div>
 
-                <div className="listaomerciosPorId">
+                <div className="listaComerciosPorId">
 
                     {ComerciosPorId.map((comercio) => (
                         <div key={comercio.id} className="unComercio">
