@@ -2,6 +2,8 @@ import { useState } from "react";
 import Dropdown from "../componentes/Dropdown";
 
 function Formulario() {
+    
+    const [opcionSeleccionada, setOpcionSeleccionada] = useState("");
 
     //Informacion de un usuario registrado
     const [DatosUsuario, setDatosUsuario] = useState({
@@ -17,7 +19,10 @@ function Formulario() {
 
     });
 
-    const [opcionSeleccionada, setOpcionSeleccionada] = useState("");
+
+    const handleOpcionSeleccionadaChange = (nuevaOpcion) => {
+        setOpcionSeleccionada(nuevaOpcion);
+    };
 
     const handleCheckboxChange = (e) => {
         setDatosUsuario({ ...DatosUsuario, permiteOfertas: e.target.checked });
@@ -39,12 +44,9 @@ function Formulario() {
 
     const handleSubmit = async () => {
 
-        alert(opcionSeleccionada);
-        
         //Guardar lo que hay en opcion señeccionada, dentro de la variable tipo de usuario dentro de DatosUsuario
-        setDatosUsuario({ ...DatosUsuario, tipoUsuario: { opcionSeleccionada: opcionSeleccionada } });
+        setDatosUsuario(prevDatosUsuario => ({ ...prevDatosUsuario, tipoUsuario: opcionSeleccionada }));
 
-        console.log(DatosUsuario);
         alert(JSON.stringify(DatosUsuario));
 
         try {
@@ -60,7 +62,6 @@ function Formulario() {
             if (response.ok) {
                 
                 alert('Datos guardados exitosamente');
-                // Optionally, reset the form data after a successful request
                 setDatosUsuario({
                     nombreUsuario: '',
                     emailUsuario: '',
@@ -191,7 +192,7 @@ function Formulario() {
                         </div>
                     </div>
 
-                    <Dropdown opcionSeleccionada={opcionSeleccionada} setOpcionSeleccionada={setOpcionSeleccionada} />
+                    <Dropdown opcionSeleccionada={opcionSeleccionada} setOpcionSeleccionada={handleOpcionSeleccionadaChange} />
 
                     <div className="flex items-center">
                         <input
