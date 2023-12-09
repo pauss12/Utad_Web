@@ -23,6 +23,19 @@ function Formulario() {
         setDatosUsuario({ ...DatosUsuario, permiteOfertas: e.target.checked });
     };
 
+    const handleEdad = (e) => {
+        const inputValue = e.target.value;
+
+        // Verificar si el valor ingresado es un número
+        if (!isNaN(inputValue)) {
+            setDatosUsuario({ ...DatosUsuario, edadUsuario: inputValue });
+        } else {
+            // Manejar el caso en que el valor ingresado no es un número
+            // Puedes mostrar un mensaje de error o realizar alguna otra acción
+            alert('Por favor, ingrese un número válido para la edad.');
+        }
+    };
+
     const handleSubmit = async () => {
 
         alert(opcionSeleccionada);
@@ -117,7 +130,7 @@ function Formulario() {
                                 autoComplete="edad"
                                 required
                                 value={DatosUsuario.edadUsuario}
-                                onChange={(e) => setDatosUsuario({ ...DatosUsuario, edadUsuario: e.target.value })}
+                                onChange={handleEdad}
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
                         </div>

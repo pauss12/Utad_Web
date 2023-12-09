@@ -18,5 +18,15 @@
         "interesesUsuario": "b",
         "permiteOfertas": true,
         "tipoUsuario": ""
+    },
+    {
+        "nombreUsuario": "c",
+        "emailUsuario": "c",
+        "passwordUsuario": "c",
+        "edadUsuario": "7",
+        "ciudadUsuario": "c",
+        "interesesUsuario": "c",
+        "permiteOfertas": true,
+        "tipoUsuario": ""
     }
 ]
