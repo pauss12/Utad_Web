@@ -1,6 +1,9 @@
 "use client"
 
 import { useState } from "react";
+import "../styles/usuarioRegistrado.css"
+
+import EditarUsuario from "../componentes/editarUsuario";
 
 function usuario_registrado() {
 
@@ -9,7 +12,7 @@ function usuario_registrado() {
 
     return (
         
-        hola
+        <EditarUsuario />
 
     );
 }
