@@ -9,7 +9,7 @@ function Formulario() {
         nombreUsuario: "",
         emailUsuario: "",
         passwordUsuario: "",
-        edadUsuario: '',
+        edadUsuario: "",
         ciudadUsuario: "",
         interesesUsuario: "",
         permiteOfertas: false,
@@ -28,6 +28,7 @@ function Formulario() {
 
         // Verificar si el valor ingresado es un número
         if (!isNaN(inputValue)) {
+
             setDatosUsuario({ ...DatosUsuario, edadUsuario: inputValue });
         } else {
             // Manejar el caso en que el valor ingresado no es un número
@@ -39,7 +40,11 @@ function Formulario() {
     const handleSubmit = async () => {
 
         alert(opcionSeleccionada);
-        setDatosUsuario(DatosUsuario => ({ ...DatosUsuario, tipoUsuario: opcionSeleccionada }));
+        
+        //Guardar lo que hay en opcion señeccionada, dentro de la variable tipo de usuario dentro de DatosUsuario
+        setDatosUsuario({ ...DatosUsuario, tipoUsuario: { opcionSeleccionada: opcionSeleccionada } });
+
+        console.log(DatosUsuario);
         alert(JSON.stringify(DatosUsuario));
 
         try {

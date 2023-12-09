@@ -28,5 +28,35 @@
         "interesesUsuario": "c",
         "permiteOfertas": true,
         "tipoUsuario": ""
+    },
+    {
+        "nombreUsuario": "d",
+        "emailUsuario": "d",
+        "passwordUsuario": "d",
+        "edadUsuario": "8",
+        "ciudadUsuario": "d",
+        "interesesUsuario": "d",
+        "permiteOfertas": true,
+        "tipoUsuario": ""
+    },
+    {
+        "nombreUsuario": "f",
+        "emailUsuario": "f",
+        "passwordUsuario": "f",
+        "edadUsuario": "6",
+        "ciudadUsuario": "f",
+        "interesesUsuario": "f",
+        "permiteOfertas": true,
+        "tipoUsuario": ""
+    },
+    {
+        "nombreUsuario": "v",
+        "emailUsuario": "v",
+        "passwordUsuario": "v",
+        "edadUsuario": "5",
+        "ciudadUsuario": "v",
+        "interesesUsuario": "v",
+        "permiteOfertas": true,
+        "tipoUsuario": ""
     }
 ]
