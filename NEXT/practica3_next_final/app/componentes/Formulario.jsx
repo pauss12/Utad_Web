@@ -1,11 +1,14 @@
 import { useState } from "react";
 import Dropdown from "../componentes/Dropdown";
 
+import { v4 as uuidv4 } from 'uuid';
+
 function Formulario() {
 
     //Informacion de un usuario registrado
     const [DatosUsuario, setDatosUsuario] = useState({
 
+        idUsuario: uuidv4(),
         nombreUsuario: "",
         emailUsuario: "",
         passwordUsuario: "",

@@ -9,33 +9,20 @@ import '../styles/comercio.css';
 
 function comercio() {
 
-    const [listaComercios, setListaComercios] = useState([]);
+    const [listaUsuarios, setListaUsuarios] = useState([]);
 
-    //Pedir a la API que me de la lista de comercios que esta guardado en la carpeta Data
     useEffect(() => {
-
-        fetch('/api/comercios')
-            .then((response) => response.json())
-            .then((data) => setListaComercios(data.comercios));
-        
+        fetch("../api/usuarios")
+            .then((res) => res.json())
+            .then((data) => {
+                setListaUsuarios(data);
+            });
     }, []);
 
-    //Eliminar un comercio de la lista
-    const eliminarComercio = (id) => {
-
-        fetch(`/api/comercios/${id}`, {
-            method: 'DELETE',
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log('Success:', data);
-                setListaComercios(listaComercios.filter((comercio) => comercio.id !== id));
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-
-    };
+    // Crear nueva variable con el filtrado de esos usuarios que tenga el permitirOfertas activado
+    const listaUsuariosPermitirOfertas = Array.isArray(listaUsuarios)
+        ? listaUsuarios.filter((usuario) => usuario.permitirOfertas === true)
+        : [];
 
     return (
         <div>
@@ -45,25 +32,29 @@ function comercio() {
                     <EditarComercio />
                 </div>
 
-                <div className="lista-usuarios">
+                <div className="listaUsuarios">
 
-                    {listaComercios.map((task) => (
+                    <h1 className="titulo">Lista de Usuarios</h1>
 
-                        <>
-
-                            <div className="un-usuario">
-
-                            </div>
-                        </>
-
-                    ))}
-
+                    <div className="listaUsuariosPermitirOfertas">
+                        <h2 className="subtitulo">Usuarios que permiten ofertas</h2>
+                        <ul>
+                            {listaUsuariosPermitirOfertas.map((usuario) => (
+                                <li key={usuario.idUsuario}>
+                                    <p>{usuario.nombreUsuario}</p>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    
                 </div>
+
 
                 <div>
                     <button
                         type="submit"
-                        className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500  hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        className="flex w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500  hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+
                     >
                         Eliminar Comercio
                     </button>

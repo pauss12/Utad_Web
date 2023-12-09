@@ -8,5 +8,15 @@
         "interesesUsuario": "a",
         "permiteOfertas": true,
         "tipoUsuario": "Administrador"
+    },
+    {
+        "nombreUsuario": "b",
+        "emailUsuario": "b",
+        "passwordUsuario": "b",
+        "edadUsuario": "2",
+        "ciudadUsuario": "b",
+        "interesesUsuario": "b",
+        "permiteOfertas": false,
+        "tipoUsuario": "Administrador"
     }
 ]

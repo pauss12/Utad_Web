@@ -2,15 +2,13 @@ import React, { useState, useRef } from 'react';
 
 function EditarComercio() {
 
-    //Referencia para el fichero que se ha subido
-    const ReferenciaFoto = useRef(null);
+    //Const para la URL de la foto
+    const [foto, setFoto] = useState("");
 
-    const handleFileChange = (event) => {
-        // Handle the selected file
-        const selectedFile = event.target.files[0];
-        console.log('Selected File:', selectedFile);
+    //Handle change foto
+    const handleChangeFoto = (event) => {
+        setFoto(event.target.value);
     };
-
     
     return (
 
@@ -102,9 +100,9 @@ function EditarComercio() {
                             <div>
                                 {/* Solo hay que subir el nombre del fichero */}
                                 <input
-                                    ref={ReferenciaFoto}
-                                    type="file"
-                                    onChange={handleFileChange}
+                                    type="text"
+                                    value={foto}
+                                    onChange={handleChangeFoto}
                                 />
                             </div>
                         </div>
