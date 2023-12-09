@@ -1,1 +1,22 @@
-[{"nombreUsuario":"a","emailUsuario":"a","passwordUsuario":"a","edadUsuario":"1","ciudadUsuario":"a","interesesUsuario":"a","permiteOfertas":true,"tipoUsuario":""},{"nombreUsuario":"b","emailUsuario":"b","passwordUsuario":"b","edadUsuario":"2","ciudadUsuario":"b","interesesUsuario":"b","permiteOfertas":true,"tipoUsuario":""}]
+[
+    {
+        "nombreUsuario": "a",
+        "emailUsuario": "a",
+        "passwordUsuario": "a",
+        "edadUsuario": "1",
+        "ciudadUsuario": "a",
+        "interesesUsuario": "a",
+        "permiteOfertas": true,
+        "tipoUsuario": ""
+    },
+    {
+        "nombreUsuario": "b",
+        "emailUsuario": "b",
+        "passwordUsuario": "b",
+        "edadUsuario": "2",
+        "ciudadUsuario": "b",
+        "interesesUsuario": "b",
+        "permiteOfertas": true,
+        "tipoUsuario": ""
+    }
+]
