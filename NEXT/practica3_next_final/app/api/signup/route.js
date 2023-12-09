@@ -5,9 +5,11 @@ export async function POST(request) {
     const data = await request.json()
     try {
         const users = JSON.parse(readFileSync("data/users.txt"))
-        writeFileSync("data/users.txt", JSON.stringify([...users, data]))
+        writeFileSync("data/users.txt", JSON.stringify([...users, data], null, 2) + '\n')
+
     } catch (e) {
-        writeFileSync("data/users.txt", JSON.stringify([data]))
+        writeFileSync("data/users.txt", JSON.stringify([data], null, 2) + '\n')
+        
     }
     return NextResponse.json({ message: "Guardando datos..." })
 }

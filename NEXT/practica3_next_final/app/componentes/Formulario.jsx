@@ -1,8 +1,6 @@
 import { useState } from "react";
 import Dropdown from "../componentes/Dropdown";
 
-import Checkbox from "./checkbox";
-
 function Formulario() {
 
     //Informacion de un usuario registrado
@@ -15,16 +13,56 @@ function Formulario() {
         ciudadUsuario: "",
         interesesUsuario: "",
         permiteOfertas: false,
-        tipoUsuario: "Tipo Cliente",
+        tipoUsuario: "",
 
     });
 
-    const handleSubmit = () => {
+    const [opcionSeleccionada, setOpcionSeleccionada] = useState("");
 
-        alert(JSON.stringify(DatosUsuario));
-
+    const handleCheckboxChange = (e) => {
+        setDatosUsuario({ ...DatosUsuario, permiteOfertas: e.target.checked });
     };
 
+    const handleSubmit = async () => {
+
+        setDatosUsuario(prevDatosUsuario => ({ ...prevDatosUsuario, tipoUsuario: { opcionSeleccionada } }));
+        alert(JSON.stringify(DatosUsuario));
+
+        try {
+            
+            const response = await fetch('http://localhost:3000/api/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(DatosUsuario),
+            });
+
+            if (response.ok) {
+                
+                alert('Datos guardados exitosamente');
+                // Optionally, reset the form data after a successful request
+                setDatosUsuario({
+                    nombreUsuario: '',
+                    emailUsuario: '',
+                    passwordUsuario: '',
+                    edadUsuario: 0,
+                    ciudadUsuario: '',
+                    interesesUsuario: '',
+                    permiteOfertas: false,
+                    tipoUsuario: '',
+                });
+                setOpcionSeleccionada('');
+                
+            } else {
+                console.error(`HTTP error! Status: ${response.status}`);
+                alert('Error al guardar los datos');
+            }
+        } catch (error) {
+            console.error(error);
+            alert('Error al guardar los datos');
+        }
+    };
     
 
     return (
@@ -59,6 +97,7 @@ function Formulario() {
                             <input
                                 id="email"
                                 placeholder="Email"
+                                autoComplete="email"
                                 required
                                 value={DatosUsuario.emailUsuario}
                                 onChange={(e) => setDatosUsuario({ ...DatosUsuario, emailUsuario: e.target.value })}
@@ -74,6 +113,7 @@ function Formulario() {
                             <input
                                 id="Edad"
                                 placeholder="Edad"
+                                autoComplete="edad"
                                 required
                                 value={DatosUsuario.edadUsuario}
                                 onChange={(e) => setDatosUsuario({ ...DatosUsuario, edadUsuario: e.target.value })}
@@ -88,6 +128,7 @@ function Formulario() {
                             <input
                                 id="Ciudad"
                                 placeholder="Ciudad"
+                                autoComplete="ciudad"
                                 required
                                 value={DatosUsuario.ciudadUsuario}
                                 onChange={(e) => setDatosUsuario({ ...DatosUsuario, ciudadUsuario: e.target.value })}
@@ -103,6 +144,7 @@ function Formulario() {
                                 id="Intereses"
                                 placeholder="Intereses"
                                 type="text"
+                                autoComplete="intereses"
                                 required
                                 value={DatosUsuario.interesesUsuario}
                                 onChange={(e) => setDatosUsuario({ ...DatosUsuario, interesesUsuario: e.target.value })}
@@ -130,10 +172,19 @@ function Formulario() {
                         </div>
                     </div>
 
-                    <Dropdown opcionSeleccionada={DatosUsuario.tipoUsuario} setOpcionSeleccionada={nuevaOpcion => setDatosUsuario(prev => ({ ...prev, tipoUsuario: nuevaOpcion }))} />
+                    <Dropdown opcionSeleccionada={opcionSeleccionada} setOpcionSeleccionada={setOpcionSeleccionada} />
 
-
-                    <Checkbox DatosUsuario={DatosUsuario.permiteOfertas} setDatosUsuario={setDatosUsuario} />
+                    <div className="flex items-center">
+                        <input
+                            type="checkbox"
+                            className="form-checkbox text-blue-500 h-5 w-5"
+                            checked={DatosUsuario.permiteOfertas}
+                            onChange={handleCheckboxChange}
+                        />
+                        <label htmlFor="quieroOfertas" className="ml-2 text-sm leading-5">
+                            Quiero recibir ofertas
+                        </label>
+                    </div>
 
                     <div className="mt-4">
                         <button
