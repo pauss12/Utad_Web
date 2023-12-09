@@ -1,0 +1,20 @@
+
+body {
+
+    background-image: url("../../public/imagenes/fondo_paginaUsuarioRegistrado.avif");
+}
+
+.contenedorEditarUsuario {
+
+    width: 35%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 50px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px #ccc;
+}
