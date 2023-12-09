@@ -15,7 +15,7 @@ function Formulario() {
         ciudadUsuario: "",
         interesesUsuario: "",
         permiteOfertas: false,
-        tipoUsuario: "",
+        tipoUsuario: "Tipo Cliente",
 
     });
 
