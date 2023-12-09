@@ -9,7 +9,7 @@ function Formulario() {
         nombreUsuario: "",
         emailUsuario: "",
         passwordUsuario: "",
-        edadUsuario: 0,
+        edadUsuario: '',
         ciudadUsuario: "",
         interesesUsuario: "",
         permiteOfertas: false,
@@ -25,7 +25,8 @@ function Formulario() {
 
     const handleSubmit = async () => {
 
-        setDatosUsuario(prevDatosUsuario => ({ ...prevDatosUsuario, tipoUsuario: { opcionSeleccionada } }));
+        alert(opcionSeleccionada);
+        setDatosUsuario(DatosUsuario => ({ ...DatosUsuario, tipoUsuario: opcionSeleccionada }));
         alert(JSON.stringify(DatosUsuario));
 
         try {
