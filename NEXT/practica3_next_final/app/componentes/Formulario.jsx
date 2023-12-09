@@ -2,8 +2,6 @@ import { useState } from "react";
 import Dropdown from "../componentes/Dropdown";
 
 function Formulario() {
-    
-    const [opcionSeleccionada, setOpcionSeleccionada] = useState("");
 
     //Informacion de un usuario registrado
     const [DatosUsuario, setDatosUsuario] = useState({
@@ -21,14 +19,16 @@ function Formulario() {
 
 
     const handleOpcionSeleccionadaChange = (nuevaOpcion) => {
-        setOpcionSeleccionada(nuevaOpcion);
+        setDatosUsuario({ ...DatosUsuario, tipoUsuario: nuevaOpcion });
     };
+
 
     const handleCheckboxChange = (e) => {
         setDatosUsuario({ ...DatosUsuario, permiteOfertas: e.target.checked });
     };
 
     const handleEdad = (e) => {
+        
         const inputValue = e.target.value;
 
         // Verificar si el valor ingresado es un número
@@ -43,10 +43,7 @@ function Formulario() {
     };
 
     const handleSubmit = async () => {
-
-        //Guardar lo que hay en opcion señeccionada, dentro de la variable tipo de usuario dentro de DatosUsuario
-        setDatosUsuario(prevDatosUsuario => ({ ...prevDatosUsuario, tipoUsuario: opcionSeleccionada }));
-
+        
         alert(JSON.stringify(DatosUsuario));
 
         try {
@@ -72,7 +69,6 @@ function Formulario() {
                     permiteOfertas: false,
                     tipoUsuario: '',
                 });
-                setOpcionSeleccionada('');
                 
             } else {
                 console.error(`HTTP error! Status: ${response.status}`);
@@ -84,7 +80,6 @@ function Formulario() {
         }
     };
     
-
     return (
 
         <div className="flex flex-col items-center justify-center min-h-screen p-8">
@@ -192,7 +187,7 @@ function Formulario() {
                         </div>
                     </div>
 
-                    <Dropdown opcionSeleccionada={opcionSeleccionada} setOpcionSeleccionada={handleOpcionSeleccionadaChange} />
+                    <Dropdown opcionSeleccionada={DatosUsuario.tipoUsuario} setOpcionSeleccionada={handleOpcionSeleccionadaChange} />
 
                     <div className="flex items-center">
                         <input

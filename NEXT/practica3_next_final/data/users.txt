@@ -1,0 +1,12 @@
+[
+    {
+        "nombreUsuario": "a",
+        "emailUsuario": "a",
+        "passwordUsuario": "a",
+        "edadUsuario": "1",
+        "ciudadUsuario": "a",
+        "interesesUsuario": "a",
+        "permiteOfertas": true,
+        "tipoUsuario": "Administrador"
+    }
+]

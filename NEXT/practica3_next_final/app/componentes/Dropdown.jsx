@@ -9,8 +9,17 @@ function classNames(...classes) {
 function Dropdown(props) {
 
     const handleMenuClick = (option) => {
-        props.setOpcionSeleccionada((prevOption) => (prevOption === option ? null : option));
-        
+        // Desestructuramos las props para acceder a setOpcionSeleccionada directamente
+        const { opcionSeleccionada, setOpcionSeleccionada } = props;
+
+        // Verificamos si la opción actual es igual a la nueva opción
+        if (opcionSeleccionada === option) {
+            // Si son iguales, establecemos el valor en null
+            setOpcionSeleccionada(null);
+        } else {
+            // Si no son iguales, establecemos la nueva opción
+            setOpcionSeleccionada(option);
+        }
     };
 
     return (
