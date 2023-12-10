@@ -5,6 +5,8 @@
 import EditarComercio from '../componentes/EditarComercio.jsx';
 import React, { useEffect, useState } from "react";
 
+import CartaUsuario from "../componentes/cartas/cartaUsuario.jsx"
+
 import '../styles/comercio.css';
 
 function comercio() {
@@ -40,9 +42,20 @@ function comercio() {
                         <h2 className="subtitulo">Usuarios que permiten ofertas</h2>
                         <ul>
                             {listaUsuariosPermitirOfertas.map((usuario) => (
-                                <li key={usuario.idUsuario}>
-                                    <p>{usuario.nombreUsuario}</p>
-                                </li>
+                                
+                                <CartaUsuario
+                                    key={usuario.id}
+                                    id={usuario.id}
+                                    nombre={usuario.nombre}
+                                    email={usuario.email}
+                                    password={usuario.password}
+                                    edad={usuario.edad}
+                                    ciudad={usuario.ciudad}
+                                    intereses={usuario.intereses}
+                                    permiteOfertas={usuario.permiteOfertas}
+                                    tipoUsuario={usuario.tipoUsuario}
+                                />
+
                             ))}
                         </ul>
                     </div>
