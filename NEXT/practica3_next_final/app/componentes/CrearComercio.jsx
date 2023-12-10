@@ -6,7 +6,8 @@ import { v4 as uuidv4 } from 'uuid';
 function CrearComercio() {
 
     //Guardar los datos de un comercio
-    const [datosComercio, setComercio] = useState({
+    const [datosComercio, setDatosComercio] = useState({
+
         idComercio: uuidv4(),
         nombreComercio: "",
         cifComercio: "",
@@ -14,24 +15,51 @@ function CrearComercio() {
         emailComercio: "",
         telefonoComercio: "",
         puntuacion: 0,
-        Reseñas: [],
+        comentarios: "",
 
     });
 
     //Funcion para guardar los datos de un comercio
     const handleCrearComercio = async (e) => {
-        e.preventDefault();
+        
+        try {
 
-        const response = await fetch("/api/comercio", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(datosComercio),
-        });
+            const response = await fetch('http://localhost:3000/api/comercios', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(datosComercio),
+            });
+            const data = await response.json();
+            console.log(data);
 
-        const data = await response.json();
-        console.log(data);
+            if (response.ok)
+            {
+                alert('Datos guardados exitosamente');
+
+                //Limpiar el setter
+                setDatosComercio({
+                    idComercio: uuidv4(),
+                    nombreComercio: '',
+                    cifComercio: '',
+                    direccionComercio: '',
+                    emailComercio: '',
+                    telefonoComercio: '',
+                    puntuacion: 0,
+                    comentarios: '',
+                });
+
+            } else {
+                console.error(`HTTP error! Status: ${response.status}`);
+                alert('Error al guardar los datos');
+            }
+        }
+        catch (error) {
+            console.log(error);
+            alert("Error al guardar los datos");
+        }
+        
     };
 
     return (
@@ -52,11 +80,11 @@ function CrearComercio() {
                                 Nombre Comercio
                                 <input
                                     id="Nombre Comercio"
-                                    placeholder=" Nombre Comercio"
                                     name="Nombre Comercio"
-                                    type="Nombre Comercio"
-                                    value={datosComercio.nombreComercio}
                                     autoComplete="Nombre Comercio"
+                                    placeholder=" Nombre Comercio"
+                                    value={datosComercio.nombreComercio}
+                                    onChange={(e) => setDatosComercio({ ...datosComercio, nombreComercio: e.target.value })}
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 
@@ -68,11 +96,11 @@ function CrearComercio() {
                                 CIF
                                 <input
                                     id="CIF"
-                                    placeholder=" CIF"
                                     name="CIF"
-                                    type="CIF"
-                                    value={datosComercio.cifComercio}
                                     autoComplete="CIF"
+                                    placeholder=" CIF"
+                                    value={datosComercio.cifComercio}
+                                    onChange={(e) => setDatosComercio({ ...datosComercio, cifComercio: e.target.value })}
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                             </div>
@@ -83,11 +111,11 @@ function CrearComercio() {
                                 Direccion
                                 <input
                                     id="Direccion"
-                                    placeholder=" Direccion"
                                     name="Direccion"
-                                    type="Direccion"
-                                    value={datosComercio.direccionComercio}
                                     autoComplete="Direccion"
+                                    placeholder=" Direccion"
+                                    value={datosComercio.direccionComercio}
+                                    onChange={(e) => setDatosComercio({...datosComercio, direccionComercio: e.target.value})}
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                             </div>
@@ -98,12 +126,13 @@ function CrearComercio() {
                                 Email
                                 <input
                                     id="Email"
-                                    placeholder=" Email"
                                     name="Email"
-                                    type="Email"
-                                    value={datosComercio.emailComercio}
                                     autoComplete="Email"
+                                    placeholder=" Email"
+                                    value={datosComercio.emailComercio}
+                                    onChange={(e) => setDatosComercio({ ...datosComercio, emailComercio: e.target.value })}
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+
                                 />
                             </div>
                         </div>
@@ -113,15 +142,18 @@ function CrearComercio() {
                                 Telefono
                                 <input
                                     id="Telefono"
-                                    placeholder=" Telefono"
                                     name="Telefono"
-                                    type="Telefono"
-                                    value={datosComercio.telefonoComercio}
                                     autoComplete="Telefono"
+                                    placeholder=" Telefono"
+                                    value={datosComercio.telefonoComercio}
+                                    onChange={(e) => setDatosComercio({ ...datosComercio, telefonoComercio: e.target.value })}
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                             </div>
                         </div>
+
+                        <div name="puntuacion" value={datosComercio.puntuacion}></div>
+                        <div name="comentario" value={datosComercio.comentarios}></div>
 
                         <div>
                             <button
