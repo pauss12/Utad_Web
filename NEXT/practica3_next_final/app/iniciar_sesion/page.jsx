@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from 'react';
-import Dropdown from "../componentes/Dropdown";
+import DropdownCompleto from "../componentes/DropdownCompleto";
 
 import "../styles/inicioSesion.css"
 
@@ -98,7 +98,7 @@ function iniciar_sesion() {
                             </div>
                         </div>
 
-                        <Dropdown onSeleccionar={(opcion) => setOpcionSeleccionada(opcion)} />
+                        <DropdownCompleto onSeleccionar={(opcion) => setOpcionSeleccionada(opcion)} />
 
                         <div>
                             <button
