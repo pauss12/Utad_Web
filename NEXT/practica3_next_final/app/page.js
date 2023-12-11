@@ -11,8 +11,8 @@ export default function Home() {
         <div className="contenedor bg-gray-100 p-8">
         {/* Sección de Registro */}
         <div className="cuadrado-registro mb-8">
-            <Link href="./registro">
-            <img src="/imagenes/imagenRegistro.jpg" className="imagen-registro"  alt="Registro" />
+          <Link href="./registro">
+              <img src="/imagenes/imagenRegistro.jpg" className="imagen-registro"  alt="Registro" />
             </Link>
         </div>
 
