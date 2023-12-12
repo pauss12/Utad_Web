@@ -16,6 +16,7 @@ function Dropdown(props) {
         if (opcionSeleccionada === option) {
             // Si son iguales, establecemos el valor en null
             setOpcionSeleccionada(null);
+            
         } else {
             // Si no son iguales, establecemos la nueva opción
             setOpcionSeleccionada(option);
