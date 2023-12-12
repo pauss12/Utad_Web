@@ -1,13 +1,15 @@
-function cartaComercio({ idComercio, nombreComercio, cifComercio, direccionComercio, emailComercio, telefonoComercio, puntuacion, comentarios, onDelete}) {
+function cartaComercio({ comercio, onDelete }) {
+    
+    alert("123");
 
     return (
         <div className="comercio-card">
-            <h2>{nombreComercio}</h2>
-            <p>CIF: {cifComercio}</p>
-            <p>Dirección: {direccionComercio}</p>
-            <p>Email: {emailComercio}</p>
-            <p>Teléfono: {telefonoComercio}</p>
-            <p>Puntuación: {puntuacion}</p>
+            <h2>Nombre: {comercio.nombreComercio}</h2>
+            <p>CIF: {comercio.cifComercio}</p>
+            <p>Dirección: {comercio.direccionComercio}</p>
+            <p>Email: {comercio.emailComercio}</p>
+            <p>Teléfono: {comercio.telefonoComercio}</p>
+            <p>Puntuación: {comercio.puntuacion}</p>
             <p>Comentarios:{comercio.comentarios}</p>
             
             <button onClick={() => onDelete(comercio._id)}>Borrar Comercio</button>
