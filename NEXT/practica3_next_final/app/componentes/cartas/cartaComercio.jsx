@@ -1,6 +1,4 @@
 function cartaComercio({ comercio, onDelete }) {
-    
-    alert("123");
 
     return (
         <div className="comercio-card">
