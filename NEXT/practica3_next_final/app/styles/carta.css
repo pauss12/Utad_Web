@@ -1,6 +1,7 @@
 .carta {
 
     background-color: lightgray;
+    flex-direction: column;
     border-radius: 10px;
     border: 1px solid black;
     padding: 5px 5px 5px 5px;
