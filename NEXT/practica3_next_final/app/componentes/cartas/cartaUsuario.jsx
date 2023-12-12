@@ -7,9 +7,7 @@ function cartaUsuario({ id, nombre, email, password, edad, ciudad, intereses, pe
                 <div>
                     <strong>ID:</strong> {id}
                 </div>
-                <div>
-                    <strong>Nombre:</strong> {nombre}
-                </div>
+                <h2>Nombre: {usuario_registrado.nombreUsuario}</h2>
                 <div>
                     <strong>Email:</strong> {email}
                 </div>
