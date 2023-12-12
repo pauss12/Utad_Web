@@ -32,12 +32,12 @@ function Buscador({lista, setLista}) {
 
         <div className="input-group mb-3">
 
-            <span className="fa-solid fa-magnifying-glass" style={{ marginRight: '7px' }}></span>
+            <span className="fa-solid fa-magnifying-glass" style={{ marginRight: '3px' }}></span>
             <input
                 type="text"
                 className="form-control"
                 id="floatingInputGroup1"
-                style={{border: 'none'}}
+                style={{border: 'none', background: 'none'}}
                 placeholder="Buscador"
                 onChange={(e) => handleSearch(e.target.value)}
             />
