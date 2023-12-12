@@ -1,11 +1,11 @@
 "use client"
 
 import React, { useState } from 'react'; import { v4 as uuidv4 } from 'uuid';
-import { useRouter } from 'next/navigation'
+//import { useRouter } from 'next/navigation'
 
 function CrearComercio({datosComercio, setDatosComercio}) {
 
-    const router = useRouter();
+    //const router = useRouter();
 
     //Funcion para guardar los datos de un comercio
     const handleCrearComercio = async (e) => {
