@@ -16,11 +16,10 @@ import { v4 as uuidv4 } from 'uuid';
 
 import CartaComercio from '../componentes/cartas/cartaComercio.jsx';
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "../styles/admin.css"
 
-/*
 async function getComercios() {
     
     const res = await fetch('http://localhost:3000/api/comercios')
@@ -30,7 +29,6 @@ async function getComercios() {
     return data.comercios
 
 }
-*/
 
 function Administrador() {
 
@@ -47,32 +45,31 @@ function Administrador() {
 
     });
 
+    const [listaComerciosGuardados, setListaComerciosGuardados] = useState([]);
 
-    //const [listaComerciosGuardados, setListaComerciosGuardados] = useState([]);
-    /*
-    //Obtener lista de comercios
-    const [listaComercios, setListaComercios] = useState([]);
+    const obtenerComercios = async () => {
+
+        try {
+
+            const response = await fetch('http://localhost:3000/api/comercios')
+
+            const data = await response.json()
+
+            setListaComerciosGuardados(data.comercios)
+
+        } catch (error) {
+
+            console.log(error);
+            alert("Ha habido un problema a la hora de obtener los comercios");
+        }
+    };
 
     useEffect(() => {
-        const obtenerComercios = async () => {
-
-            try {
-
-                const comercios = await getComercios();
-
-                setListaComercios(comercios);
-
-            } catch (error) {
-
-                console.error("Error al obtener la lista de comercios", error);
-
-            }
-        };
 
         obtenerComercios();
 
     }, []);
-      
+
     //Handle eliminar comercio
     const handleDelete = async () => {
       
@@ -103,14 +100,27 @@ function Administrador() {
         }
 
     };
-    */
-   
+
     return (
 
         <div className="contenedor">
 
-            <div className="crear_comercio">
+            <div className="crearComercio">
                 <CrearComercio datosComercio={datosComercio} setDatosComercio={setDatosComercio} />
+            </div>
+
+            <div className="busquedaComercios">
+                <Buscador lista={listaComerciosGuardados} setLista={setListaComerciosGuardados} />
+            </div>
+
+            <div className="listaComercios">
+
+                {listaComerciosGuardados.map((comercio) =>
+
+                    <CartaComercio key={comercio.idComercio} comercio={comercio} onDelete={handleDelete} />
+
+                )}
+
             </div>
 
         </div>
