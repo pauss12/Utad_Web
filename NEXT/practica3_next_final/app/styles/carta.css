@@ -1,0 +1,19 @@
+.carta {
+
+    background-color: lightgray;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 5px 5px 5px 5px;
+    margin-top: 10px;
+    box-shadow: 6px 6px 6px rgba(8, 8, 8, 0.904);
+    
+}
+
+.botonEliminar {
+
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid red;
+    padding: 5px;
+}
