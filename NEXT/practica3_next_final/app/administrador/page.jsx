@@ -71,7 +71,7 @@ function Administrador() {
     }, []);
 
     //Handle eliminar comercio
-    const handleDelete = async () => {
+    const handleDelete = async (emailComercio) => {
       
         try {
             
@@ -81,7 +81,7 @@ function Administrador() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(),
+                body: JSON.stringify({email: emailComercio}),
             });
 
             //Comprobar si se ha eliminado el comerciante
@@ -89,6 +89,7 @@ function Administrador() {
                 alert("Comercio eliminado correctamente");
 
             } else {
+
                 console.error("HTTP error! Status: ${response.status}");
                 alert("Ha habido un problema a la hora de eliminar el comercio");
             }
@@ -96,7 +97,7 @@ function Administrador() {
         } catch (error) {
             
             console.error(error);
-            alert("Ha habido un problema a la hora de eliminar el comercio");
+            alert(" -- Ha habido un problema a la hora de eliminar el comercio -- ");
         }
 
     };
