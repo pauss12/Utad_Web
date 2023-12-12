@@ -72,7 +72,7 @@ function anonimo() {
 
             </div>
 
-            <button className="bg-white m-8 hover:bg-white-700 hover:scale-110 text-black font-bold py-2 px-4 rounded ">
+            <button className="absolute right-4 bottom-12 bg-white hover:bg-white-700 hover:scale-110 text-black font-bold py-2 px-4 rounded ">
                 <Link href="../registro">Registrarse</Link>
             </button>
 
