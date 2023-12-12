@@ -1,15 +1,5 @@
 [
     {
-        "idComercio": "424d7ced-c97e-4d80-a457-5fa7f160f3a6",
-        "nombreComercio": "a",
-        "cifComercio": "a",
-        "direccionComercio": "a",
-        "emailComercio": "a",
-        "telefonoComercio": "a",
-        "puntuacion": "",
-        "comentarios": ""
-    },
-    {
         "idComercio": "25ca3be5-a5ca-4535-b038-5f9f63a1158f",
         "nombreComercio": "b",
         "cifComercio": "b",
