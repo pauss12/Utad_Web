@@ -4,8 +4,6 @@ import { readFileSync } from 'fs';
 export async function POST(request) {
     
     const data = await request.json()
-    
-    console.log("Ha entrado en el POST");
 
     try {
 
@@ -15,13 +13,11 @@ export async function POST(request) {
 
         if (user.length > 0) {
 
-            console.log("Usuario existe ---")
             return NextResponse.json({ message: "Usuario existe...", status: 200 })
 
         
         } else {
 
-            console.log("Usuario NO existe -- ")
             return NextResponse.json({ message: "Usuario no existe...", status: 400 })
         
         }

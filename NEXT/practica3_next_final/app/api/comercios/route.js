@@ -5,6 +5,7 @@ import { readFileSync, writeFileSync } from 'fs';
 export async function POST(request) {
     
     const data = await request.json()
+    
     try {
         
         const comercios = JSON.parse(readFileSync("data/comercios.txt"))
@@ -39,12 +40,8 @@ export async function DELETE(request) {
     try {
 
         const comercios = JSON.parse(readFileSync("data/comercios.txt"))
-
-        console.log(comercios)
         
         const comercioFilter = comercios.filter(comercio => comercio.emailComercio != data.email)
-
-        console.log(comercioFilter)
         
         writeFileSync("data/comercios.txt", JSON.stringify(comercioFilter, null, 4))
         

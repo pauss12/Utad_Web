@@ -4,6 +4,7 @@ import { readFileSync, writeFileSync } from 'fs';
 export async function GET() {
 
     try {
+        
         const users = JSON.parse(readFileSync("data/users.txt"))
 
         return NextResponse.json({ users })
@@ -23,9 +24,9 @@ export async function DELETE(request) {
 
         const users = JSON.parse(readFileSync("data/users.txt"))
 
-        const usersFIlter = users.filter(user => user.email != data.email)
+        const usersFilter = users.filter(user => user.email != data.email)
 
-        writeFileSync("data/users.txt", JSON.stringify(usersFIlter, null, 4))
+        writeFileSync("data/users.txt", JSON.stringify(usersFilter, null, 4))
 
         return NextResponse.json({ message: "Usuario eliminado...", status: 200 })
 
