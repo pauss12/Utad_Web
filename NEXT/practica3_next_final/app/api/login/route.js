@@ -13,8 +13,6 @@ export async function POST(request) {
         
         const user = users.filter(user => user.nombreUsuario == data.nombreUsuario && user.passwordUsuario == data.passwordUsuario) 
 
-        console.log(user)
-
         if (user.length > 0) {
 
             console.log("Usuario existe ---")

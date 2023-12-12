@@ -37,11 +37,16 @@ export async function DELETE(request) {
     const data = await request.json()
 
     try {
+
         const comercios = JSON.parse(readFileSync("data/comercios.txt"))
+
+        console.log(comercios)
         
         const comercioFilter = comercios.filter(comercio => comercio.email != data.email)
+
+        console.log(comercioFilter)
         
-        writeFileSync("data/comercios.txt", JSON.stringify(comercioFilter))
+        writeFileSync("data/comercios.txt", JSON.stringify(comercioFilter), null, 4)
         
         return NextResponse.json({ message: "Comercio eliminado...", status: 200 })
 
