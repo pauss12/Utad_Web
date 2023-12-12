@@ -31,38 +31,16 @@ function Administrador() {
 
     }, []); // La dependencia vacía asegura que este efecto solo se ejecute una vez al montar el componente
 
-    const getComercios = async () => {
+    async function getComercios() {
         
-        try {
-
-            //Llamo a la funcion GET de la API
-            const response = await fetch('http://localhost:3000/api/comercios', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-
-            //Comprobar si se ha obtenido la lista de comercios
-            if (response.ok) {
-                
-                //Guardamos la lista de comercios en una variable
-                const listaComercios = await response.json();
-                setListaComercios(listaComercios);
-
-            } else {
-                console.error("HTTP error! Status: ${response.status}");
-                alert("Ha habido un problema a la hora de obtener los comercios");
-            }
-
-
-        } catch (error) {
-
-            console.error(error);
-            alert(error);
-        }
-
-    };
+        const res = await fetch("http://localhost:3000/api/comercios")
+        
+        const data = await res.json()
+        
+        console.log(data.comercios)
+        
+        return data.users
+    }
 
     //Handle eliminar comercio
     const handleDelete = async () => {
