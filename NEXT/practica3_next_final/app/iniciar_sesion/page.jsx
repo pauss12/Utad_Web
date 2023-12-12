@@ -7,10 +7,18 @@ import "../styles/inicioSesion.css"
 
 function iniciar_sesion() {
 
-    const [usuario, setUsuario] = useState("");
-    const [contrasena, setContrasena] = useState("");
+    const [usuarioIntroducido, setUsuarioIntroducido] = useState("");
+    const [contrasenaIntroducida, setContrasenaIntroducida] = useState("");
 
     const [opcionSeleccionada, setOpcionSeleccionada] = useState(null);
+
+    //Traerme los usuarios y contraseñas que haya guardados en el fichero.txt para cuando inicie sesion, compruebe si ese usuario existe y si la contraseña es correcta, si es asi, que le redirija a la pagina correspondiente
+
+    //Llamar a la API de login
+    
+
+
+
 
     function handleInicioSesion() {
 
@@ -67,8 +75,8 @@ function iniciar_sesion() {
                                     type="usuario"
                                     autoComplete="usuario"
                                     required
-                                    value={usuario}
-                                    onChange={(e) => setUsuario(e.target.value)}
+                                    value={usuarioIntroducido}
+                                    onChange={(e) => setUsuarioIntroducido(e.target.value)}
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                             </div>
@@ -84,8 +92,8 @@ function iniciar_sesion() {
                                     type="password"
                                     autoComplete="current-password"
                                     required
-                                    value={contrasena}
-                                    onChange={(e) => setContrasena(e.target.value)}
+                                    value={contrasenaIntroducida}
+                                    onChange={(e) => setContrasenaIntroducida(e.target.value)}
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                             </div>
@@ -98,7 +106,7 @@ function iniciar_sesion() {
                             </div>
                         </div>
 
-                        <DropdownCompleto onSeleccionar={(opcion) => setOpcionSeleccionada(opcion)} />
+                        <DropdownCompleto setOpcionSeleccionada={(opcion) => setOpcionSeleccionada(opcion)} />
 
                         <div>
                             <button

@@ -26,45 +26,40 @@ function Administrador() {
 
     //Segun inicie esta pagina, que se carguen los datos guardados
     useEffect(() => {
-        handleGetComercios();
-    }, []);
+        
+        getComercios(); // Llama a la función para cargar los datos al montar el componente
 
-    //Pedir los datos de los comercios a la API y guardarlos en la API
-    const handleGetComercios = async () => {
+    }, []); // La dependencia vacía asegura que este efecto solo se ejecute una vez al montar el componente
 
+    const getComercios = async () => {
+        
         try {
 
-            //Respuesta de la api
+            //Llamo a la funcion GET de la API
             const response = await fetch('http://localhost:3000/api/comercios', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                
             });
 
-            if (response.ok)
-            {
-                //He llamado al get y los datos me llegan en JSON, quiero guardarlos en mis variable
-                const data = await response.json();
+            //Comprobar si se ha obtenido la lista de comercios
+            if (response.ok) {
                 
-                //Imprimir lo que he recibido
-                alert(JSON.stringify(data));
-
-                //Guardo cada dato en su variable parametro a parametro
-                setListaComercios(data);
-                alert("Comercios obtenidos correctamente");
+                //Guardamos la lista de comercios en una variable
+                const listaComercios = await response.json();
+                setListaComercios(listaComercios);
 
             } else {
-
                 console.error("HTTP error! Status: ${response.status}");
                 alert("Ha habido un problema a la hora de obtener los comercios");
             }
 
+
         } catch (error) {
 
             console.error(error);
-            alert("Ha habido un problema al obtener los comercios");
+            alert(error);
         }
 
     };
@@ -115,31 +110,17 @@ function Administrador() {
            
             <div className="lista-comercios">
                 
-                {Array.isArray(listaComercios) ? (
-                    
-                    listaComercios.map((comercio) => (
-
-                        <div className="un-comercio" key={comercio.idComercio}>
-
-
-                            <CartaComercio
-                                idComercio={comercio.idComercio}
-                                nombreComercio={comercio.nombreComercio}
-                                cifComercio={comercio.cifComercio}
-                                direccionComercio={comercio.direccionComercio}
-                                emailComercio={comercio.emailComercio}
-                                telefonoComercio={comercio.telefonoComercio}
-                                puntuacion={comercio.puntuacion}
-                                comentarios={comercio.comentarios}
-                                onDelete={handleDelete}
-                            />
-
+                <div className="sticky top-0 ml-3 card-list ">
+                    {listaComercios.length > 0 ? (
+                        listaComercios.map((comercio, index) => (
+                            <CartaComercio key={index} merchant={comercio} />
+                        ))
+                    ) : (
+                        <div className="bg-gray-200 hidden rounded-md shadow-md">
+                            <p>No hay resultados</p>
                         </div>
-
-                    ))
-                ) : (
-                    <p>No hay comercios disponibles.</p>
-                )}
+                    )}
+                </div>
 
             </div>
             
