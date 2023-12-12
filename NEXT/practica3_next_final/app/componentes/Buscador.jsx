@@ -3,10 +3,7 @@ import React, { useState } from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
-function BuscadorComercios(props) {
-
-    const tasks = props.tasks;
-    const setTasks = props.setTasks;
+function Buscador({lista, setLista}) {
 
     const [originalTasks, setOriginalTasks] = useState([]);
 
@@ -14,11 +11,11 @@ function BuscadorComercios(props) {
         
         if (searchTerm === '') {
             
-            setTasks(originalTasks);
+            setLista(originalTasks);
 
         } else {
 
-            setOriginalTasks(tasks);
+            setOriginalTasks(lista);
         
             const filteredTasks = originalTasks.filter((task) => {
                 return (
@@ -27,7 +24,7 @@ function BuscadorComercios(props) {
                 );
             });
 
-            setTasks(filteredTasks);
+            setLista(filteredTasks);
         }
     };
 
@@ -49,4 +46,4 @@ function BuscadorComercios(props) {
     );
 }
 
-export default BuscadorComercios;
+export default Buscador;
