@@ -129,7 +129,7 @@ function CrearComercio({datosComercio, setDatosComercio}) {
                                 <input
                                     id="Telefono"
                                     name="Telefono"
-                                    autoComplete="Telefono"
+                                    autoComplete="username"
                                     placeholder=" Telefono"
                                     value={datosComercio.telefonoComercio}
                                     onChange={(e) => setDatosComercio({ ...datosComercio, telefonoComercio: e.target.value })}
