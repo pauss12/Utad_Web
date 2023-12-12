@@ -113,7 +113,7 @@ function Administrador() {
                 <Buscador lista={listaComerciosGuardados} setLista={setListaComerciosGuardados} />
             </div>
 
-            <div className="listaComercios">
+            <div className="grid grid-cols-2 gap-8 justify-center items-center ml-7 mt-20">
 
                 {listaComerciosGuardados.map((comercio) =>
 
