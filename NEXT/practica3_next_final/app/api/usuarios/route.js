@@ -16,7 +16,7 @@ export async function GET() {
 }
 
 export async function DELETE(request) {
-    
+
     const data = await request.json()
 
     try {
@@ -25,7 +25,7 @@ export async function DELETE(request) {
 
         const usersFIlter = users.filter(user => user.email != data.email)
 
-        writeFileSync("data/users.txt", JSON.stringify(usersFIlter), null, 4)
+        writeFileSync("data/users.txt", JSON.stringify(usersFIlter, null, 4))
 
         return NextResponse.json({ message: "Usuario eliminado...", status: 200 })
 
