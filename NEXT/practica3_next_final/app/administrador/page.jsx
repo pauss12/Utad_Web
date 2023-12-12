@@ -21,27 +21,35 @@ import "../styles/admin.css"
 
 function Administrador() {
 
-    //Guardar la lista de comercios en una variable que la cogemos de nuestra carpeta data
+    
+    //Lista de comercios
     const [listaComercios, setListaComercios] = useState([]);
-
-    //Segun inicie esta pagina, que se carguen los datos guardados
+/*
     useEffect(() => {
         
-        getComercios(); // Llama a la función para cargar los datos al montar el componente
+        const obtenerComercios = async () => {
 
-    }, []); // La dependencia vacía asegura que este efecto solo se ejecute una vez al montar el componente
+            try {
 
-    async function getComercios() {
-        
-        const res = await fetch("http://localhost:3000/api/comercios")
-        
-        const data = await res.json()
-        
-        console.log(data.comercios)
-        
-        return data.users
-    }
+                const response = await fetch("http://localhost:3000/api/comercios");
 
+                const data = await response.json();
+
+                setListaComercios(data.comercios);
+
+            } catch (error) {
+
+                console.error("Error al obtener la lista de comercios", error);
+
+            }
+        };
+
+        obtenerComercios();
+
+    }, []);
+
+    */
+    
     //Handle eliminar comercio
     const handleDelete = async () => {
       
@@ -72,7 +80,7 @@ function Administrador() {
         }
 
     };
-
+   
     return (
 
         <div className="contenedor">
@@ -85,20 +93,13 @@ function Administrador() {
                 <Buscador listaComercios={listaComercios} />
             </div>
 
-           
-            <div className="lista-comercios">
+            <div className="listaComercios">
+
+                {listaComercios.map((comercio) => 
                 
-                <div className="sticky top-0 ml-3 card-list ">
-                    {listaComercios.length > 0 ? (
-                        listaComercios.map((comercio, index) => (
-                            <CartaComercio key={index} merchant={comercio} />
-                        ))
-                    ) : (
-                        <div className="bg-gray-200 hidden rounded-md shadow-md">
-                            <p>No hay resultados</p>
-                        </div>
-                    )}
-                </div>
+                    <CartaComercio comercio={comercio} onDelete={handleDelete}/>
+                
+                )}
 
             </div>
             
