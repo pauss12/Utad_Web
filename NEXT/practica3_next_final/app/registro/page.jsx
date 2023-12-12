@@ -43,19 +43,23 @@ function registro_user() {
 
             setDatosUsuario({ ...DatosUsuario, edadUsuario: inputValue });
         } else {
-            // Manejar el caso en que el valor ingresado no es un número
-            // Puedes mostrar un mensaje de error o realizar alguna otra acción
+            
             alert('Por favor, ingrese un número válido para la edad.');
         }
     };
 
-    const handleSubmit = async () => {
+    //Comprobar el email
+    /*const handleEmail = () => {
+        
+        const email = document.getElementById('Email').value;
+        setDatosUsuario({ ...DatosUsuario, emailUsuario: email });
+    };*/
 
-        alert(JSON.stringify(DatosUsuario));
+    const handleSubmit = async () => {
 
         try {
 
-            const response = await fetch('http://localhost:3000/api/signup', {
+            const response = await fetch('http://localhost:3000/api/usuarios', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -70,7 +74,7 @@ function registro_user() {
                     nombreUsuario: '',
                     emailUsuario: '',
                     passwordUsuario: '',
-                    edadUsuario: 0,
+                    edadUsuario: '',
                     ciudadUsuario: '',
                     interesesUsuario: '',
                     permiteOfertas: false,
@@ -113,13 +117,13 @@ function registro_user() {
                         </div>
 
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="Email" className="block text-sm font-medium leading-6 text-gray-900">
                                 Email
                             </label>
                             <input
-                                id="email"
+                                id="Email"
                                 placeholder="Email"
-                                autoComplete="email"
+                                autoComplete="off"
                                 required
                                 value={DatosUsuario.emailUsuario}
                                 onChange={(e) => setDatosUsuario({ ...DatosUsuario, emailUsuario: e.target.value })}
@@ -165,7 +169,6 @@ function registro_user() {
                             <input
                                 id="Intereses"
                                 placeholder="Intereses"
-                                type="text"
                                 autoComplete="intereses"
                                 required
                                 value={DatosUsuario.interesesUsuario}
@@ -199,6 +202,7 @@ function registro_user() {
                     <div className="flex items-center">
                         <input
                             type="checkbox"
+                            id="quieroOfertas"
                             className="form-checkbox text-blue-500 h-5 w-5"
                             checked={DatosUsuario.permiteOfertas}
                             onChange={handleCheckboxChange}
