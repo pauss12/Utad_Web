@@ -1,26 +1,69 @@
 "use client"
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation'
 import DropdownCompleto from "../componentes/DropdownCompleto";
 
 import "../styles/inicioSesion.css"
 
 function iniciar_sesion() {
 
+    const router = useRouter();
+
     const [usuarioIntroducido, setUsuarioIntroducido] = useState("");
     const [contrasenaIntroducida, setContrasenaIntroducida] = useState("");
 
-    const [opcionSeleccionada, setOpcionSeleccionada] = useState(null);
+    const [opcionSeleccionada, setOpcionSeleccionada] = useState("");
 
     //Traerme los usuarios y contraseñas que haya guardados en el fichero.txt para cuando inicie sesion, compruebe si ese usuario existe y si la contraseña es correcta, si es asi, que le redirija a la pagina correspondiente
+    const redirigir = (code) => {
 
-    //Llamar a la API de login
-    
+        console.log("Code", code)
+        
+        if (code == 200) {
+            
+            if (opcionSeleccionada == "Administrador") {
+                router.push("/administrador")
 
+            } else if (opcionSeleccionada == "Comercios"){
+                
+                router.push("/comercios")
+            }
+        }
+        else {
+            alert();
+            
+        }
+    };
 
+    function getUsuarios () {
 
+        const userTXT = {
 
-    function handleInicioSesion() {
+            nombreUsuario: usuarioIntroducido,
+            passwordUsuario: contrasenaIntroducida,
+
+        };
+
+        fetch("/api/iniciar_sesion", {
+
+            method: "POST",
+
+            headers: {
+
+                'Content-Type': 'application/json',
+            },
+
+            body: JSON.stringify(userTXT)
+        })
+            .then((res) => res.json())
+            .then((data) => redirigir(data.status))
+
+    };
+
+    const handleInicioSesion = () => {
+        
+        const users = getUsuarios();
 
         // Valida que se haya seleccionado una opción del Dropdown
         if (opcionSeleccionada == null) {
@@ -29,6 +72,7 @@ function iniciar_sesion() {
         }
 
         // Redirige a la página correspondiente según la opción del Dropdown
+        /*
         switch (opcionSeleccionada) {
             case 'Administrador':
                 window.location.href = '../administrador';
@@ -49,6 +93,7 @@ function iniciar_sesion() {
             default:
                 break;
         }
+        */
     }
 
     return (
@@ -106,11 +151,11 @@ function iniciar_sesion() {
                             </div>
                         </div>
 
-                        <DropdownCompleto setOpcionSeleccionada={(opcion) => setOpcionSeleccionada(opcion)} />
+                        <DropdownCompleto opcionSeleccionada={opcionSeleccionada} setOpcionSeleccionada={setOpcionSeleccionada} />
 
                         <div>
                             <button
-                                
+                                    
                                 onClick={handleInicioSesion}
                                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500  hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             >
@@ -122,7 +167,8 @@ function iniciar_sesion() {
                 </div>
             </div>
         </div>
-    )
+    );
+    
 }
 
 export default iniciar_sesion;
