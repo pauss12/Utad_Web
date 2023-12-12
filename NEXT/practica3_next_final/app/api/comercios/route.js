@@ -21,6 +21,7 @@ export async function POST(request) {
 export async function GET() {
 
     try {
+
         const comercios = JSON.parse(readFileSync("data/comercios.txt"))
         
         return NextResponse.json({ comercios })
@@ -41,6 +42,7 @@ export async function DELETE(request) {
         const comercioFilter = comercios.filter(comercio => comercio.email != data.email)
         
         writeFileSync("data/comercios.txt", JSON.stringify(comercioFilter))
+        
         return NextResponse.json({ message: "Comercio eliminado...", status: 200 })
 
     } catch (e) {
