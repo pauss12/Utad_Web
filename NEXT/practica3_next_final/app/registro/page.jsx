@@ -9,7 +9,6 @@ import { v4 as uuidv4 } from 'uuid';
 function registro_user() {
 
     //Depende del tipo de cliente que se registre, se guarda unos datos u otros
-    //Informacion de un usuario registrado
     const [DatosUsuario, setDatosUsuario] = useState({
 
         idUsuario: uuidv4(),
@@ -48,13 +47,6 @@ function registro_user() {
         }
     };
 
-    //Comprobar el email
-    /*const handleEmail = () => {
-        
-        const email = document.getElementById('Email').value;
-        setDatosUsuario({ ...DatosUsuario, emailUsuario: email });
-    };*/
-
     const handleSubmit = async () => {
 
         try {
@@ -89,6 +81,9 @@ function registro_user() {
             console.error(error);
             alert('Error al guardar los datos');
         }
+
+        //Llevar a la pagina de iniciar sesion
+        window.location.href = "/iniciar_sesion";
     };
 
     return (
