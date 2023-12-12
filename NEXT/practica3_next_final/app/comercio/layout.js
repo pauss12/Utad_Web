@@ -1,6 +1,3 @@
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
     title: "comercio",
@@ -8,7 +5,7 @@ export const metadata = {
 
 export default function comercioLayout({ children }) {
     return (
-        <div className={inter.className}>
+        <div>
             {children}
         </div>
 
