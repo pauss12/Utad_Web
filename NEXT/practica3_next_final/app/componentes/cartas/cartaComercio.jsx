@@ -1,7 +1,9 @@
+import "../../styles/carta.css"
+
 function cartaComercio({ comercio, onDelete }) {
 
     return (
-        <div className="comercio-card">
+        <div className="carta">
             <h2>Nombre: {comercio.nombreComercio}</h2>
             <p>CIF: {comercio.cifComercio}</p>
             <p>Dirección: {comercio.direccionComercio}</p>
@@ -10,7 +12,8 @@ function cartaComercio({ comercio, onDelete }) {
             <p>Puntuación: {comercio.puntuacion}</p>
             <p>Comentarios:{comercio.comentarios}</p>
             
-            <button onClick={() => onDelete(comercio._id)}>Borrar Comercio</button>
+            <button className="botonEliminar" onClick={() => onDelete(comercio._id)}>Borrar Comercio</button>
+            <hr></hr>
         </div>
     );
     
