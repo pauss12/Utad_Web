@@ -1,12 +1,15 @@
 "use client"
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation'
 import "../styles/Registro.css"
 import DropdownSimple from '../componentes/DropdownSimple';
 
 import { v4 as uuidv4 } from 'uuid';
 
 function registro_user() {
+
+    const router = useRouter();
 
     //Depende del tipo de cliente que se registre, se guarda unos datos u otros
     const [DatosUsuario, setDatosUsuario] = useState({
@@ -82,8 +85,8 @@ function registro_user() {
             alert('Error al guardar los datos');
         }
 
-        //Llevar a la pagina de iniciar sesion
-        window.location.href = "/iniciar_sesion";
+        router.push("/iniciar_sesion");
+
     };
 
     return (

@@ -18,82 +18,70 @@ function iniciar_sesion() {
     //Traerme los usuarios y contraseñas que haya guardados en el fichero.txt para cuando inicie sesion, compruebe si ese usuario existe y si la contraseña es correcta, si es asi, que le redirija a la pagina correspondiente
     const redirigir = (code) => {
 
-        console.log("Code", code)
-        
-        if (code == 200) {
+        if (code === 200) {
             
-            if (opcionSeleccionada == "Administrador") {
-                router.push("/administrador")
+            console.log(opcionSeleccionada);
 
-            } else if (opcionSeleccionada == "Comercios"){
+            if (opcionSeleccionada === 'Administrador') {
+
+                console.log('Estoy en el administrador');
+                router.push('/administrador')
+
+            } else if (opcionSeleccionada === 'Comercios'){
                 
-                router.push("/comercios")
+                console.log('Estoy en el Comercios')
+                router.push('/comercios')
+
+            } else if (opcionSeleccionada === 'Usuario Registrado') {
+
+                console.log('Estoy en el Usuario Registrado')
+                router.push('/usuario_registrado')
+
+            } else if (opcionSeleccionada === 'Usuario Anonimo') {
+
+                console.log('Estoy en el Usuario Anonimo')
+                router.push('/anonimo')
+
+            
             }
         }
-        else {
-            alert();
+        else if (code === 400) {
+
+            alert("Ha habido un problema!");
             
         }
     };
 
-    function getUsuarios () {
+    const handleInicioSesion = (e) => {
+        
+        e.preventDefault();
+
+        if (opcionSeleccionada == null) {
+            alert("Debe seleccionar una opción");
+            return;
+        }
 
         const userTXT = {
 
             nombreUsuario: usuarioIntroducido,
             passwordUsuario: contrasenaIntroducida,
 
-        };
+        }
 
-        fetch("/api/iniciar_sesion", {
+        fetch('http://localhost:3000/api/login', {
 
-            method: "POST",
-
+            method: 'POST',
             headers: {
-
+                
                 'Content-Type': 'application/json',
             },
-
             body: JSON.stringify(userTXT)
         })
             .then((res) => res.json())
             .then((data) => redirigir(data.status))
-
-    };
-
-    const handleInicioSesion = () => {
+            .catch((err) => console.log(err));
         
-        const users = getUsuarios();
 
-        // Valida que se haya seleccionado una opción del Dropdown
-        if (opcionSeleccionada == null) {
-            alert("Debe seleccionar una opción");
-            return;
-        }
-
-        // Redirige a la página correspondiente según la opción del Dropdown
-        /*
-        switch (opcionSeleccionada) {
-            case 'Administrador':
-                window.location.href = '../administrador';
-            break;
-            
-            case 'Comercios':
-                window.location.href = '../comercio';
-            break;
-            
-            case 'Usuario Registrado':
-                window.location.href = '../usuario_registrado';
-            break;
-            
-            case 'Usuario anonimo':
-                window.location.href = '../anonimo';
-            break;
-            
-            default:
-                break;
-        }
-        */
     }
 
     return (
