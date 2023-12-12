@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Buscador from '../componentes/Buscador.jsx';
 import Link from 'next/link';
 
@@ -10,10 +10,60 @@ import "../styles/anonimo.css"
 
 function anonimo() {
 
-    //Busquedas por ciudad
+    //Variable para guardar los comercios que estan en el TXT ----
     const [comercios, setComercios] = useState([]);
 
-    
+    //Variable para la lista original ---
+    const [originalTasks, setOriginalTasks] = useState([]);
+
+    //Obtener Comercios ---------------------------------------------------------------------
+    const obtenerComercios = async () => {
+
+        try {
+
+            const response = await fetch('http://localhost:3000/api/comercios')
+
+            const data = await response.json()
+
+            setComercios(data.comercios)
+
+        } catch (error) {
+
+            console.log(error);
+            alert("Ha habido un problema a la hora de obtener los comercios");
+        }
+    };
+
+    useEffect(() => {
+
+        obtenerComercios();
+
+    }, []);
+
+    //Hacer la busqueda ---------------------------------------------------------------------
+    const handleSearch = (searchTerm) => {
+
+        if (searchTerm === '') {
+
+            setComercios(originalTasks);
+
+        } else {
+
+            setOriginalTasks(comercios);
+
+            const filteredTasks = originalTasks.filter((task) => {
+
+                return (
+
+                    task.nombreComercio.toLowerCase().includes(searchTerm.toLowerCase())
+
+                );
+            });
+
+            setComercios(filteredTasks);
+        }
+    };
+
 
     return (
 
@@ -21,20 +71,31 @@ function anonimo() {
             <div className="contenedorBuscadores">
                 
                 <div className="busqueda">
-                    <Buscador lista={comercios} setLista={setComercios} />
+
+                    <span className="fa-solid fa-magnifying-glass" style={{ marginRight: '3px' }}></span>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="floatingInputGroup1"
+                        style={{ border: 'none', background: 'none' }}
+                        placeholder="Buscador"
+                        onChange={(e) => handleSearch(e.target.value)}
+                    />
+
                 </div>
 
             </div>
 
             <div className="contenedorListas">
                     
-                <div className="lista">
+                <div className="flex gap-4 flex-wrap">
 
                     {comercios.map((comercio) => (
                         
-                        <CartaComercio comercio={comercio} onDelete={null}/>
+                        <CartaComercio key={comercio.idComercio} comercio={comercio} onDelete={null} className="w-48 h-40 flex-shrink-0" />
 
                     ))}
+
                 </div>
 
             </div>
