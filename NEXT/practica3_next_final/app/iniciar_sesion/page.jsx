@@ -15,7 +15,7 @@ function iniciar_sesion() {
 
     const [opcionSeleccionada, setOpcionSeleccionada] = useState("");
 
-    //Traerme los usuarios y contraseñas que haya guardados en el fichero.txt para cuando inicie sesion, compruebe si ese usuario existe y si la contraseña es correcta, si es asi, que le redirija a la pagina correspondiente
+    //Redirigir la pagina segun que opcion haya escogido --------------------------------------------------------------------------------------------------------
     const redirigir = (code) => {
 
         if (code === 200) {
@@ -52,6 +52,7 @@ function iniciar_sesion() {
         }
     };
 
+    //Iniciar Sesion ------------------------------------------------------------------------------------------------------------------------------------
     const handleInicioSesion = (e) => {
         
         e.preventDefault();
