@@ -1,0 +1,52 @@
+[
+    {
+        "idComercio": "424d7ced-c97e-4d80-a457-5fa7f160f3a6",
+        "nombreComercio": "a",
+        "cifComercio": "a",
+        "direccionComercio": "a",
+        "emailComercio": "a",
+        "telefonoComercio": "a",
+        "puntuacion": "",
+        "comentarios": ""
+    },
+    {
+        "idComercio": "25ca3be5-a5ca-4535-b038-5f9f63a1158f",
+        "nombreComercio": "b",
+        "cifComercio": "b",
+        "direccionComercio": "b",
+        "emailComercio": "b",
+        "telefonoComercio": "b",
+        "puntuacion": 0,
+        "comentarios": ""
+    },
+    {
+        "idComercio": "cf9695a6-d355-41dd-8e6b-39cf8fb16e34",
+        "nombreComercio": "c",
+        "cifComercio": "c",
+        "direccionComercio": "c",
+        "emailComercio": "c",
+        "telefonoComercio": "c",
+        "puntuacion": "",
+        "comentarios": ""
+    },
+    {
+        "idComercio": "f45e1cfb-8da2-4ef4-8783-f420784a0a64",
+        "nombreComercio": "d",
+        "cifComercio": "d",
+        "direccionComercio": "d",
+        "emailComercio": "d",
+        "telefonoComercio": "d",
+        "puntuacion": "",
+        "comentarios": ""
+    },
+    {
+        "idComercio": "a66eb5e4-b5f7-455d-906b-1a020db8e0e2",
+        "nombreComercio": "e",
+        "cifComercio": "e",
+        "direccionComercio": "e",
+        "emailComercio": "e",
+        "telefonoComercio": "e",
+        "puntuacion": "",
+        "comentarios": ""
+    }
+]
