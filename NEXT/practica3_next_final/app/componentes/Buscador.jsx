@@ -18,9 +18,11 @@ function Buscador({lista, setLista}) {
             setOriginalTasks(lista);
         
             const filteredTasks = originalTasks.filter((task) => {
+
                 return (
-                    task.titulo.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                    task.contenido.toLowerCase().includes(searchTerm.toLowerCase())
+                    
+                    task.nombreComercio.toLowerCase().includes(searchTerm.toLowerCase()) 
+
                 );
             });
 
