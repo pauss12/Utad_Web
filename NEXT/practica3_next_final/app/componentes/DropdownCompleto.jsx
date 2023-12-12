@@ -6,7 +6,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-function Dropdown(props) {
+function DropdownCompleto(props) {
 
     const handleMenuClick = (option) => {
         // Desestructuramos las props para acceder a setOpcionSeleccionada directamente
@@ -106,4 +106,4 @@ function Dropdown(props) {
     )
 }
 
-export default Dropdown;
+export default DropdownCompleto;
