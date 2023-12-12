@@ -12,13 +12,15 @@ se podrá registrar un comercio
 
 import CrearComercio from '../componentes/CrearComercio.jsx';
 import Buscador from '../componentes/Buscador.jsx';
+import { v4 as uuidv4 } from 'uuid';
 
 import CartaComercio from '../componentes/cartas/cartaComercio.jsx';
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import "../styles/admin.css"
 
+/*
 async function getComercios() {
     
     const res = await fetch('http://localhost:3000/api/comercios')
@@ -28,9 +30,26 @@ async function getComercios() {
     return data.comercios
 
 }
+*/
 
 function Administrador() {
 
+    const [datosComercio, setDatosComercio] = useState({
+
+        idComercio: uuidv4(),
+        nombreComercio: "",
+        cifComercio: "",
+        direccionComercio: "",
+        emailComercio: "",
+        telefonoComercio: "",
+        puntuacion: "",
+        comentarios: "",
+
+    });
+
+
+    //const [listaComerciosGuardados, setListaComerciosGuardados] = useState([]);
+    /*
     //Obtener lista de comercios
     const [listaComercios, setListaComercios] = useState([]);
 
@@ -84,29 +103,16 @@ function Administrador() {
         }
 
     };
+    */
    
     return (
 
         <div className="contenedor">
 
             <div className="crear_comercio">
-                <CrearComercio />
-            </div>
-            
-            <div className="busquedaComercios">
-                <Buscador listaComercios={listaComercios} />
+                <CrearComercio datosComercio={datosComercio} setDatosComercio={setDatosComercio} />
             </div>
 
-            <div className="listaComercios">
-
-                {listaComercios.map((comercio) => 
-                
-                    <CartaComercio key={comercio.idComercio} comercio={comercio} onDelete={handleDelete}/>
-                    
-                )}
-
-            </div>
-            
         </div>
     );
 }

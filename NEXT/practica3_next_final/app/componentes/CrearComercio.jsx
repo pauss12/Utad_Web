@@ -1,27 +1,16 @@
 "use client"
 
-import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useState } from 'react'; import { v4 as uuidv4 } from 'uuid';
+import { useRouter } from 'next/navigation'
 
-function CrearComercio() {
+function CrearComercio({datosComercio, setDatosComercio}) {
 
-    //Guardar los datos de un comercio
-    const [datosComercio, setDatosComercio] = useState({
-
-        idComercio: uuidv4(),
-        nombreComercio: "",
-        cifComercio: "",
-        direccionComercio: "",
-        emailComercio: "",
-        telefonoComercio: "",
-        puntuacion: 0,
-        comentarios: "",
-
-    });
+    const router = useRouter();
 
     //Funcion para guardar los datos de un comercio
     const handleCrearComercio = async (e) => {
         
+        e.preventDefault();
         try {
 
             const response = await fetch('http://localhost:3000/api/comercios', {
