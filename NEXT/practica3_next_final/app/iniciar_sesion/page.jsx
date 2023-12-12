@@ -1,21 +1,18 @@
 "use client"
 
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation'
 import DropdownCompleto from "../componentes/DropdownCompleto";
 
 import "../styles/inicioSesion.css"
 
 function iniciar_sesion() {
 
-    const router = useRouter();
-
     const [usuarioIntroducido, setUsuarioIntroducido] = useState("");
     const [contrasenaIntroducida, setContrasenaIntroducida] = useState("");
 
     const [opcionSeleccionada, setOpcionSeleccionada] = useState("");
 
-    //Redirigir la pagina segun que opcion haya escogido --------------------------------------------------------------------------------------------------------
+    //Redirigir la pagina segun que opcion haya escogido ------------------------------------------------------------------
     const redirigir = (code) => {
 
         if (code === 200) {
@@ -25,22 +22,22 @@ function iniciar_sesion() {
             if (opcionSeleccionada === 'Administrador') {
 
                 console.log('Estoy en el administrador');
-                router.push('/administrador')
+                window.location.href = '../administrador';
 
             } else if (opcionSeleccionada === 'Comercios'){
                 
                 console.log('Estoy en el Comercios')
-                router.push('/comercios')
+                window.location.href = '../comercio';
 
             } else if (opcionSeleccionada === 'Usuario Registrado') {
 
                 console.log('Estoy en el Usuario Registrado')
-                router.push('/usuario_registrado')
+                window.location.href = '../usuario_registrado';
 
             } else if (opcionSeleccionada === 'Usuario Anonimo') {
 
                 console.log('Estoy en el Usuario Anonimo')
-                router.push('/anonimo')
+                window.location.href = '../anonimo';
 
             
             }
