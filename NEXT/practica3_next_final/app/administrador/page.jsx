@@ -19,23 +19,29 @@ import React, { useState, useEffect } from "react";
 
 import "../styles/admin.css"
 
+async function getComercios() {
+    
+    const res = await fetch('http://localhost:3000/api/comercios')
+
+    const data = await res.json()
+
+    return data.comercios
+
+}
+
 function Administrador() {
 
-    
-    //Lista de comercios
+    //Obtener lista de comercios
     const [listaComercios, setListaComercios] = useState([]);
-/*
+
     useEffect(() => {
-        
         const obtenerComercios = async () => {
 
             try {
 
-                const response = await fetch("http://localhost:3000/api/comercios");
+                const comercios = await getComercios();
 
-                const data = await response.json();
-
-                setListaComercios(data.comercios);
+                setListaComercios(comercios);
 
             } catch (error) {
 
@@ -47,9 +53,7 @@ function Administrador() {
         obtenerComercios();
 
     }, []);
-
-    */
-    
+      
     //Handle eliminar comercio
     const handleDelete = async () => {
       
@@ -88,7 +92,7 @@ function Administrador() {
             <div className="crear_comercio">
                 <CrearComercio />
             </div>
-
+            
             <div className="busquedaComercios">
                 <Buscador listaComercios={listaComercios} />
             </div>
@@ -97,8 +101,8 @@ function Administrador() {
 
                 {listaComercios.map((comercio) => 
                 
-                    <CartaComercio comercio={comercio} onDelete={handleDelete}/>
-                
+                    <CartaComercio key={comercio.idComercio} comercio={comercio} onDelete={handleDelete}/>
+                    
                 )}
 
             </div>
