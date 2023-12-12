@@ -12,7 +12,12 @@ function cartaComercio({ comercio, onDelete }) {
             <p>Puntuación: {comercio.puntuacion}</p>
             <p>Comentarios:{comercio.comentarios}</p>
             
-            <button className="botonEliminar" onClick={() => onDelete(comercio.emailComercio)}>Borrar Comercio</button>
+            {onDelete && (
+                <button className="botonEliminar" onClick={() => onDelete(comercio.emailComercio)}>
+                    Borrar Comercio
+                </button>
+            )}
+            
             <hr></hr>
         </div>
     );
