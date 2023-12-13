@@ -79,20 +79,20 @@ function anonimo() {
                         id="floatingInputGroup1"
                         style={{ border: 'none', background: 'none' }}
                         placeholder="Buscador"
-                        onChange={(e) => handleSearch(e.target.value)}
+                        onChange={(e) => handleSearch(e.target.value)} 
                     />
 
                 </div>
 
             </div>
 
-            <div className="contenedorListas">
+            <div className="listaContenedores">
                     
-                <div className="flex gap-4 flex-wrap">
+                <div className="lista">
 
                     {comercios.map((comercio) => (
                         
-                        <CartaComercio key={comercio.idComercio} comercio={comercio} onDelete={null} className="w-48 h-40 flex-shrink-0" />
+                        <CartaComercio key={comercio.idComercio} comercio={comercio} onDelete={null} />
 
                     ))}
 
