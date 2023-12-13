@@ -37,8 +37,6 @@ function usuario_registrado() {
     //Funcion para editar un usuario ----------------------------------------
     const handleChange = async (idUsuario) => {
 
-        //Mandar a mi pagina de ese usuario [idUsuario], mandandole tb el id
-        //del usuario que quiero editar
         window.location.href = `/usuario_registrado/${idUsuario}`;
     
     };
