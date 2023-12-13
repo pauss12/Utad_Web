@@ -35,9 +35,9 @@ function usuario_registrado() {
     }, []);
 
     //Funcion para editar un usuario ----------------------------------------
-    const handleChange = async (idUsuario) => {
+    const handleChange = async (usuario) => {
 
-        window.location.href = `/usuario_registrado/${idUsuario}`;
+        window.location.href = `/usuario_registrado/${usuario.idUsuario}`;
     
     };
 
@@ -50,7 +50,7 @@ function usuario_registrado() {
                 <CartaUsuario
                     key={usuario.idUsuario}
                     usuario={usuario}
-                    onChange={() => handleChange(usuario.idUsuario)} />
+                    onChange={() => handleChange(usuario)} />
 
             ))}
         </div>
