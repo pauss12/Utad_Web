@@ -1,18 +1,59 @@
 "use client"
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/usuarioRegistrado.css"
 
-import EditarUsuario from "../componentes/editarUsuario";
+import CartaUsuario from '../componentes/cartas/cartaUsuario.jsx';
 
 function usuario_registrado() {
 
-    //Informacion de un usuario registrado
-    
+    //Variable para almacenar los usuarios que esten en la BBDD ------------
+    const [usuarios, setUsuarios] = useState([]);
 
+    //Funcion para obtener los usuarios de la "BBDD" ------------------------
+    const obtenerUsuarios = async () => {
+
+        try {
+
+            const response = await fetch('http://localhost:3000/api/usuarios')
+
+            const data = await response.json()
+
+            setUsuarios(data.users)
+
+        } catch (error) {
+
+            console.log(error);
+            alert("Ha habido un problema a la hora de obtener los Usuarios");
+        }
+    };
+
+    useEffect(() => {
+
+        obtenerUsuarios();
+
+    }, []);
+
+    //Funcion para editar un usuario ----------------------------------------
+    const handleChange = async (usuario) => {
+
+        //Llevar a la pagina de ese id
+        router.push(`/usuario_registrado/${idUsuario}`);
+    };
+
+    
     return (
         
-        <EditarUsuario />
+        <div className="flex">
+            {usuarios.map((usuario) => (
+
+                <CartaUsuario
+                    key={usuario.idUsuario}
+                    usuario={usuario}
+                    onChange={() => handleChange(usuario)} />
+
+            ))}
+        </div>
 
     );
 }
