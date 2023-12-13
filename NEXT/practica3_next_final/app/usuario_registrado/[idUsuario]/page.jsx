@@ -1,20 +1,23 @@
-
 "use client"
 
+import EditarUsuario from "../../componentes/editarUsuario"
 
+async function loadUser(id) {
+    const res = await fetch(`https://localhost/api/usuarios/${id}`)
+    const data = await res.json()
+    return data
+}
 
-function UsuarioDetalle() {
+async function Page({params}) {
     
-    //Como obtener el ultimo parametro de la URL
-    const idUsuario = useParams().idUsuario;
-
+    const user = await loadUser(params.idUsuario)
 
     return (
         <div>
-            <h1>Detalles del Usuario con ID: {idUsuario}</h1>
-            {/* Renderizar otros detalles del usuario */}
+            <h1>Post Page</h1>
+            
         </div>
-    );
+    )
 }
 
-export default UsuarioDetalle;
+export default Page;

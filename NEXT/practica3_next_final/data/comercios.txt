@@ -20,16 +20,6 @@
         "comentarios": ""
     },
     {
-        "idComercio": "f45e1cfb-8da2-4ef4-8783-f420784a0a64",
-        "nombreComercio": "d",
-        "cifComercio": "d",
-        "direccionComercio": "d",
-        "emailComercio": "d",
-        "telefonoComercio": "d",
-        "puntuacion": "",
-        "comentarios": ""
-    },
-    {
         "idComercio": "a66eb5e4-b5f7-455d-906b-1a020db8e0e2",
         "nombreComercio": "e",
         "cifComercio": "e",

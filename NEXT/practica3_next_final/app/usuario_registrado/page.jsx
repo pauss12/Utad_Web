@@ -1,9 +1,9 @@
 "use client"
 
 import { useState, useEffect } from "react";
-import "../styles/usuarioRegistrado.css"
-
+import Link from 'next/link';
 import CartaUsuario from '../componentes/cartas/cartaUsuario.jsx';
+import "../styles/usuarioRegistrado.css"
 
 function usuario_registrado() {
 
@@ -35,10 +35,12 @@ function usuario_registrado() {
     }, []);
 
     //Funcion para editar un usuario ----------------------------------------
-    const handleChange = async (usuario) => {
+    const handleChange = async (idUsuario) => {
 
-        //Llevar a la pagina de ese id
-        router.push(`/usuario_registrado/${idUsuario}`);
+        //Mandar a mi pagina de ese usuario [idUsuario], mandandole tb el id
+        //del usuario que quiero editar
+        window.location.href = `/usuario_registrado/${idUsuario}`;
+    
     };
 
     
@@ -50,11 +52,10 @@ function usuario_registrado() {
                 <CartaUsuario
                     key={usuario.idUsuario}
                     usuario={usuario}
-                    onChange={() => handleChange(usuario)} />
+                    onChange={() => handleChange(usuario.idUsuario)} />
 
             ))}
         </div>
-
     );
 }
 

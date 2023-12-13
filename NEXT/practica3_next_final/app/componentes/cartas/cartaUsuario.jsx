@@ -19,7 +19,7 @@ function cartaUsuario({ usuario, onChange }) {
             {
             onChange && (
                 <button className="bg-red-500 text-white rounded-md px-4 py-2"
-                    onClick={() => onChange(usuario)}>
+                    onClick={() => onChange(usuario.idUsuario)}>
                     Editar Usuario
                 </button>
             )}
