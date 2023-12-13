@@ -37,7 +37,9 @@ export async function DELETE(request) {
 }
 
 export async function POST(request) {
+
     const data = await request.json()
+    
     try {
 
         const users = JSON.parse(readFileSync("data/users.txt"))
