@@ -1,21 +1,42 @@
 "use client"
 
-import EditarUsuario from "../../componentes/editarUsuario"
+import EditarUsuario from '@/app/componentes/editarUsuario';
+import React from 'react';
+import { useState, useEffect } from 'react';
 
-async function loadUser(id) {
-    const res = await fetch(`https://localhost/api/usuarios/${id}`)
+
+async function loadUser(idUsuario) {
+
+    const res = await fetch(`http://localhost:3000/api/usuarios/${idUsuario}`);
+
     const data = await res.json()
-    return data
+
+    return data.user
 }
 
-async function Page({params}) {
+function Page({params}) {
     
-    const user = await loadUser(params.idUsuario)
+    const [usuario, setUsuario] = useState([]);
+
+    console.log(params.idUsuario);
+
+    useEffect(() => {
+
+        const fetchData = async () => {
+
+            const user = await loadUser(params.idUsuario)
+            setUsuario(user)
+
+        };
+
+        fetchData();
+
+    }, []);
 
     return (
+
         <div>
-            <h1>Post Page</h1>
-            
+            <EditarUsuario user={usuario} />
         </div>
     )
 }
