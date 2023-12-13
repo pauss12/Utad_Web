@@ -6,14 +6,14 @@ function cartaUsuario({ usuario, onChange }) {
 
         <>
             <div className="bg-gray-200 rounded-2x1 ml-4 border border-black pl-4 pr-20 py-10 md:p-50 lg:px-30 my-2 shadow-md rounded">
-                    <h2>Nombre: {usuario.nombreUsuario}</h2>
-                    <p>ID: {usuario.idUsuario}</p> 
-                    <p>Email: {usuario.email}</p> 
-                    <p>Edad: {usuario.edad}</p> 
-                    <p>Ciudad: {usuario.edad}</p> 
-                    <p>Intereses: {usuario.intereses}</p> 
-                    <p>Permite ofertas: {usuario.permiteOfertas}</p> 
-                    <p>Tipo: {usuario.tipoUsuario}</p> 
+                <h2><b>Nombre:</b>  {usuario.nombreUsuario}</h2>
+                <p><b>ID: </b>       {usuario.idUsuario}</p> 
+                <p><b>Email:</b>  {usuario.emailUsuario}</p> 
+                <p><b>Edad:</b>  {usuario.edadUsuario}</p> 
+                <p><b>Ciudad:</b>  {usuario.edadUsuario}</p> 
+                <p><b>Intereses:</b>  {usuario.interesesUsuario}</p> 
+                <p><b>Permite ofertas:  </b>{usuario.permiteOfertas}</p> 
+                <p><b>Tipo:</b> {usuario.tipoUsuario}</p> 
             </div>
                 
             {
