@@ -1,9 +1,8 @@
-import "../../styles/carta.css"
 
 function cartaComercio({ comercio, onDelete }) {
 
     return (
-        <div className="carta">
+        <div className="bg-gray-200 rounded-2x1 ml-4 border border-black pl-4 pr-20 py-10 md:p-50 lg:px-30 my-2 shadow-md rounded">
             <h2>Nombre: {comercio.nombreComercio}</h2>
             <p>CIF: {comercio.cifComercio}</p>
             <p>Dirección: {comercio.direccionComercio}</p>
@@ -13,7 +12,8 @@ function cartaComercio({ comercio, onDelete }) {
             <p>Comentarios:{comercio.comentarios}</p>
             
             {onDelete && (
-                <button className="botonEliminar" onClick={() => onDelete(comercio.emailComercio)}>
+                <button className="bg-red-500 text-white rounded-md px-4 py-2"
+                    onClick={() => onDelete(comercio.emailComercio)}>
                     Borrar Comercio
                 </button>
             )}

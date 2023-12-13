@@ -57,7 +57,8 @@ function anonimo() {
 
                 return (
 
-                    task.nombreComercio.toLowerCase().includes(searchTerm.toLowerCase())
+                    task.nombreComercio.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                    task.ciudadComercio.toLowerCase().includes(searchTerm.toLowerCase()) 
 
                 );
             });
@@ -88,17 +89,26 @@ function anonimo() {
 
             </div>
 
-            <div className="listaContenedores">
-                    
-                <div className="lista">
+            <div className="flex">
 
-                    {comercios.map((comercio) => (
-                        
-                        <CartaComercio key={comercio.idComercio} comercio={comercio} onDelete={null} />
+                {comercios.length > 0 ? (
 
-                    ))}
+                    comercios.map((comercio) => (
 
-                </div>
+                        <CartaComercio key={comercio.idComercio} comercio={comercio} onDelete={null}
+                            className="w-full h-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 p-100"
+
+                        />
+
+                    ))
+
+                ) : (
+                    <div className="bg-gray-200 p-8 hidden rounded-md shadow-md md:w-96">
+                        <p>No hay Comercios</p>
+                    </div>
+                )
+
+                }
 
             </div>
 
