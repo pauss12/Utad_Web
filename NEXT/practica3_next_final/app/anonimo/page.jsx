@@ -25,7 +25,9 @@ function anonimo() {
 
             const data = await response.json()
 
+            //Actualizo las dos variables
             setComercios(data.comercios)
+            setOriginalTasks(data.comercios)
 
         } catch (error) {
 
