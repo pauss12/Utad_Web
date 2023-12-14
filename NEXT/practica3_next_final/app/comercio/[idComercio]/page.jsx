@@ -2,9 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-
 function Page({ params }) {
-
 
     return (
 
@@ -12,7 +10,7 @@ function Page({ params }) {
 
             <div className="flex justify-center ">
                 
-                <button onClick={darseDeBajaUsuario}
+                <button 
                     className="absolute right-4 top-12 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                     Darse de baja
                 </button>
