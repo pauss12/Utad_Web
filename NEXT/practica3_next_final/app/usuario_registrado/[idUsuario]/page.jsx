@@ -3,8 +3,6 @@
 import EditarUsuario from '@/app/componentes/editarUsuario';
 import { useState, useEffect } from 'react';
 
-import CartaComercio from '@/app/componentes/cartas/cartaComercio';
-
 async function loadUser(idUsuario) {
 
     const res = await fetch(`http://localhost:3000/api/usuarios/${idUsuario}`);
@@ -13,6 +11,27 @@ async function loadUser(idUsuario) {
 
     return data.user
 }
+
+//cargar los comercios  ------- 
+async function loadComercios() {
+    try {
+
+        // Trae todos los comercios de la base de datos
+        const res = await fetch('http://localhost:3000/api/comercios')
+
+        const data = await res.json()
+
+        return data.comercios 
+
+    } catch (error) {
+
+        console.error('Error al cargar los comercios:', error);
+
+        throw error;  
+
+    }
+}
+
 
 function Page({params}) {
     
@@ -41,37 +60,35 @@ function Page({params}) {
 
         fetchData();
 
-    }, [comercios]);
+    }, []);
+
 
     //Obtener los comercios ----------------------------------
-    const obtenerComercios = async () => {
-
-        try {
-
-            const response = await fetch('http://localhost:3000/api/comercios')
-
-            const data = await response.json()
-
-            setComercios(data.comercios)
-
-            console.log(comercios)
-
-
-        } catch (error) {
-
-            console.log(error);
-
-            alert("Ha habido un problema a la hora de obtener los Comercios");
-        }
-
-        console.log(comercios)
-    };
-
     useEffect(() => {
 
-        obtenerComercios();
+        const obtenerComercios = async () => {
+            
+            try {
 
+                const comercios = await loadComercios();
+
+                setComercios(comercios);
+
+            } catch (error) {
+
+                console.error('Error al cargar el usuario:', error);
+
+            }
+        
+        };
+
+            obtenerComercios();
+            
     }, []);
+
+    useEffect(() => {
+        console.log(comercios); // This will show the updated state
+    }, [comercios]);
 
 
     //Darse de baja -----------------------------------------
@@ -106,7 +123,7 @@ function Page({params}) {
     };
    
     //Poner reseña ------------------------------------------
-    /*
+    
     const ponerResena = async (comercio) => {
         const nuevaResena = prompt("Introduce la reseña que quieres poner");
 
@@ -149,7 +166,7 @@ function Page({params}) {
             }
         }
     };
-    */
+  
 
 
     return (
@@ -176,7 +193,7 @@ function Page({params}) {
                             <p>Comentarios:{comercio.comentarios}</p>
 
                             <button className="bg-blue-500 text-white rounded-md px-4 py-2 mt-4"
-                                
+                                onClick={() => ponerResena(comercio)}
                             >
                                 Poner reseña
                             </button>
