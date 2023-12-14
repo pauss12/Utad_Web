@@ -4,34 +4,45 @@ import { useState, useEffect } from "react";
 
 function comercio() {
 
-    //Variable para almacenar los comercios que esten en la BBDD ------------
     const [comercios, setComercios] = useState([]);
 
-    //Funcion para obtener los comercios de la "BBDD" ------------------------
-    const obtenerComercios = async () => {
-
-        try {
-
-            const response = await fetch('http://localhost:3000/api/comercios')
-
-            const data = await response.json()
-
-            setComercios(data.comercios)
-
-        } catch (error) {
-
-            console.log(error);
-
-            alert("Ha habido un problema a la hora de obtener los Comercios");
-
-        }
-    };
-
+    // Funcion para obtener los comercios de la "BBDD" ------------------------
     useEffect(() => {
+
+        const obtenerComercios = async () => {
+
+            try {
+
+                const response = await fetch('http://localhost:3000/api/comercios');
+
+                const data = await response.json();
+
+                console.log("API Response:", data);
+
+                if (data && data.comercios !== undefined) {
+
+                    console.log("Comercios:", data.comercios);
+
+                    setComercios(data.comercios);
+
+                } else {
+
+                    console.log("Comercios not found in the response");
+
+                }
+            } catch (error) {
+
+                console.log("Error:", error);
+
+                alert("There was a problem obtaining businesses");
+                
+            }
+        };
 
         obtenerComercios();
 
     }, []);
+
 
     //Funcion para editar un usuario ----------------------------------------
     const handleChange = async (comercio) => {
@@ -43,26 +54,29 @@ function comercio() {
 
     return (
 
-        <div className="flex">
-        {comercios && comercios.map((comercio) => (
-            
-            <div className="bg-gray-200 rounded-2x1 ml-4 border border-black pl-4 pr-20 py-10 md:p-50 lg:px-30 my-2 shadow-md rounded">
-                <h2>Nombre: {comercio.nombreComercio}</h2>
-                <p>CIF: {comercio.cifComercio}</p>
-                <p>Dirección: {comercio.direccionComercio}</p>
-                <p>Email: {comercio.emailComercio}</p>
-                <p>Teléfono: {comercio.telefonoComercio}</p>
-                <p>Puntuación: {comercio.puntuacion}</p>
-                <p>Comentarios:{comercio.comentarios}</p>
+        <ul className="flex">
+            {comercios && comercios.map((comercio) => (
+                <li key={comercio.idComercio} className="bg-gray-200 rounded-2x1 ml-4 border border-black pl-4 pr-20 py-10 md:p-50 lg:px-30 my-2 shadow-md rounded">
+                    <h2>Nombre: {comercio.nombreComercio}</h2>
+                    <p>ID: {comercio.idComercio}</p>
+                    <p>CIF: {comercio.cifComercio}</p>
+                    <p>Dirección: {comercio.direccionComercio}</p>
+                    <p>Actividad: {comercio.actividadComercio}</p>
+                    <p>Foto: {comercio.fotos}</p>
+                    <p>Email: {comercio.emailComercio}</p>
+                    <p>Teléfono: {comercio.telefonoComercio}</p>
+                    <p>Puntuación: {comercio.puntuacion}</p>
+                    <p>Comentarios:{comercio.comentarios}</p>
 
-                <button className="bg-red-500 text-white rounded-md px-4 py-2">
-                    Editar Comercio
-                </button>
+                    <button className="bg-red-500 text-white rounded-md px-4 py-2"
+                        onClick={() => handleChange(comercio)}
+                    >
+                        Editar Comercio
+                    </button>
 
-                <hr></hr>
-            </div>
-        ))}
-        </div>
+                </li>
+            ))}
+        </ul>
        
     );
 }
