@@ -52,3 +52,38 @@ export async function DELETE(request) {
         console.log(e)
     }
 }
+
+export async function PUT(request) {
+
+    const data = await request.json();
+
+    try {
+
+        const comercios = JSON.parse(readFileSync("data/comercios.txt"));
+
+        const comercioIndex = comercios.findIndex((comercio) => comercio.emailComercio === data.emailComercio);
+
+        if (comercioIndex !== -1) {
+
+            comercios[comercioIndex].comentarios = data.comentarios;
+
+            writeFileSync("data/comercios.txt", JSON.stringify(comercios, null, 4));
+
+            console.log("Reseña actualizada:", data.comentarios);
+
+            return NextResponse.json({ message: "Comercio actualizado...", status: 200 });
+
+        } else {
+
+            return NextResponse.json({ message: "Comercio no encontrado", status: 404 });
+
+        }
+
+    } catch (e) {
+
+        console.log(e);
+
+        return NextResponse.json({ message: "Error al actualizar el comercio", status: 500 });
+
+    }
+}

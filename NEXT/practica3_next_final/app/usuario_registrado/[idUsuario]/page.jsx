@@ -3,6 +3,7 @@
 import EditarUsuario from '@/app/componentes/editarUsuario';
 import { useState, useEffect } from 'react';
 
+import CartaComercio from '@/app/componentes/cartas/cartaComercio';
 
 async function loadUser(idUsuario) {
 
@@ -16,6 +17,8 @@ async function loadUser(idUsuario) {
 function Page({params}) {
     
     const [usuario, setUsuario] = useState([]);
+
+    const [comercios, setComercios] = useState([]);
 
     //Obtener el usuario -------------------------------------
     useEffect(() => {
@@ -37,6 +40,31 @@ function Page({params}) {
         };
 
         fetchData();
+
+    }, []);
+
+    //Obtener los comercios ----------------------------------
+    const obtenerComercios = async () => {
+
+        try {
+
+            const response = await fetch('http://localhost:3000/api/comercios')
+
+            const data = await response.json()
+
+            setComercios(data.comercios)
+
+        } catch (error) {
+
+            console.log(error);
+
+            alert("Ha habido un problema a la hora de obtener los Comercios");
+        }
+    };
+
+    useEffect(() => {
+
+        obtenerComercios();
 
     }, []);
 
@@ -71,24 +99,94 @@ function Page({params}) {
         }
 
     };
+   
+    //Poner reseña ------------------------------------------
+    const ponerResena = async (comercio) => {
+        const nuevaResena = prompt("Introduce la reseña que quieres poner");
+
+        console.log(nuevaResena);
+
+        if (nuevaResena === null || nuevaResena === "") {
+
+            alert("No has introducido ninguna reseña");
+
+        } else {
+
+            const resena = {
+                comentarios: nuevaResena
+            };
+
+            try {
+
+                const response = await fetch(`http://localhost:3000/api/comercios/${comercio.idComercio}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(resena),
+                });
+
+                if (response.ok) {
+
+                    console.log('Reseña actualizada con éxito');
+
+                } else {
+
+                    console.error('Error al actualizar la reseña. Código de estado:', response.status);
+
+                }
+
+            } catch (error) {
+
+                console.error('Error en la solicitud de actualizar la reseña:', error);
+
+            }
+        }
+    };
+
+
 
     return (
 
-        <div>
-            <EditarUsuario user={usuario} />
+        <div className="flex flex-col ">
 
-            //Mostrar la lista de comercios
-            <div className="flex justify-center">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Ver comercios
+            <div className="flex justify-center ">
+
+                <EditarUsuario user={usuario}  />
+
+                <div className="grid grid-cols-2 gap-8 justify-center items-center ml-7 mt-20">
+
+                    {comercios.map((comercio) => (
+                            
+                        <div className="bg-gray-200 rounded-2x1 ml-4 border border-black pl-4 pr-20 py-10 md:p-50 lg:px-30 my-2 shadow-md rounded">
+
+                            <h2>Nombre: {comercio.nombreComercio}</h2>
+                            <p>ID: {comercio.idComercio} </p>
+                            <p>CIF: {comercio.cifComercio}</p>
+                            <p>Dirección: {comercio.direccionComercio}</p>
+                            <p>Email: {comercio.emailComercio}</p>
+                            <p>Teléfono: {comercio.telefonoComercio}</p>
+                            <p>Puntuación: {comercio.puntuacion}</p>
+                            <p>Comentarios:{comercio.comentarios}</p>
+
+                            <button className="bg-blue-500 text-white rounded-md px-4 py-2 mt-4"
+                                onClick={() => ponerResena(comercio)}
+                            >
+                                Poner reseña
+                            </button>
+
+                            <hr></hr>
+                        </div>
+        
+                    ))}
+
+                </div>
+
+                <button onClick={darseDeBajaUsuario}
+                    className="absolute right-4 top-12 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                    Darse de baja
                 </button>
             </div>
-
-            <button onClick={darseDeBajaUsuario}
-                className="absolute right-4 top-12 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                Darse de baja
-            </button>
-
         </div>
     )
 }

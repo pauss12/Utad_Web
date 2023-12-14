@@ -5,6 +5,7 @@ import "../styles/usuarioRegistrado.css"
 import React, { useState, useEffect } from 'react';
 
 function EditarUsuario({ user }) {
+    
     const [usuario, setUsuario] = useState(user);
 
     useEffect(() => {
@@ -57,8 +58,6 @@ function EditarUsuario({ user }) {
             
         }
     };
-
-    console.log('Rendering with user:', usuario);
 
     return (
         
