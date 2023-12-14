@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react";
+import "../styles/comercio.css"
 
 function comercio() {
 
@@ -77,7 +78,6 @@ function comercio() {
                 </li>
             ))}
         </ul>
-       
     );
 }
 
