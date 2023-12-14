@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { readFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 
 
 export async function GET(request, { params }) {
@@ -41,13 +41,20 @@ export async function PUT(request, { params }) {
         
         }
 
-        const user = users[userIndex]
+        const user = users[userIndex];
 
-        const body = await request.body.json()
+        const chunks = [];
 
-        const newUser = { ...user, ...body }
+        for await (const chunk of request.body) {
+            chunks.push(chunk);
+        }
+        const body = JSON.parse(Buffer.concat(chunks).toString());
 
-        users[userIndex] = newUser
+        const newUser = { ...user, ...body };
+
+        users[userIndex] = newUser;
+
+        writeFileSync("data/users.txt", JSON.stringify(users, null, 4));
 
         return NextResponse.json({ user: newUser });
 
