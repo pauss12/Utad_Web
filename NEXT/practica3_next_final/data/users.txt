@@ -1,16 +1,5 @@
 [
     {
-        "idUsuario": "f83fd065-7dc1-4d6a-8f00-a813880dcdc4",
-        "nombreUsuario": "paula",
-        "emailUsuario": "paula@mail.com",
-        "passwordUsuario": "1234",
-        "edadUsuario": "20",
-        "ciudadUsuario": "Madrid",
-        "interesesUsuario": "programacion",
-        "permiteOfertas": true,
-        "tipoUsuario": "Administrador"
-    },
-    {
         "idUsuario": "4b483b5b-5014-4c61-ae41-c857a26020ca",
         "nombreUsuario": "elena",
         "emailUsuario": "elena@mail.com",

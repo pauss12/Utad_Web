@@ -66,3 +66,32 @@ export async function PUT(request, { params }) {
 
     }
 }
+
+export async function DELETE(request, { params }) {
+
+    try {
+        
+        const users = JSON.parse(readFileSync("data/users.txt"))
+
+        const userIndex = users.findIndex((user) => user.idUsuario === params.idUsuario)
+
+        if (userIndex === -1) {
+
+            return NextResponse.json({ message: "API:USER not found", status: 404 });
+        
+        }
+
+        users.splice(userIndex, 1);
+
+        writeFileSync("data/users.txt", JSON.stringify(users, null, 4));
+
+        return NextResponse.json({ message: "API:USER deleted" });
+
+    } catch (error) {
+
+        console.error("API: Error fetching USER:", error);
+
+        return NextResponse.json({ message: "API: Error fetching USER", status: 500 });
+
+    }
+}
