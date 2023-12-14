@@ -36,7 +36,9 @@ function Administrador() {
 
         idComercio: uuidv4(),
         nombreComercio: "",
+        actividadComercio: "",
         cifComercio: "",
+        fotos: "",
         direccionComercio: "",
         emailComercio: "",
         telefonoComercio: "",
@@ -47,24 +49,25 @@ function Administrador() {
 
     const [listaComerciosGuardados, setListaComerciosGuardados] = useState([]);
 
-    const obtenerComercios = async () => {
-
-        try {
-
-            const response = await fetch('http://localhost:3000/api/comercios')
-
-            const data = await response.json()
-
-            setListaComerciosGuardados(data.comercios)
-
-        } catch (error) {
-
-            console.log(error);
-            alert("Ha habido un problema a la hora de obtener los comercios");
-        }
-    };
 
     useEffect(() => {
+
+        const obtenerComercios = async () => {
+
+            try {
+
+                const response = await fetch('http://localhost:3000/api/comercios')
+
+                const data = await response.json()
+
+                setListaComerciosGuardados(data.comercios)
+
+            } catch (error) {
+
+                console.log(error);
+                alert("Ha habido un problema a la hora de obtener los comercios");
+            }
+        };
 
         obtenerComercios();
 
