@@ -10,24 +10,13 @@
         "comentarios": ""
     },
     {
-        "idComercio": "cf9695a6-d355-41dd-8e6b-39cf8fb16e34",
-        "nombreComercio": "c",
-        "cifComercio": "c",
-        "direccionComercio": "c",
-        "emailComercio": "c",
-        "telefonoComercio": "c",
-        "puntuacion": "",
+        "idComercio": "2",
+        "nombreComercio": "a",
+        "cifComercio": "a",
+        "direccionComercio": "b",
+        "emailComercio": "b",
+        "telefonoComercio": "b",
+        "puntuacion": 0,
         "comentarios": ""
-    },
-    {
-        "idComercio": "a66eb5e4-b5f7-455d-906b-1a020db8e0e2",
-        "nombreComercio": "e",
-        "cifComercio": "e",
-        "direccionComercio": "e",
-        "emailComercio": "e",
-        "telefonoComercio": "e",
-        "puntuacion": "",
-        "comentarios": ""
-    },
-    
+    }
 ]

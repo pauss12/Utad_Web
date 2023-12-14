@@ -9,5 +9,16 @@
         "interesesUsuario": "progr",
         "permiteOfertas": true,
         "tipoUsuario": "Usuarios Registrados"
+    },
+    {
+        "idUsuario": "2",
+        "nombreUsuario": "lucia",
+        "emailUsuario": "lucia@mail.com",
+        "passwordUsuario": "1234",
+        "edadUsuario": "12",
+        "ciudadUsuario": "Madrid",
+        "interesesUsuario": "progr",
+        "permiteOfertas": true,
+        "tipoUsuario": "Usuarios Registrados"
     }
 ]
