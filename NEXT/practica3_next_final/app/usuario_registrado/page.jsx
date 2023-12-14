@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react";
-import Link from 'next/link';
 import CartaUsuario from '../componentes/cartas/cartaUsuario.jsx';
 import "../styles/usuarioRegistrado.css"
 
