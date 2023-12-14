@@ -1,7 +1,6 @@
 "use client"
 
 import EditarUsuario from '@/app/componentes/editarUsuario';
-import React from 'react';
 import { useState, useEffect } from 'react';
 
 
@@ -18,14 +17,20 @@ function Page({params}) {
     
     const [usuario, setUsuario] = useState([]);
 
-    console.log(params.idUsuario);
-
     useEffect(() => {
 
         const fetchData = async () => {
 
-            const user = await loadUser(params.idUsuario)
-            setUsuario(user)
+            try {
+                const user = await loadUser(params.idUsuario);
+
+                setUsuario(user);
+
+            } catch (error) {
+
+                console.error('Error al cargar el usuario:', error);
+                  
+            }
 
         };
 
