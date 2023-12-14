@@ -61,6 +61,7 @@ function EditarUsuario({ user }) {
     console.log('Rendering with user:', usuario);
 
     return (
+        
         <div className="contenedorEditarUsuario">
             <div className="container mx-auto mt-8">
                 <h2 className="text-2xl font-semibold mb-4">Editar Usuario</h2>
