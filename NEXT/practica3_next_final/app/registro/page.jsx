@@ -63,6 +63,7 @@ function registro_user() {
 
                 alert('Datos guardados exitosamente');
                 setDatosUsuario({
+                    idUsuario: uuidv4(),
                     nombreUsuario: '',
                     emailUsuario: '',
                     passwordUsuario: '',
