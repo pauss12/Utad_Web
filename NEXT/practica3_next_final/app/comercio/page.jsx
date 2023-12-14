@@ -1,82 +1,70 @@
-//Pagina del comercio
-
 "use client"
 
-import EditarComercio from '../componentes/EditarComercio.jsx';
-import React, { useEffect, useState } from "react";
-
-import CartaUsuario from "../componentes/cartas/cartaUsuario.jsx"
-
-import '../styles/comercio.css';
+import { useState, useEffect } from "react";
 
 function comercio() {
 
-    const [listaUsuarios, setListaUsuarios] = useState([]);
+    //Variable para almacenar los comercios que esten en la BBDD ------------
+    const [comercios, setComercios] = useState([]);
+
+    //Funcion para obtener los comercios de la "BBDD" ------------------------
+    const obtenerComercios = async () => {
+
+        try {
+
+            const response = await fetch('http://localhost:3000/api/comercios')
+
+            const data = await response.json()
+
+            setComercios(data.comercios)
+
+        } catch (error) {
+
+            console.log(error);
+
+            alert("Ha habido un problema a la hora de obtener los Comercios");
+
+        }
+    };
 
     useEffect(() => {
-        fetch("../api/usuarios")
-            .then((res) => res.json())
-            .then((data) => {
-                setListaUsuarios(data);
-            });
+
+        obtenerComercios();
+
     }, []);
 
-    // Crear nueva variable con el filtrado de esos usuarios que tenga el permitirOfertas activado
-    const listaUsuariosPermitirOfertas = Array.isArray(listaUsuarios)
-        ? listaUsuarios.filter((usuario) => usuario.permitirOfertas === true)
-        : [];
+    //Funcion para editar un usuario ----------------------------------------
+    const handleChange = async (comercio) => {
+
+        window.location.href = `/comercio/${comercio.idComercio}`;
+
+    };
+
 
     return (
-        <div>
-            <div className="contenedor">
 
-                <div className="editarComercio">
-                    <EditarComercio />
-                </div>
+        <div className="flex">
+        {comercios && comercios.map((comercio) => (
+            
+            <div className="bg-gray-200 rounded-2x1 ml-4 border border-black pl-4 pr-20 py-10 md:p-50 lg:px-30 my-2 shadow-md rounded">
+                <h2>Nombre: {comercio.nombreComercio}</h2>
+                <p>CIF: {comercio.cifComercio}</p>
+                <p>Dirección: {comercio.direccionComercio}</p>
+                <p>Email: {comercio.emailComercio}</p>
+                <p>Teléfono: {comercio.telefonoComercio}</p>
+                <p>Puntuación: {comercio.puntuacion}</p>
+                <p>Comentarios:{comercio.comentarios}</p>
 
-                <div className="listaUsuarios">
+                <button className="bg-red-500 text-white rounded-md px-4 py-2">
+                    Editar Comercio
+                </button>
 
-                    <h1 className="titulo">Lista de Usuarios</h1>
-
-                    <div className="listaUsuariosPermitirOfertas">
-                        <h2 className="subtitulo">Usuarios que permiten ofertas</h2>
-                        <ul>
-                            {listaUsuariosPermitirOfertas.map((usuario) => (
-                                
-                                <CartaUsuario
-                                    key={usuario.id}
-                                    id={usuario.id}
-                                    nombre={usuario.nombre}
-                                    email={usuario.email}
-                                    password={usuario.password}
-                                    edad={usuario.edad}
-                                    ciudad={usuario.ciudad}
-                                    intereses={usuario.intereses}
-                                    permiteOfertas={usuario.permiteOfertas}
-                                    tipoUsuario={usuario.tipoUsuario}
-                                />
-
-                            ))}
-                        </ul>
-                    </div>
-                    
-                </div>
-
-
-                <div>
-                    <button
-                        type="submit"
-                        className="flex w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500  hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
-
-                    >
-                        Eliminar Comercio
-                    </button>
-                </div>
-
+                <hr></hr>
             </div>
+        ))}
         </div>
+       
     );
-
 }
 
 export default comercio;
