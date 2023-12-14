@@ -125,6 +125,7 @@ function Page({params}) {
     //Poner reseña ------------------------------------------
     
     const ponerResena = async (comercio) => {
+        
         const nuevaResena = prompt("Introduce la reseña que quieres poner");
 
         console.log(nuevaResena);
@@ -177,11 +178,11 @@ function Page({params}) {
 
                 <EditarUsuario user={usuario}  />
 
-                <div className="grid grid-cols-2 gap-8 justify-center items-center ml-7 mt-20">
+                <ul className="grid grid-cols-2 gap-8 justify-center items-center ml-7 mt-20">
                     
                     {comercios && comercios.map((comercio) => (
 
-                        <div className="bg-gray-200 rounded-2x1 ml-4 border border-black pl-4 pr-20 py-10 md:p-50 lg:px-30 my-2 shadow-md rounded">
+                        <li key={comercio.idComercio}  className="bg-gray-200 rounded-2x1 ml-4 border border-black pl-4 pr-20 py-10 md:p-50 lg:px-30 my-2 shadow-md rounded">
 
                             <h2>Nombre: {comercio.nombreComercio}</h2>
                             <p>ID: {comercio.idComercio} </p>
@@ -199,11 +200,11 @@ function Page({params}) {
                             </button>
 
                             <hr></hr>
-                        </div>
+                        </li>
 
                     ))}
 
-                </div>
+                </ul>
 
                 <button onClick={darseDeBajaUsuario}
                     className="absolute right-4 top-12 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">

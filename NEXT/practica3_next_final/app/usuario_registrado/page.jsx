@@ -43,7 +43,7 @@ function usuario_registrado() {
     
     return (
         
-        <div className="flex">
+        <ul className="flex">
             {usuarios.map((usuario) => (
 
                 <CartaUsuario
@@ -52,7 +52,7 @@ function usuario_registrado() {
                     onChange={() => handleChange(usuario)} />
 
             ))}
-        </div>
+        </ul>
     );
 }
 
