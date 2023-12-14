@@ -20,5 +20,27 @@
         "interesesUsuario": "progr",
         "permiteOfertas": true,
         "tipoUsuario": "Usuarios Registrados"
+    },
+    {
+        "idUsuario": "311f09f2-78ee-45b8-b574-da1e0409c89d",
+        "nombreUsuario": "pen e",
+        "emailUsuario": "camaroapache@gmail.hotmail.outlook.yahoo.txt.com",
+        "passwordUsuario": "si osy",
+        "edadUsuario": "201",
+        "ciudadUsuario": "Tu cola",
+        "interesesUsuario": "no soy",
+        "permiteOfertas": false,
+        "tipoUsuario": ""
+    },
+    {
+        "idUsuario": "422d47c5-da27-4840-b2f5-7eef6d594cb4",
+        "nombreUsuario": "paula",
+        "emailUsuario": "paula.mendez@live.com",
+        "passwordUsuario": "1234",
+        "edadUsuario": "20",
+        "ciudadUsuario": "Madrid",
+        "interesesUsuario": "Programar",
+        "permiteOfertas": true,
+        "tipoUsuario": "Usuarios Registrados"
     }
 ]
