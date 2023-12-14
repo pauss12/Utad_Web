@@ -47,10 +47,12 @@ function EditarUsuario({ user }) {
             if (response.ok) {
 
                 console.log('Usuario actualizado con éxito');
+                alert('Usuario actualizado con éxito')
 
             } else {
 
                 console.error('Error al actualizar el usuario');
+                alert('Error al actualizar el usuario')
 
             }
 
