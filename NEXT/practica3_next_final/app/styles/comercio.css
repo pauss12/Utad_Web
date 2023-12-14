@@ -1,3 +1,9 @@
+
+body {
+
+    background-image: url("../../public/imagenes/fondo_paginaComercio.avif");
+}
+
 .contenedor {
 
     display: flex;
