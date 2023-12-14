@@ -16,8 +16,6 @@ function iniciar_sesion() {
     const redirigir = (code) => {
 
         if (code === 200) {
-            
-            console.log(opcionSeleccionada);
 
             if (opcionSeleccionada === 'Administrador') {
 
@@ -59,28 +57,56 @@ function iniciar_sesion() {
             return;
         }
 
-        const userTXT = {
+        if (opcionSeleccionada == 'Administrador' || opcionSeleccionada == 'Usuario Registrado') {
 
-            nombreUsuario: usuarioIntroducido,
-            passwordUsuario: contrasenaIntroducida,
+            const userTXT = {
 
+                opcionSeleccionada: opcionSeleccionada,
+                nombreUsuario: usuarioIntroducido,
+                passwordUsuario: contrasenaIntroducida,
+
+            }
+
+            fetch('http://localhost:3000/api/login', {
+
+                method: 'POST',
+                headers: {
+
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userTXT)
+            })
+                .then((res) => res.json())
+                .then((data) => redirigir(data.status))
+                .catch((err) => console.log(err));
+
+
+        } else if (opcionSeleccionada == 'Comercios') {
+            
+            const comercioTXT = {
+
+                opcionSeleccionada: opcionSeleccionada,
+                nombreComercio: usuarioIntroducido,
+                cifComercio: contrasenaIntroducida,
+            }
+
+            fetch('http://localhost:3000/api/login', {
+
+                method: 'POST',
+                headers: {
+
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(comercioTXT)
+            })
+                .then((res) => res.json())
+                .then((data) => redirigir(data.status))
+                .catch((err) => console.log(err));     
+            
         }
-
-        fetch('http://localhost:3000/api/login', {
-
-            method: 'POST',
-            headers: {
-                
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(userTXT)
-        })
-            .then((res) => res.json())
-            .then((data) => redirigir(data.status))
-            .catch((err) => console.log(err));
-        
-
     }
+
+        
 
     return (
 
