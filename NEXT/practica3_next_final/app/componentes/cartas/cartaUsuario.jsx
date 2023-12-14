@@ -14,6 +14,7 @@ function cartaUsuario({ usuario, onChange }) {
                 <p><b>Intereses:</b>  {usuario.interesesUsuario}</p> 
                 <p><b>Permite ofertas:  </b>{usuario.permiteOfertas}</p> 
                 <p><b>Tipo:</b> {usuario.tipoUsuario}</p> 
+                
             </div>
                 
             {
