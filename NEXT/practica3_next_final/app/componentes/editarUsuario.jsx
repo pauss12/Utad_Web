@@ -11,6 +11,7 @@ function EditarUsuario({ user }) {
     useEffect(() => {
        
         setUsuario(user);
+
     }, [user]);
 
     const handleInputChange = (event) => {
