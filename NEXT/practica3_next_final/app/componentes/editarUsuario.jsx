@@ -1,5 +1,7 @@
 "use client";
 
+import "../styles/usuarioRegistrado.css"
+
 import React, { useState, useEffect } from 'react';
 
 function EditarUsuario({ user }) {
