@@ -29,6 +29,7 @@ function EditarUsuario({ user }) {
 
     };
 
+    //Actualizar el usuario -----------------------------------------------------
     const actualizarUsuario = async () => {
 
         try {
