@@ -1,7 +1,7 @@
 [
     {
         "idUsuario": "f83fd065-7dc1-4d6a-8f00-a813880dcdc4",
-        "nombreUsuario": "pauld",
+        "nombreUsuario": "paula",
         "emailUsuario": "paula@mail.com",
         "passwordUsuario": "1234",
         "edadUsuario": "20",

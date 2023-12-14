@@ -6,7 +6,7 @@ function EditarUsuario({ user }) {
     const [usuario, setUsuario] = useState(user);
 
     useEffect(() => {
-        // Actualizar el estado de usuario cuando cambia la prop user
+       
         setUsuario(user);
     }, [user]);
 
@@ -22,7 +22,7 @@ function EditarUsuario({ user }) {
             ...prevUsuario,
             [name]: newValue,
         }));
-        
+
     };
 
     const actualizarUsuario = async () => {
