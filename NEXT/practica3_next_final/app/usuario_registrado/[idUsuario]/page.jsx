@@ -54,12 +54,17 @@ function Page({params}) {
 
             setComercios(data.comercios)
 
+            console.log(comercios)
+
+
         } catch (error) {
 
             console.log(error);
 
             alert("Ha habido un problema a la hora de obtener los Comercios");
         }
+
+        console.log(comercios)
     };
 
     useEffect(() => {
@@ -155,9 +160,9 @@ function Page({params}) {
                 <EditarUsuario user={usuario}  />
 
                 <div className="grid grid-cols-2 gap-8 justify-center items-center ml-7 mt-20">
-
+                    
                     {comercios.map((comercio) => (
-                            
+
                         <div className="bg-gray-200 rounded-2x1 ml-4 border border-black pl-4 pr-20 py-10 md:p-50 lg:px-30 my-2 shadow-md rounded">
 
                             <h2>Nombre: {comercio.nombreComercio}</h2>
@@ -177,7 +182,7 @@ function Page({params}) {
 
                             <hr></hr>
                         </div>
-        
+
                     ))}
 
                 </div>
