@@ -26,3 +26,36 @@ export async function GET(request, { params }) {
 
     }
 }
+
+export async function PUT(request, { params }) {
+
+    try {
+        
+        const users = JSON.parse(readFileSync("data/users.txt"))
+
+        const userIndex = users.findIndex((user) => user.idUsuario === params.idUsuario)
+
+        if (userIndex === -1) {
+
+            return NextResponse.json({ message: "API:USER not found", status: 404 });
+        
+        }
+
+        const user = users[userIndex]
+
+        const body = await request.body.json()
+
+        const newUser = { ...user, ...body }
+
+        users[userIndex] = newUser
+
+        return NextResponse.json({ user: newUser });
+
+    } catch (error) {
+
+        console.error("API: Error fetching USER:", error);
+
+        return NextResponse.json({ message: "API: Error fetching USER", status: 500 });
+
+    }
+}
