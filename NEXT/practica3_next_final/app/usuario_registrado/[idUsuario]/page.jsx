@@ -41,7 +41,7 @@ function Page({params}) {
 
         fetchData();
 
-    }, []);
+    }, [comercios]);
 
     //Obtener los comercios ----------------------------------
     const obtenerComercios = async () => {
@@ -106,6 +106,7 @@ function Page({params}) {
     };
    
     //Poner reseña ------------------------------------------
+    /*
     const ponerResena = async (comercio) => {
         const nuevaResena = prompt("Introduce la reseña que quieres poner");
 
@@ -148,7 +149,7 @@ function Page({params}) {
             }
         }
     };
-
+    */
 
 
     return (
@@ -161,7 +162,7 @@ function Page({params}) {
 
                 <div className="grid grid-cols-2 gap-8 justify-center items-center ml-7 mt-20">
                     
-                    {comercios.map((comercio) => (
+                    {comercios && comercios.map((comercio) => (
 
                         <div className="bg-gray-200 rounded-2x1 ml-4 border border-black pl-4 pr-20 py-10 md:p-50 lg:px-30 my-2 shadow-md rounded">
 
@@ -175,7 +176,7 @@ function Page({params}) {
                             <p>Comentarios:{comercio.comentarios}</p>
 
                             <button className="bg-blue-500 text-white rounded-md px-4 py-2 mt-4"
-                                onClick={() => ponerResena(comercio)}
+                                
                             >
                                 Poner reseña
                             </button>
