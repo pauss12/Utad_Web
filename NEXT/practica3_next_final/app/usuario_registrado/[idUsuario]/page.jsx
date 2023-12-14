@@ -84,12 +84,11 @@ function Page({params}) {
                 </button>
             </div>
 
-            <div className="flex justify-center">
-                <button onClick={darseDeBajaUsuario}
-                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                    Darse de baja
-                </button>
-            </div>
+            <button onClick={darseDeBajaUsuario}
+                className="absolute right-4 top-12 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                Darse de baja
+            </button>
+
         </div>
     )
 }
