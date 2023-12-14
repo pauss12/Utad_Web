@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server'
 import { readFileSync, writeFileSync } from 'fs';
 
-
 export async function POST(request) {
     
     const data = await request.json()
@@ -23,12 +22,13 @@ export async function POST(request) {
 export async function GET() {
 
     try {
-
+     
         const comercios = JSON.parse(readFileSync("data/comercios.txt"))
         
         return NextResponse.json({ comercios })
 
     } catch (e) {
+
         return NextResponse.json({ message: "NO existen Comercios...", status: 400 })
     }
 }
