@@ -13,6 +13,7 @@ export async function POST(request) {
         writeFileSync("data/comercios.txt", JSON.stringify([...comercios, data], null, 4))
 
     } catch (e) {
+        
         writeFileSync("data/comercios.txt", JSON.stringify([data], null, 4))
 
     }
