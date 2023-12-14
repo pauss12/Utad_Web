@@ -123,50 +123,55 @@ function Page({params}) {
     };
    
     //Poner reseña ------------------------------------------
-    
     const ponerResena = async (comercio) => {
-        
-        const nuevaResena = prompt("Introduce la reseña que quieres poner");
 
-        console.log(nuevaResena);
+        try {
 
-        if (nuevaResena === null || nuevaResena === "") {
+            const nuevaResena = prompt("Introduce la reseña que quieres poner");
 
-            alert("No has introducido ninguna reseña");
+            if (nuevaResena === null || nuevaResena.trim() === "") {
 
-        } else {
+                alert("No has introducido ninguna reseña");
+                
+                return; 
+                
+            }
 
             const resena = {
+
+                idComercio: comercio.idComercio,
                 comentarios: nuevaResena
             };
 
-            try {
+            const response = await fetch(`http://localhost:3000/api/comercios/${comercio.idComercio}`, {
 
-                const response = await fetch(`http://localhost:3000/api/comercios/${comercio.idComercio}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(resena),
-                });
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(resena),
+            });
 
-                if (response.ok) {
+            if (response.ok) {
 
-                    console.log('Reseña actualizada con éxito');
+                console.log('Reseña actualizada con éxito')
+                alert('Reseña actualizada con éxito')
 
-                } else {
+            } else {
 
-                    console.error('Error al actualizar la reseña. Código de estado:', response.status);
-
-                }
-
-            } catch (error) {
-
-                console.error('Error en la solicitud de actualizar la reseña:', error);
+                console.error('Error al actualizar la reseña. Código de estado:', response.status);
+                alert('Error al actualizar la reseña. Código de estado:', response.status)
 
             }
+
+        } catch (error) {
+
+            console.error('Error en la solicitud de actualizar la reseña:', error);
+            alert('ERROR! ', error)
+
         }
     };
+
   
 
 
