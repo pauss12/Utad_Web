@@ -24,10 +24,27 @@ function EditarComercio( {comercio} ) {
 
     }, [comercio]);
 
+    //Variable para el estilo
+    const estilo = {
+        
+        width: '35%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: '50px',
+        marginLeft: '50px',
+        paddingLeft: '30px',
+        paddingBottom: '30px',
+        border: '1px solid black',
+        borderRadius: '10px',
+        backgroundColor: '#fff',
+        boxShadow: '0 0 10px #ccc',
+        
+    };
+
     
     return (
 
-        <div className="contenedorEditarComercio">
+        <div style={estilo}>
 
             <div className="container mx-auto mt-8">
                 <h2 className="text-2xl font-semibold mb-4">Editar Comercio</h2>
