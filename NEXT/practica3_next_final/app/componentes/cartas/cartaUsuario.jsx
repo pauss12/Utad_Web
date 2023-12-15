@@ -12,7 +12,7 @@ function cartaUsuario({ usuario, onChange }) {
             <p><b>Edad:</b>  {usuario.edadUsuario}</p>
             <p><b>Ciudad:</b>  {usuario.edadUsuario}</p>
             <p><b>Intereses:</b>  {usuario.interesesUsuario}</p>
-            <p><b>Permite ofertas:  </b>{usuario.permiteOfertas}</p>
+            <p><b>Permite ofertas:  </b>{usuario.permiteOfertas ? 'Sí' : 'No'}</p>
             <p><b>Tipo:</b> {usuario.tipoUsuario}</p>
 
                 
