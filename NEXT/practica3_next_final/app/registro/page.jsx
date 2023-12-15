@@ -51,6 +51,11 @@ function registro_user() {
 
         try {
 
+            if (!DatosUsuario.tipoUsuario) {
+                alert('Por favor, selecciona un tipo de usuario.');
+                return;
+            }
+
             const response = await fetch('http://localhost:3000/api/usuarios', {
                 method: 'POST',
                 headers: {
