@@ -13,7 +13,7 @@ function iniciar_sesion() {
     const [opcionSeleccionada, setOpcionSeleccionada] = useState("");
 
     //Redirigir la pagina segun que opcion haya escogido ------------------------------------------------------------------
-    const redirigir = (code) => {
+    const redirigir = (code, id) => {
 
         if (code === 200) {
 
@@ -22,12 +22,18 @@ function iniciar_sesion() {
                 console.log('Estoy en el administrador');
                 window.location.href = '../administrador';
 
-            } else if (opcionSeleccionada === 'Comercios'){
+            } else if (opcionSeleccionada === 'Comercios') {
+                
+                console.log("IdComercio ", id)
+                alert("IdComercio ", id)
                 
                 console.log('Estoy en el Comercios')
                 window.location.href = '../comercio';
 
             } else if (opcionSeleccionada === 'Usuario Registrado') {
+
+                console.log("IdUsuario ", id)
+                alert(id)
 
                 console.log('Estoy en el Usuario Registrado')
                 window.location.href = '../usuario_registrado';
@@ -77,7 +83,7 @@ function iniciar_sesion() {
                 body: JSON.stringify(userTXT)
             })
                 .then((res) => res.json())
-                .then((data) => redirigir(data.status))
+                .then((data) => redirigir(data.status, data.idUsuario))
                 .catch((err) => console.log(err));
 
 
@@ -100,7 +106,7 @@ function iniciar_sesion() {
                 body: JSON.stringify(comercioTXT)
             })
                 .then((res) => res.json())
-                .then((data) => redirigir(data.status))
+                .then((data) => redirigir(data.status, data.idComercio))
                 .catch((err) => console.log(err));     
             
         }

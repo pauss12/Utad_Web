@@ -16,7 +16,7 @@ export async function POST(request) {
 
             if (user.length > 0) {
 
-                return NextResponse.json({ message: "Usuario existe...", status: 200 })
+                return NextResponse.json({ message: "Usuario existe...", idUsuario: user.idUsuario, status: 200 })
 
 
             } else {
@@ -39,9 +39,11 @@ export async function POST(request) {
 
             const comercio = comercios.filter(comercio => comercio.nombreComercio == data.nombreComercio && comercio.cifComercio == data.cifComercio)
 
+            console.log(comercio.idComercio)
+
             if (comercio.length > 0) {
 
-                return NextResponse.json({ message: "Comercio existe...", status: 200 })
+                return NextResponse.json({ message: "Comercio existe...", idComercio: comercio.idComercio, status: 200 })
 
             } else {
 
