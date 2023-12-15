@@ -42,5 +42,16 @@
         "interesesUsuario": "Programar",
         "permiteOfertas": true,
         "tipoUsuario": "Usuarios Registrados"
+    },
+    {
+        "idUsuario": "98fd6517-0a27-4bb2-8e5f-a2587a8d4ec7",
+        "nombreUsuario": "s",
+        "emailUsuario": "s",
+        "passwordUsuario": "s",
+        "edadUsuario": "2",
+        "ciudadUsuario": "s",
+        "interesesUsuario": "s",
+        "permiteOfertas": true,
+        "tipoUsuario": "Usuarios Registrados"
     }
 ]
