@@ -9,7 +9,7 @@ async function loadComercio(idComercio) {
 
     const data = await res.json()
 
-    return data.comercios
+    return data.user
 }
 
 function Page({ params }) {
