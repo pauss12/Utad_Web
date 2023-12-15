@@ -3,7 +3,11 @@
 import { useState, useEffect } from "react";
 import "../styles/comercio.css"
 
+import { useRouter } from 'next/navigation';
+
 function comercio() {
+
+    const router = useRouter();
 
     const [comercios, setComercios] = useState([]);
 
@@ -16,21 +20,10 @@ function comercio() {
 
                 const response = await fetch('http://localhost:3000/api/comercios');
 
-                const data = await response.json();
+                const data = await response.json()
 
-                console.log("API Response:", data);
+                setComercios(data.comercios)
 
-                if (data && data.comercios !== undefined) {
-
-                    console.log("Comercios:", data.comercios);
-
-                    setComercios(data.comercios);
-
-                } else {
-
-                    console.log("Comercios not found in the response");
-
-                }
             } catch (error) {
 
                 console.log("Error:", error);
@@ -48,7 +41,7 @@ function comercio() {
     //Funcion para editar un usuario ----------------------------------------
     const handleChange = async (comercio) => {
 
-        window.location.href = `/comercio/${comercio.idComercio}`;
+        router.push(`/comercio/${comercio.idComercio}`)
 
     };
 
