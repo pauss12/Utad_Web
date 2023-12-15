@@ -20,17 +20,14 @@ import React, { useState, useEffect } from "react";
 
 import "../styles/admin.css"
 
-async function getComercios() {
-    
-    const res = await fetch('http://localhost:3000/api/comercios')
-
-    const data = await res.json()
-
-    return data.comercios
-
+function useForceUpdate() {
+    const [, setValue] = useState(0);
+    return () => setValue(value => value + 1);
 }
 
 function Administrador() {
+
+    const forceUpdate = useForceUpdate();
 
     const [datosComercio, setDatosComercio] = useState({
 
@@ -48,7 +45,6 @@ function Administrador() {
     });
 
     const [listaComerciosGuardados, setListaComerciosGuardados] = useState([]);
-
 
     useEffect(() => {
 
@@ -71,7 +67,8 @@ function Administrador() {
 
         obtenerComercios();
 
-    }, []);
+    }, [forceUpdate]);
+   
 
     //Handle eliminar comercio
     const handleDelete = async (emailComercio) => {
@@ -89,7 +86,9 @@ function Administrador() {
 
             //Comprobar si se ha eliminado el comerciante
             if (response.ok) {
+                
                 alert("Comercio eliminado correctamente");
+                forceUpdate();
 
             } else {
 
@@ -119,7 +118,7 @@ function Administrador() {
 
             <div className="grid grid-cols-2 gap-8 justify-center items-center ml-7 mt-20">
 
-                {listaComerciosGuardados.map((comercio) =>
+                {listaComerciosGuardados && listaComerciosGuardados.map((comercio) =>
 
                     <CartaComercio key={comercio.idComercio} comercio={comercio} onDelete={handleDelete} />
 
