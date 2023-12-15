@@ -4,7 +4,7 @@ function cartaUsuario({ usuario, onChange }) {
     
     return (
 
-        <li className="bg-gray-200 rounded-2x1 ml-4 border border-black pl-4 pr-20 py-10 md:p-50 lg:px-30 my-2 shadow-md rounded">
+        <li className="bg-gray-200 rounded-2x1 ml-4 border border-black pl-4 pr-10 py-10 md:p-50 lg:px-30 my-2 shadow-md rounded">
             
             <h2><b>Nombre:</b>  {usuario.nombreUsuario}</h2>
             <p><b>ID: </b>       {usuario.idUsuario}</p>
