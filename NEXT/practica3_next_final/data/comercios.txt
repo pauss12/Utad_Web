@@ -1,21 +1,43 @@
 [
     {
-        "idComercio": "25ca3be5-a5ca-4535-b038-5f9f63a1158f",
+        "idComercio": "74f8519a-67c9-4c82-9277-d6165b147626",
         "nombreComercio": "b",
+        "actividadComercio": "",
         "cifComercio": "b",
+        "fotos": "",
         "direccionComercio": "b",
         "emailComercio": "b",
         "telefonoComercio": "b",
+        "puntuacion": "",
+        "comentarios": ""
+    },
+    {
+        "idComercio": "44ec6da5-38d0-4343-b2d9-43432369029c",
+        "nombreComercio": "a",
+        "cifComercio": "a",
+        "direccionComercio": "a",
+        "emailComercio": "a",
+        "telefonoComercio": "a",
         "puntuacion": 0,
         "comentarios": ""
     },
     {
-        "idComercio": "2",
-        "nombreComercio": "a",
-        "cifComercio": "a",
-        "direccionComercio": "b",
-        "emailComercio": "b",
-        "telefonoComercio": "b",
+        "idComercio": "64d4f31e-ff43-4ee8-a1ff-0435bfeaa279",
+        "nombreComercio": "c",
+        "cifComercio": "c",
+        "direccionComercio": "c",
+        "emailComercio": "c",
+        "telefonoComercio": "c",
+        "puntuacion": 0,
+        "comentarios": ""
+    },
+    {
+        "idComercio": "e56dfe8a-f78b-4d48-85cf-3c6fb8449d23",
+        "nombreComercio": "d",
+        "cifComercio": "d",
+        "direccionComercio": "d",
+        "emailComercio": "d",
+        "telefonoComercio": "d",
         "puntuacion": 0,
         "comentarios": ""
     }
