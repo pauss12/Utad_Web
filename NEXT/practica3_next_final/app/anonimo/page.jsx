@@ -3,12 +3,16 @@
 import React, { useState, useEffect } from 'react';
 import Buscador from '../componentes/Buscador.jsx';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import CartaComercio from '../componentes/cartas/cartaComercio.jsx';
 
 import "../styles/anonimo.css"
 
 function anonimo() {
+
+    //Variable para el router
+    const router = useRouter();
 
     //Variable para guardar los comercios que estan en el TXT ----
     const [comercios, setComercios] = useState([]);
@@ -71,6 +75,13 @@ function anonimo() {
     return (
 
         <>
+            
+            <button
+                onClick={() => router.push('/')}
+                className="absolute right-4 top-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                HOME
+            </button>
+
             <div className="contenedorBuscadores">
                 
                 <div className="busqueda">

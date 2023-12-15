@@ -14,6 +14,8 @@ import CrearComercio from '../componentes/CrearComercio.jsx';
 import Buscador from '../componentes/Buscador.jsx';
 import { v4 as uuidv4 } from 'uuid';
 
+import { useRouter } from 'next/navigation';
+
 import CartaComercio from '../componentes/cartas/cartaComercio.jsx';
 
 import React, { useState, useEffect } from "react";
@@ -26,6 +28,8 @@ function useForceUpdate() {
 }
 
 function Administrador() {
+
+    const router = useRouter();
 
     const forceUpdate = useForceUpdate();
 
@@ -86,7 +90,7 @@ function Administrador() {
 
             //Comprobar si se ha eliminado el comerciante
             if (response.ok) {
-                
+
                 alert("Comercio eliminado correctamente");
                 forceUpdate();
 
@@ -107,6 +111,12 @@ function Administrador() {
     return (
 
         <div className="contenedor">
+
+            <button
+                onClick={() => router.push('/')}
+                className="absolute right-4 top-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                HOME
+            </button>
 
             <div className="crearComercio">
                 <CrearComercio datosComercio={datosComercio} setDatosComercio={setDatosComercio} />
