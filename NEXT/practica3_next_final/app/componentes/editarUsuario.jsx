@@ -16,8 +16,6 @@ function EditarUsuario({ user }) {
 
     const handleInputChange = (event) => {
 
-        console.log('handleInputChange called');
-
         const { name, value, type, checked } = event.target;
 
         const newValue = type === 'checkbox' ? checked : value;
