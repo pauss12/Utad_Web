@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState, useEffect } from 'react';
 
 function EditarComercio( {comercio} ) {
@@ -12,6 +14,7 @@ function EditarComercio( {comercio} ) {
     };
     */
     
+    
     //Const para el comercio ------------------------
     const [comercioIndividual, setComercioIndividual] = useState(comercio);
 
@@ -20,6 +23,7 @@ function EditarComercio( {comercio} ) {
         setComercioIndividual(comercio);
 
     }, [comercio]);
+
     
     return (
 
@@ -30,22 +34,11 @@ function EditarComercio( {comercio} ) {
                 <form className="max-w-md">
                     <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2">
-                            Nombre:
+                            Nombre Comercio:
                             <input
                                 type="text"
                                 name="nombreComercio"
-                                value={comercio.nombreComercio}
-                                className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                            />
-                        </label>
-                    </div>
-                    <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2">
-                            Ciudad:
-                            <input
-                                type="text"
-                                name="ciudadUsuario"
-                                value={usuario.ciudadUsuario}
+                                value={comercioIndividual.nombreComercio}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />
                         </label>
@@ -56,28 +49,65 @@ function EditarComercio( {comercio} ) {
                             <input
                                 type="text"
                                 name="interesesUsuario"
-                                value={usuario.interesesUsuario}
+                                value={comercioIndividual.actividadComercio}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />
                         </label>
                     </div>
                     <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2">
-                            Resumen:
+                            CIF:
                             <input
                                 type="text"
-                                name="interesesUsuario"
-                                value={usuario.resumenComercio}
+                                name="ciudadUsuario"
+                                value={comercioIndividual.cifComercio}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />
                         </label>
                     </div>
+                    
+                    <div className="mb-4">
+                        <label className="block text-gray-700 text-sm font-bold mb-2">
+                            Direccion Comercio:
+                            <input
+                                type="text"
+                                name="interesesUsuario"
+                                value={comercioIndividual.direccionComercio}
+                                className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+                            />
+                        </label>
+                    </div>
+
+                    <div className="mb-4">
+                        <label className="block text-gray-700 text-sm font-bold mb-2">
+                            Email:
+                            <input
+                                type="text"
+                                name="ciudadUsuario"
+                                value={comercioIndividual.emailComercio}
+                                className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+                            />
+                        </label>
+                    </div>
+
+                    <div className="mb-4">
+                        <label className="block text-gray-700 text-sm font-bold mb-2">
+                            Telefono Comercio:
+                            <input
+                                type="text"
+                                name="ciudadUsuario"
+                                value={comercioIndividual.telefonoComercio}
+                                className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+                            />
+                        </label>
+                    </div>
+
                     <button
                         type="button"
-                        onClick={actualizarUsuario}
+                       
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                     >
-                        Actualizar Usuario
+                        Actualizar Comercio
                     </button>
                 </form>
             </div>
