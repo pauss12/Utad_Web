@@ -3,9 +3,13 @@
 import React, { useState } from 'react';
 import DropdownCompleto from "../componentes/DropdownCompleto";
 
+import { useRouter } from 'next/navigation';
+
 import "../styles/inicioSesion.css"
 
 function iniciar_sesion() {
+
+    const router = useRouter();
 
     const [usuarioIntroducido, setUsuarioIntroducido] = useState("");
     const [contrasenaIntroducida, setContrasenaIntroducida] = useState("");
@@ -20,7 +24,7 @@ function iniciar_sesion() {
             if (opcionSeleccionada === 'Administrador') {
 
                 console.log('Estoy en el administrador');
-                window.location.href = '../administrador';
+                router.push('/administrador')
 
             } else if (opcionSeleccionada === 'Comercios') {
                 
@@ -28,7 +32,7 @@ function iniciar_sesion() {
                 alert("IdComercio ", id)
                 
                 console.log('Estoy en el Comercios')
-                window.location.href = '../comercio';
+                router.push('/comercio')
 
             } else if (opcionSeleccionada === 'Usuario Registrado') {
 
@@ -36,14 +40,14 @@ function iniciar_sesion() {
                 alert(id)
 
                 console.log('Estoy en el Usuario Registrado')
-                window.location.href = '../usuario_registrado';
+                router.push('/usuario_registrado')
+
 
             } else if (opcionSeleccionada === 'Usuario Anonimo') {
 
                 console.log('Estoy en el Usuario Anonimo')
-                window.location.href = '../anonimo';
+                router.push('/anonimo')
 
-            
             }
         }
         else if (code === 400) {
@@ -55,11 +59,9 @@ function iniciar_sesion() {
 
     //Iniciar Sesion --------------------------------------------------------------------------------------------------------------------------
     const handleInicioSesion = (e) => {
-        
-        e.preventDefault();
 
-        if (opcionSeleccionada == null) {
-            alert("Debe seleccionar una opción");
+        if (opcionSeleccionada === null) {
+            alert("Debe seleccionar una opción")
             return;
         }
 
@@ -117,6 +119,12 @@ function iniciar_sesion() {
     return (
 
         <div className="contenedor">
+
+            <button
+                onClick={() => router.push('/')}
+                className="absolute right-4 top-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                HOME
+            </button>
 
             <div className=" min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
