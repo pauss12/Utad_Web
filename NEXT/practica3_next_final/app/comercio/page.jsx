@@ -55,7 +55,7 @@ function comercio() {
 
     return (
 
-        <ul className="flex">
+        <ul className="flex mt-5">
             {comercios && comercios.map((comercio) => (
                 <li key={comercio.idComercio} className="bg-gray-200 rounded-2x1 ml-4 border border-black pl-4 pr-20 py-10 md:p-50 lg:px-30 my-2 shadow-md rounded">
                     <h2>Nombre: {comercio.nombreComercio}</h2>

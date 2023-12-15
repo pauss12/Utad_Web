@@ -43,8 +43,8 @@ function usuario_registrado() {
     
     return (
         
-        <ul className="flex">
-            {usuarios.map((usuario) => (
+        <ul className="flex flex-wrap mt-5">
+            {usuarios && usuarios.map((usuario) => (
 
                 <CartaUsuario
                     key={usuario.idUsuario}
