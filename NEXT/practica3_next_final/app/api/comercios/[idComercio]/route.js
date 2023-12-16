@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { readFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 
 
 export async function GET(request, { params }) {
@@ -38,23 +38,33 @@ export async function PUT(request, { params }) {
 
         if (indiceComercio === -1) {
 
-            return NextResponse.json({ message: "Comercio not found", status: 404 });
+            return NextResponse.json({ message: "API: COMERCIO not found", status: 404 });
 
         }
 
         const comercio = comercios[indiceComercio];
 
-        const nuevoComercio = await request.body.json();
+        const chunks = [];
 
-        comercios[indiceComercio] = { ...comercio, ...nuevoComercio };
+        for await (const chunk of request.body) {
+            chunks.push(chunk);
+        }
 
-        return NextResponse.json({ comercio: comercios[indiceComercio] });
+        const body = JSON.parse(Buffer.concat(chunks).toString());
+
+        const nuevoComercio = { ...comercio, ...body };
+
+        comercios[indiceComercio] = nuevoComercio;
+
+        writeFileSync("data/comercios.txt", JSON.stringify(comercios, null, 4));
+
+        return NextResponse.json({ comercio: nuevoComercio });
 
     } catch (error) {
 
-        console.error("Error updating Comercio:", error);
+        console.error("API: Error fetching Comercio:", error);
 
-        return NextResponse.json({ message: "Error updating Comercio", status: 500 });
+        return NextResponse.json({ message: "API: Error fetching Comercio", status: 500 });
 
     }
 }
