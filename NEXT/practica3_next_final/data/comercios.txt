@@ -8,7 +8,7 @@
         "direccionComercio": "b",
         "emailComercio": "a",
         "telefonoComercio": "a",
-        "puntuacion": "",
+        "puntuacion": "10",
         "comentarios": "hola",
         "DireccionComercio": "a"
     },

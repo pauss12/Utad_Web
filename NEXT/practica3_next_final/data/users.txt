@@ -22,14 +22,14 @@
         "tipoUsuario": ""
     },
     {
-        "idUsuario": "422d47c5-da27-4840-b2f5-7eef6d594cb4",
+        "idUsuario": "8bbfc055-2a28-4d15-8446-7c25fa14f7da",
         "nombreUsuario": "paula",
-        "emailUsuario": "paula.mendez@live.com",
+        "emailUsuario": "paula@globaltg.es",
         "passwordUsuario": "1234",
-        "edadUsuario": "20",
+        "edadUsuario": "22",
         "ciudadUsuario": "Madrid",
-        "interesesUsuario": "Programar",
+        "interesesUsuario": "programacion",
         "permiteOfertas": true,
-        "tipoUsuario": "Usuarios Registrados"
+        "tipoUsuario": "Administrador"
     }
 ]
