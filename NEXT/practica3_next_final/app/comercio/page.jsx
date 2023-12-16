@@ -22,13 +22,13 @@ function comercio() {
 
                 const data = await response.json()
 
-                setComercios(data.comercios)
+                setComercios(data.user)
 
             } catch (error) {
 
                 console.log("Error:", error);
 
-                alert("There was a problem obtaining businesses");
+                alert("There was a problem obtaining Comercios");
                 
             }
         };
