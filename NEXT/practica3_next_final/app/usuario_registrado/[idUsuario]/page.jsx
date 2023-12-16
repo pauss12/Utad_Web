@@ -3,6 +3,8 @@
 import EditarUsuario from '@/app/componentes/editarUsuario';
 import { useState, useEffect } from 'react';
 
+import { useRouter } from 'next/navigation';
+
 async function loadUser(idUsuario) {
 
     const res = await fetch(`http://localhost:3000/api/usuarios/${idUsuario}`);
@@ -33,10 +35,15 @@ async function loadComercios() {
 }
 
 
-function Page({params}) {
+function Page({ params }) {
     
+    //Variable para el router
+    const router = useRouter();
+
+    //Variable para almacenar un usuario, el que se va a editar -------------
     const [usuario, setUsuario] = useState([]);
 
+    //Variable para almacenar los comercios -------------------------------
     const [comercios, setComercios] = useState([]);
 
     //Obtener el usuario -------------------------------------
@@ -177,45 +184,48 @@ function Page({params}) {
 
     return (
 
-        <div className="flex flex-col ">
+        <div className="flex flex-row bg-blue-200">
 
-            <div className="flex justify-center ">
+            <EditarUsuario user={usuario} />
 
-                <EditarUsuario user={usuario}  />
+            <ul className="grid grid-cols-2 gap-8 justify-center items-center ml-7 mt-20">
 
-                <ul className="grid grid-cols-2 gap-8 justify-center items-center ml-7 mt-20">
-                    
-                    {comercios && comercios.map((comercio) => (
+                {comercios && comercios.map((comercio) => (
 
-                        <li key={comercio.idComercio}  className="bg-gray-200 rounded-2x1 ml-4 border border-black pl-4 pr-20 py-10 md:p-50 lg:px-30 my-2 shadow-md rounded">
+                    <li key={comercio.idComercio} className="bg-gray-200 rounded-2x1 ml-4 border border-black pl-4 pr-20 py-10 md:p-50 lg:px-30 my-2 shadow-md rounded mt-6">
 
-                            <h2>Nombre: {comercio.nombreComercio}</h2>
-                            <p>ID: {comercio.idComercio} </p>
-                            <p>CIF: {comercio.cifComercio}</p>
-                            <p>Dirección: {comercio.direccionComercio}</p>
-                            <p>Email: {comercio.emailComercio}</p>
-                            <p>Teléfono: {comercio.telefonoComercio}</p>
-                            <p>Puntuación: {comercio.puntuacion}</p>
-                            <p>Comentarios:{comercio.comentarios}</p>
+                        <h2>Nombre: {comercio.nombreComercio}</h2>
+                        <p>ID: {comercio.idComercio} </p>
+                        <p>CIF: {comercio.cifComercio}</p>
+                        <p>Dirección: {comercio.direccionComercio}</p>
+                        <p>Email: {comercio.emailComercio}</p>
+                        <p>Teléfono: {comercio.telefonoComercio}</p>
+                        <p>Puntuación: {comercio.puntuacion}</p>
+                        <p>Comentarios:{comercio.comentarios}</p>
 
-                            <button className="bg-blue-500 text-white rounded-md px-4 py-2 mt-4"
-                                onClick={() => ponerResena(comercio)}
-                            >
-                                Poner reseña
-                            </button>
+                        <button className="bg-blue-500 text-white rounded-md px-4 py-2 mt-4"
+                            onClick={() => ponerResena(comercio)}
+                        >
+                            Poner reseña
+                        </button>
 
-                            <hr></hr>
-                        </li>
+                        <hr></hr>
+                    </li>
 
-                    ))}
+                ))}
 
-                </ul>
+            </ul>
 
-                <button onClick={darseDeBajaUsuario}
-                    className="absolute right-4 top-12 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                    Darse de baja
-                </button>
-            </div>
+            <button
+                className="absolute right-4 top-12 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                Darse de baja
+            </button>
+
+            <button
+                onClick={() => router.push('/')}
+                className="absolute right-20 top-12 bg-blue-500 hover:bg-blue-700 mr-20 text-white font-bold py-2 px-4 rounded">
+                HOME
+            </button>
         </div>
     )
 }
