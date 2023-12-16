@@ -11,17 +11,6 @@
         "tipoUsuario": "Usuarios Registrados"
     },
     {
-        "idUsuario": "2",
-        "nombreUsuario": "lucia",
-        "emailUsuario": "lucia@mail.com",
-        "passwordUsuario": "1234",
-        "edadUsuario": "12",
-        "ciudadUsuario": "Madrid",
-        "interesesUsuario": "progr",
-        "permiteOfertas": true,
-        "tipoUsuario": "Usuarios Registrados"
-    },
-    {
         "idUsuario": "311f09f2-78ee-45b8-b574-da1e0409c89d",
         "nombreUsuario": "lucia",
         "emailUsuario": "camaroapache@gmail.hotmail.outlook.yahoo.txt.com",
@@ -40,17 +29,6 @@
         "edadUsuario": "20",
         "ciudadUsuario": "Madrid",
         "interesesUsuario": "Programar",
-        "permiteOfertas": true,
-        "tipoUsuario": "Usuarios Registrados"
-    },
-    {
-        "idUsuario": "98fd6517-0a27-4bb2-8e5f-a2587a8d4ec7",
-        "nombreUsuario": "s",
-        "emailUsuario": "s",
-        "passwordUsuario": "s",
-        "edadUsuario": "2",
-        "ciudadUsuario": "s",
-        "interesesUsuario": "s",
         "permiteOfertas": true,
         "tipoUsuario": "Usuarios Registrados"
     }
