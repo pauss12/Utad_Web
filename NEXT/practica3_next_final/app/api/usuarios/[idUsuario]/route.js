@@ -48,6 +48,7 @@ export async function PUT(request, { params }) {
         for await (const chunk of request.body) {
             chunks.push(chunk);
         }
+        
         const body = JSON.parse(Buffer.concat(chunks).toString());
 
         const newUser = { ...user, ...body };
