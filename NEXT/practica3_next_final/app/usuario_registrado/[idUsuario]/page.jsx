@@ -203,7 +203,8 @@ function Page({ params }) {
                         <p>Puntuación: {comercio.puntuacion}</p>
                         <p>Comentarios:{comercio.comentarios}</p>
 
-                        <button className="bg-blue-500 text-white rounded-md px-4 py-2 mt-4"
+                        <button type="button"
+                            className="bg-blue-500 text-white rounded-md px-4 py-2 mt-4"
                             onClick={() => ponerResena(comercio)}
                         >
                             Poner reseña
