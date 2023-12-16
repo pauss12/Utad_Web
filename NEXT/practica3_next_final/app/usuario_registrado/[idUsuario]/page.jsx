@@ -113,17 +113,20 @@ function Page({ params }) {
             if (response.ok) {
 
                 console.log('Usuario dado de baja con éxito');
-
-                
+                alert('Usuario dado de baja con éxito');
             } else {
 
                 console.error('Error al darse de baja');
+                alert('Error al darse de baja');
 
             }
+
+            router.push('/usuario_registrado')
 
         } catch (error) {
 
             console.error('Error en la solicitud de darse de baja:', error);
+            alert('ERROR! ', error)
 
         }
 
@@ -218,6 +221,7 @@ function Page({ params }) {
             </ul>
 
             <button
+                onClick={() => darseDeBajaUsuario()}
                 className="absolute right-4 top-12 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                 Darse de baja
             </button>
