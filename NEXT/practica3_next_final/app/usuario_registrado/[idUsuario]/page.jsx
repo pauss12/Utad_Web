@@ -182,6 +182,57 @@ function Page({ params }) {
         }
     };
 
+
+    //Poner nota --------------------------------------------
+    const ponerNota = async (comercio) => {
+
+        try {
+
+            const nuevaNota = prompt("Introduce la nota que quieres poner");
+
+            if (nuevaNota === null || nuevaNota.trim() === "") {
+
+                alert("No has introducido ninguna nota");
+                
+                return; 
+                
+            }
+
+            const nota = {
+
+                idComercio: comercio.idComercio,
+                puntuacion: nuevaNota
+            };
+
+            const response = await fetch(`http://localhost:3000/api/comercios/${comercio.idComercio}`, {
+
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(nota),
+            });
+
+            if (response.ok) {
+
+                console.log('Nota actualizada con éxito')
+                alert('Nota actualizada con éxito')
+
+            } else {
+
+                console.error('Error al actualizar la nota. Código de estado:', response.status);
+                alert('Error al actualizar la nota. Código de estado:', response.status)
+
+            }
+
+        } catch (error) {
+
+            console.error('Error en la solicitud de actualizar la nota:', error);
+            alert('ERROR! ', error)
+
+        }
+    };
+
   
 
 
@@ -213,6 +264,13 @@ function Page({ params }) {
                             Poner reseña
                         </button>
 
+                        <button type="button"
+                            className="bg-blue-500 text-white rounded-md px-4 py-2 mt-4 ml-5"
+                            onClick={() => ponerNota(comercio)}
+                        >
+                            Añadir Nota
+                        </button>
+                        
                         <hr></hr>
                     </li>
 
