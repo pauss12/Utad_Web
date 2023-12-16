@@ -23,13 +23,13 @@
     },
     {
         "idUsuario": "311f09f2-78ee-45b8-b574-da1e0409c89d",
-        "nombreUsuario": "pen e",
+        "nombreUsuario": "lucia",
         "emailUsuario": "camaroapache@gmail.hotmail.outlook.yahoo.txt.com",
         "passwordUsuario": "si osy",
         "edadUsuario": "201",
-        "ciudadUsuario": "Tu cola",
-        "interesesUsuario": "no soy",
-        "permiteOfertas": false,
+        "ciudadUsuario": "Madrid",
+        "interesesUsuario": "deporte",
+        "permiteOfertas": true,
         "tipoUsuario": ""
     },
     {

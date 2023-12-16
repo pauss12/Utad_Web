@@ -9,7 +9,7 @@
         "emailComercio": "a",
         "telefonoComercio": "a",
         "puntuacion": "",
-        "comentarios": "",
+        "comentarios": "hola",
         "DireccionComercio": "a"
     },
     {
@@ -20,7 +20,7 @@
         "emailComercio": "a",
         "telefonoComercio": "a",
         "puntuacion": 0,
-        "comentarios": ""
+        "comentarios": "adios"
     },
     {
         "idComercio": "64d4f31e-ff43-4ee8-a1ff-0435bfeaa279",
