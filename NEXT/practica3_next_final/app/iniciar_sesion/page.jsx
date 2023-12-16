@@ -19,14 +19,16 @@ function iniciar_sesion() {
     //Redirigir la pagina segun que opcion haya escogido ------------------------------------------------------------------
     const redirigir = (code, id) => {
 
+        console.log(id)
+
         if (code === 200) {
 
-            if (opcionSeleccionada === 'Administrador') {
+            if (opcionSeleccionada == 'Administrador') {
 
                 console.log('Estoy en el administrador');
                 router.push('/administrador')
 
-            } else if (opcionSeleccionada === 'Comercios') {
+            } else if (opcionSeleccionada == 'Comercios') {
                 
                 console.log("IdComercio ", id)
                 alert("IdComercio ", id)
@@ -34,7 +36,7 @@ function iniciar_sesion() {
                 console.log('Estoy en el Comercios')
                 router.push('/comercio')
 
-            } else if (opcionSeleccionada === 'Usuario Registrado') {
+            } else if (opcionSeleccionada == 'Usuario Registrado') {
 
                 console.log("IdUsuario ", id)
                 alert(id)
@@ -43,14 +45,14 @@ function iniciar_sesion() {
                 router.push('/usuario_registrado')
 
 
-            } else if (opcionSeleccionada === 'Usuario Anonimo') {
+            } else if (opcionSeleccionada == 'Usuario Anonimo') {
 
                 console.log('Estoy en el Usuario Anonimo')
                 router.push('/anonimo')
 
             }
         }
-        else if (code === 400) {
+        else if (code == 400) {
 
             alert("Ha habido un problema!");
             
@@ -96,7 +98,7 @@ function iniciar_sesion() {
                 opcionSeleccionada: opcionSeleccionada,
                 nombreComercio: usuarioIntroducido,
                 cifComercio: contrasenaIntroducida,
-            }
+            };
 
             fetch('http://localhost:3000/api/login', {
 
@@ -108,8 +110,17 @@ function iniciar_sesion() {
                 body: JSON.stringify(comercioTXT)
             })
                 .then((res) => res.json())
-                .then((data) => redirigir(data.status, data.idComercio))
-                .catch((err) => console.log(err));     
+                .then((data) => {
+                    if (data.status === 200) {
+                        redirigir(data.status, data.idUsuario || data.id);
+                    } else {
+                        alert(`Error: ${data.message}`);
+                    }
+                })
+                .catch((err) => {
+                    console.error('Error en la solicitud:', err);
+                    alert('Error en la conexión');
+                });
             
         }
     }

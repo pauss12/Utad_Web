@@ -22,17 +22,18 @@ import React, { useState, useEffect } from "react";
 
 import "../styles/admin.css"
 
-function useForceUpdate() {
-    const [, setValue] = useState(0);
-    return () => setValue(value => value + 1);
-}
-
 function Administrador() {
 
+    //Añadir router -----------------------------------
     const router = useRouter();
 
-    const forceUpdate = useForceUpdate();
+    // Definir useForceUpdate dentro de Administrador ---------------
+    const useForceUpdate = () => {
+        const [, setValue] = useState(0);
+        return () => setValue(value => value + 1);
+    };
 
+    //Datos del comercio --------------------------------------------
     const [datosComercio, setDatosComercio] = useState({
 
         idComercio: uuidv4(),
@@ -48,8 +49,10 @@ function Administrador() {
 
     });
 
+    //Lista de comercios guardados ----------------------------------
     const [listaComerciosGuardados, setListaComerciosGuardados] = useState([]);
 
+    //Obtener los comercios -----------------------------------------
     useEffect(() => {
 
         const obtenerComercios = async () => {
@@ -71,7 +74,7 @@ function Administrador() {
 
         obtenerComercios();
 
-    }, [forceUpdate]);
+    }, [{ useForceUpdate }]);
    
 
     //Handle eliminar comercio
@@ -79,31 +82,35 @@ function Administrador() {
       
         try {
             
-            //Respuesta de la api
             const response = await fetch('http://localhost:3000/api/comercios', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({email: emailComercio}),
+                body: JSON.stringify( {email: emailComercio} ),
             });
 
             //Comprobar si se ha eliminado el comerciante
             if (response.ok) {
 
                 alert("Comercio eliminado correctamente");
-                forceUpdate();
+
+                useForceUpdate();
 
             } else {
 
                 console.error("HTTP error! Status: ${response.status}");
+
                 alert("Ha habido un problema a la hora de eliminar el comercio");
+
             }
 
         } catch (error) {
             
             console.error(error);
+
             alert(" -- Ha habido un problema a la hora de eliminar el comercio -- ");
+
         }
 
     };
