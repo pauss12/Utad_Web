@@ -27,6 +27,24 @@ function EditarUsuario({ user }) {
 
     };
 
+    //Estilo -----------------------------------------------------
+    const estilo = {
+
+        width: '35%',
+        height: '80vh',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: '50px',
+        marginLeft: '50px',
+        paddingLeft: '30px',
+        border: '1px solid black',
+        borderRadius: '10px',
+        backgroundColor: '#fff',
+        boxShadow: '0 0 10px #ccc',
+
+    };
+
+
     //Actualizar el usuario -----------------------------------------------------
     const actualizarUsuario = async () => {
 
@@ -62,9 +80,11 @@ function EditarUsuario({ user }) {
     };
 
     return (
+
+        <div style={estilo}>
         
-        <div className="contenedorEditarUsuario">
             <div className="container mx-auto mt-8">
+                
                 <h2 className="text-2xl font-semibold mb-4">Editar Usuario</h2>
                 <form className="max-w-md">
                     <div className="mb-4">
@@ -124,6 +144,7 @@ function EditarUsuario({ user }) {
                     </button>
                 </form>
             </div>
+            
         </div>
     );
 }
