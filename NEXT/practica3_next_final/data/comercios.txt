@@ -1,15 +1,16 @@
 [
     {
         "idComercio": "74f8519a-67c9-4c82-9277-d6165b147626",
-        "nombreComercio": "b",
-        "actividadComercio": "",
-        "cifComercio": "b",
+        "nombreComercio": "a",
+        "actividadComercio": "a",
+        "cifComercio": "a",
         "fotos": "",
         "direccionComercio": "b",
-        "emailComercio": "b",
-        "telefonoComercio": "b",
+        "emailComercio": "a",
+        "telefonoComercio": "a",
         "puntuacion": "",
-        "comentarios": ""
+        "comentarios": "",
+        "DireccionComercio": "a"
     },
     {
         "idComercio": "44ec6da5-38d0-4343-b2d9-43432369029c",
