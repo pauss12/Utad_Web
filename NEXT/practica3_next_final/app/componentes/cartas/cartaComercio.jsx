@@ -12,7 +12,7 @@ function cartaComercio({ comercio, onDelete }) {
             <p>Comentarios:{comercio.comentarios}</p>
             
             {onDelete && (
-                <button className="bg-red-500 text-white rounded-md px-4 py-2"
+                <button className="bg-red-500 text-white rounded-md px-4 py-2 mt-4"
                     onClick={() => onDelete(comercio.emailComercio)}>
                     Borrar Comercio
                 </button>
