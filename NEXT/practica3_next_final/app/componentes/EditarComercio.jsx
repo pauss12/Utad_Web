@@ -24,7 +24,7 @@ function EditarComercio( {comercio} ) {
 
     }, [comercio]);
 
-    //Variable para el estilo
+    //Variable para el estilo --------------------------
     const estilo = {
         
         width: '35%',
@@ -39,6 +39,49 @@ function EditarComercio( {comercio} ) {
         backgroundColor: '#fff',
         boxShadow: '0 0 10px #ccc',
         
+    };
+
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setComercioIndividual({
+            ...comercioIndividual,
+            [name]: value,
+        });
+    };
+
+    //Actualizar comercio ---------------------------------
+    const actualizarComercio = async () => {
+
+        try {
+
+            console.log('Updating Comercio:', comercioIndividual);
+
+            const response = await fetch(`http://localhost:3000/api/comercios/${comercioIndividual.idComercio}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(comercioIndividual),
+            });
+
+            if (response.ok) {
+
+                console.log('Comercio actualizado con éxito');
+                alert('Comercio actualizado con éxito')
+
+            } else {
+
+                console.error('Error al actualizar el Comercio');
+                alert('Error al actualizar el Comercio')
+
+            }
+
+        } catch (error) {
+
+            console.error('Error en la solicitud de actualización:', error);
+
+        }
     };
 
     
@@ -56,6 +99,7 @@ function EditarComercio( {comercio} ) {
                                 type="text"
                                 name="nombreComercio"
                                 value={comercioIndividual.nombreComercio}
+                                onChange={handleInputChange}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />
                         </label>
@@ -65,8 +109,9 @@ function EditarComercio( {comercio} ) {
                             Actividad:
                             <input
                                 type="text"
-                                name="interesesUsuario"
+                                name="actividadComercio"
                                 value={comercioIndividual.actividadComercio}
+                                onChange={handleInputChange}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />
                         </label>
@@ -76,8 +121,9 @@ function EditarComercio( {comercio} ) {
                             CIF:
                             <input
                                 type="text"
-                                name="ciudadUsuario"
+                                name="cifComercio"
                                 value={comercioIndividual.cifComercio}
+                                onChange={handleInputChange}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />
                         </label>
@@ -88,8 +134,9 @@ function EditarComercio( {comercio} ) {
                             Direccion Comercio:
                             <input
                                 type="text"
-                                name="interesesUsuario"
+                                name="DireccionComercio"
                                 value={comercioIndividual.direccionComercio}
+                                onChange={handleInputChange}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />
                         </label>
@@ -100,8 +147,9 @@ function EditarComercio( {comercio} ) {
                             Email:
                             <input
                                 type="text"
-                                name="ciudadUsuario"
+                                name="emailComercio"
                                 value={comercioIndividual.emailComercio}
+                                onChange={handleInputChange}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />
                         </label>
@@ -112,8 +160,9 @@ function EditarComercio( {comercio} ) {
                             Telefono Comercio:
                             <input
                                 type="text"
-                                name="ciudadUsuario"
+                                name="telefonoComercio"
                                 value={comercioIndividual.telefonoComercio}
+                                onChange={handleInputChange}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />
                         </label>
@@ -121,7 +170,7 @@ function EditarComercio( {comercio} ) {
 
                     <button
                         type="button"
-                       
+                        onClick={actualizarComercio}
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                     >
                         Actualizar Comercio
