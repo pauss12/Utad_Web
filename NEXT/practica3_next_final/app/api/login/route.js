@@ -1,21 +1,22 @@
 import { NextResponse } from 'next/server'
 import { readFileSync } from 'fs';
 
+
 export async function POST(request) {
 
     const data = await request.json()
 
-    if (data.opcionSeleccionada === 'Usuario Registrado' || data.opcionSeleccionada === 'Administrador') {
+    if (data.opcionSeleccionada == 'Usuarios Registrados' || data.opcionSeleccionada == 'Administrador') {
 
         try {
 
             const users = JSON.parse(readFileSync("data/users.txt"));
 
-            const user = users.filter(user => user.nombreUsuario === data.nombreUsuario && user.passwordUsuario === data.passwordUsuario);
+            const user = users.filter(user => user.nombreUsuario.trim().toLowerCase() === data.nombreUsuario.trim().toLowerCase() && user.passwordUsuario.trim() === data.passwordUsuario.trim())
 
             if (user.length > 0) {
 
-                return NextResponse.json({ message: "Usuario existe...", idUsuario: user.idUsuario, status: 200 });
+                return NextResponse.json({ message: "Usuario existe...", status: 200 });
 
             } else {
 
@@ -29,17 +30,17 @@ export async function POST(request) {
 
         }
 
-    } else if (data.opcionSeleccionada === 'Comercios') {
+    } else if (data.opcionSeleccionada == 'Comercios') {
 
         try {
 
             const comercios = JSON.parse(readFileSync("data/comercios.txt"))
 
-            const comercio = comercios.filter(comercio => comercio.nombreComercio === data.nombreComercio && comercio.cifComercio === data.cifComercio)
+            const comercio = comercios.filter(comercio => comercio.nombreComercio.trim().toLowerCase() === data.nombreComercio.trim().toLowerCase() && comercio.cifComercio.trim() === data.cifComercio.trim())
 
             if (comercio.length > 0) {
 
-                return NextResponse.json({ message: "Comercio existe...", idComercio: comercio.idComercio, status: 200 });
+                return NextResponse.json({ message: "Comercio existe...", status: 200 });
 
             } else {
 
@@ -60,3 +61,6 @@ export async function POST(request) {
     }
     
 }
+
+
+

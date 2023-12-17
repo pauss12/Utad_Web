@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from 'react';
-import DropdownCompleto from "../componentes/DropdownCompleto";
+import Dropdown from "../componentes/Dropdown";
 
 import { useRouter } from 'next/navigation';
 
@@ -17,33 +17,28 @@ function iniciar_sesion() {
     const [opcionSeleccionada, setOpcionSeleccionada] = useState("");
 
     //Redirigir la pagina segun que opcion haya escogido ------------------------------------------------------------------
-    const redirigir = (code, id) => {
+    const redirigir = (code) => {
 
         if (code === 200) {
 
-            if (opcionSeleccionada === 'Administrador') {
+            if (opcionSeleccionada == 'Administrador') {
+
 
                 console.log('Estoy en el administrador')
                 router.push('/administrador')
 
-            } else if (opcionSeleccionada === 'Comercios') {
-                
-                console.log("IdComercio ", id)
-                alert("IdComercio ", id)
-                
+            } else if (opcionSeleccionada == 'Comercios') {
+                   
                 console.log('Estoy en el Comercios')
                 router.push('/comercio')
 
-            } else if (opcionSeleccionada === 'Usuario Registrado') {
-
-                console.log("IdUsuario ", id)
-                alert(id)
+            } else if (opcionSeleccionada == 'Usuarios Registrados') {
 
                 console.log('Estoy en el Usuario Registrado')
                 router.push('/usuario_registrado')
 
 
-            } else if (opcionSeleccionada === 'Usuario Anonimo') {
+            } else if (opcionSeleccionada == 'Usuario Anonimo') {
 
                 console.log('Estoy en el Usuario Anonimo')
                 router.push('/anonimo')
@@ -57,15 +52,17 @@ function iniciar_sesion() {
         }
     };
 
-    //Iniciar Sesion --------------------------------------------------------------------------------------------------------------------------
+    //Iniciar Sesion ---------------------------------------------------------------------------------------------------------
     const handleInicioSesion = (e) => {
+
+        e.preventDefault();
 
         if (opcionSeleccionada === null) {
             alert("Debe seleccionar una opción")
             return;
         }
 
-        if (opcionSeleccionada == 'Administrador' || opcionSeleccionada == 'Usuario Registrado') {
+        if (opcionSeleccionada == 'Administrador' || opcionSeleccionada == 'Usuarios Registrados') {
 
             const userTXT = {
 
@@ -85,8 +82,7 @@ function iniciar_sesion() {
                 body: JSON.stringify(userTXT)
             })
                 .then((res) => res.json())
-                .then((data) => redirigir(data.status, data.idUsuario))
-                .catch((err) => console.log(err));
+                .then((data) => redirigir(data.status))
 
 
         } else if (opcionSeleccionada == 'Comercios') {
@@ -108,17 +104,7 @@ function iniciar_sesion() {
                 body: JSON.stringify(comercioTXT)
             })
                 .then((res) => res.json())
-                .then((data) => {
-                    if (data.status === 200) {
-                        redirigir(data.status, data.idComercio);
-                    } else {
-                        alert(`Error: ${data.message}`);
-                    }
-                })
-                .catch((err) => {
-                    console.error('Error en la solicitud:', err);
-                    alert('Error en la conexión');
-                });
+                .then((data) => redirigir(data.status))
             
         }
     }
@@ -186,7 +172,7 @@ function iniciar_sesion() {
                             </div>
                         </div>
 
-                        <DropdownCompleto opcionSeleccionada={opcionSeleccionada} setOpcionSeleccionada={setOpcionSeleccionada} />
+                        <Dropdown opcionSeleccionada={opcionSeleccionada} setOpcionSeleccionada={setOpcionSeleccionada} />
 
                         <div>
                             <button
