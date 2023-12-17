@@ -3,7 +3,10 @@ import React, { useState, useEffect } from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
-function Buscador({lista, setLista}) {
+function Buscador(props) {
+    
+    const tasks = props.lista;
+    const setTasks = props.setLista;
 
     const [originalTasks, setOriginalTasks] = useState([])
 
@@ -11,13 +14,13 @@ function Buscador({lista, setLista}) {
         
         if (searchTerm === '') {
             
-            setLista(originalTasks);
+            setTasks(originalTasks);
 
         } else {
 
-            setOriginalTasks(lista);
+            setOriginalTasks(tasks);
         
-            const filteredTasks = originalTasks.filter((task) => {
+            const filteredTasks = tasks.filter((task) => {
 
                 return (
                     
@@ -26,7 +29,7 @@ function Buscador({lista, setLista}) {
                 );
             });
 
-            setLista(filteredTasks);
+            setTasks(filteredTasks);
             
         }
     }; 
@@ -43,6 +46,7 @@ function Buscador({lista, setLista}) {
                 id="floatingInputGroup1"
                 style={{border: 'none', background: 'none'}}
                 placeholder="Buscador"
+                value={props.searchTerm}
                 onChange={(e) => handleSearch(e.target.value)}
             />
 
