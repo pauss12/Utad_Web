@@ -6,7 +6,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-function DropdownCompleto(props) {
+function Dropdown(props) {
 
     const handleMenuClick = (option) => {
         // Desestructuramos las props para acceder a setOpcionSeleccionada directamente
@@ -85,20 +85,6 @@ function DropdownCompleto(props) {
                                 </a>
                             )}
                         </Menu.Item>
-                        <Menu.Item>
-                            {({ active }) => (
-                                <a
-                                    href="#"
-                                    onClick={() => handleMenuClick('Usuarios Anonimos')}
-                                    className={classNames(
-                                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                        'block px-4 py-2 text-sm'
-                                    )}
-                                >
-                                    Usuarios Anonimos
-                                </a>
-                            )}
-                        </Menu.Item>
                     </div>
                 </Menu.Items>
             </Transition>
@@ -106,4 +92,4 @@ function DropdownCompleto(props) {
     )
 }
 
-export default DropdownCompleto;
+export default Dropdown;
