@@ -78,9 +78,15 @@ function anonimo() {
             
             <button
                 onClick={() => router.push('/')}
-                className="absolute right-4 top-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                className="absolute right-4 top-12 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 HOME
             </button>
+
+            <button className="absolute right-20 top-12 bg-white hover:bg-white-700 hover:scale-110 text-black font-bold py-2 px-4 rounded ">
+                <Link href="../registro">Registrarse</Link>
+            </button>
+
+            
 
             <div className="contenedorBuscadores">
                 
@@ -122,10 +128,6 @@ function anonimo() {
                 }
 
             </div>
-
-            <button className="absolute right-4 bottom-12 bg-white hover:bg-white-700 hover:scale-110 text-black font-bold py-2 px-4 rounded ">
-                <Link href="../registro">Registrarse</Link>
-            </button>
 
         </>
 

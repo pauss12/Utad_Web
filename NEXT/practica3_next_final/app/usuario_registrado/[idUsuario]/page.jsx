@@ -258,7 +258,7 @@ function Page({ params }) {
                         <p>Comentarios:{comercio.comentarios}</p>
 
                         <button type="button"
-                            className="bg-blue-500 text-white rounded-md px-4 py-2 mt-4"
+                            className="bg-orange-500 text-white rounded-md px-4 py-2 mt-4"
                             onClick={() => ponerResena(comercio)}
                         >
                             Poner reseña
@@ -268,7 +268,7 @@ function Page({ params }) {
                             className="bg-blue-500 text-white rounded-md px-4 py-2 mt-4 ml-5"
                             onClick={() => ponerNota(comercio)}
                         >
-                            Añadir Nota
+                            Añadir Score
                         </button>
                         
                         <hr></hr>
