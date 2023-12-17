@@ -74,7 +74,7 @@ function Administrador() {
 
         obtenerComercios();
 
-    }, [{ useForceUpdate }]);
+    }, []);
    
 
     //Handle eliminar comercio
