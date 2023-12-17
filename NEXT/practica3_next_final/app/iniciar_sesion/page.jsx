@@ -19,16 +19,14 @@ function iniciar_sesion() {
     //Redirigir la pagina segun que opcion haya escogido ------------------------------------------------------------------
     const redirigir = (code, id) => {
 
-        console.log(id)
-
         if (code === 200) {
 
-            if (opcionSeleccionada == 'Administrador') {
+            if (opcionSeleccionada === 'Administrador') {
 
-                console.log('Estoy en el administrador');
+                console.log('Estoy en el administrador')
                 router.push('/administrador')
 
-            } else if (opcionSeleccionada == 'Comercios') {
+            } else if (opcionSeleccionada === 'Comercios') {
                 
                 console.log("IdComercio ", id)
                 alert("IdComercio ", id)
@@ -36,7 +34,7 @@ function iniciar_sesion() {
                 console.log('Estoy en el Comercios')
                 router.push('/comercio')
 
-            } else if (opcionSeleccionada == 'Usuario Registrado') {
+            } else if (opcionSeleccionada === 'Usuario Registrado') {
 
                 console.log("IdUsuario ", id)
                 alert(id)
@@ -45,14 +43,14 @@ function iniciar_sesion() {
                 router.push('/usuario_registrado')
 
 
-            } else if (opcionSeleccionada == 'Usuario Anonimo') {
+            } else if (opcionSeleccionada === 'Usuario Anonimo') {
 
                 console.log('Estoy en el Usuario Anonimo')
                 router.push('/anonimo')
 
             }
         }
-        else if (code == 400) {
+        else if (code === 400) {
 
             alert("Ha habido un problema!");
             
@@ -112,7 +110,7 @@ function iniciar_sesion() {
                 .then((res) => res.json())
                 .then((data) => {
                     if (data.status === 200) {
-                        redirigir(data.status, data.idUsuario || data.id);
+                        redirigir(data.status, data.idComercio);
                     } else {
                         alert(`Error: ${data.message}`);
                     }

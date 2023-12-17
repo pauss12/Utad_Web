@@ -5,7 +5,7 @@ export async function POST(request) {
 
     const data = await request.json()
 
-    if (data.opcionSeleccionada == 'Usuario Registrado' || data.opcionSeleccionada == 'Administrador') {
+    if (data.opcionSeleccionada === 'Usuario Registrado' || data.opcionSeleccionada === 'Administrador') {
 
         try {
 
@@ -15,7 +15,7 @@ export async function POST(request) {
 
             if (user.length > 0) {
 
-                return NextResponse.json({ message: "Usuario existe...", idUsuario: user[0].idUsuario, status: 200 });
+                return NextResponse.json({ message: "Usuario existe...", idUsuario: user.idUsuario, status: 200 });
 
             } else {
 
@@ -25,23 +25,21 @@ export async function POST(request) {
 
         } catch (error) {
 
-            console.error('Error al procesar usuarios:', error.message);
-
-            return NextResponse.json({ message: "Error interno del servidor", status: 500 });
+            return NextResponse.json({ message: "Comercio no existe...", status: 400 })
 
         }
 
-    } else if (data.opcionSeleccionada == 'Comercios') {
+    } else if (data.opcionSeleccionada === 'Comercios') {
 
         try {
 
             const comercios = JSON.parse(readFileSync("data/comercios.txt"))
 
-            const comercio = comercios.filter(comercio => comercio.nombreComercio == data.nombreComercio && comercio.cifComercio == data.cifComercio)
+            const comercio = comercios.filter(comercio => comercio.nombreComercio === data.nombreComercio && comercio.cifComercio === data.cifComercio)
 
             if (comercio.length > 0) {
 
-                return NextResponse.json({ message: "Comercio existe...", id: comercio[0].idComercio, status: 200 });
+                return NextResponse.json({ message: "Comercio existe...", idComercio: comercio.idComercio, status: 200 });
 
             } else {
 
