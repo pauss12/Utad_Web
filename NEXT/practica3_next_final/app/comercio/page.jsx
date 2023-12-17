@@ -48,7 +48,15 @@ function comercio() {
 
     return (
 
-        <ul className="flex mt-5">
+        <div className="flex flex-col items-center justify-center min-h-screen py-2">
+
+            <button
+                onClick={() => router.push('/')}
+                className="absolute right-4 top-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                HOME
+            </button>
+
+        <ul className="flex">
             {comercios && comercios.map((comercio) => (
                 <li key={comercio.idComercio} className="bg-gray-200 rounded-2x1 ml-4 border border-black pl-4 pr-20 py-10 md:p-50 lg:px-30 my-2 shadow-md rounded">
                     <h2>Nombre: {comercio.nombreComercio}</h2>
@@ -71,6 +79,8 @@ function comercio() {
                 </li>
             ))}
         </ul>
+            
+        </div>
     );
 }
 
