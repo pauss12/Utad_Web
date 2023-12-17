@@ -22,7 +22,7 @@ function comercio() {
 
                 const data = await response.json()
 
-                setComercios(data.user)
+                setComercios(data.comercios)
 
             } catch (error) {
 
