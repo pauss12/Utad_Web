@@ -4,9 +4,13 @@ import React, { useState } from 'react';
 import "../styles/Registro.css"
 import DropdownSimple from '../componentes/DropdownSimple';
 
+import { useRouter } from 'next/navigation';
+
 import { v4 as uuidv4 } from 'uuid';
 
 function registro_user() {
+
+    const router = useRouter();
 
     //Depende del tipo de cliente que se registre, se guarda unos datos u otros
     const [DatosUsuario, setDatosUsuario] = useState({
@@ -94,7 +98,14 @@ function registro_user() {
 
     return (
 
-        <div className="flex flex-col items-center justify-center min-h-screen p-8">
+        <div className="flex flex-col items-center justify-center min-h-screen p-2">
+            
+            <button
+                onClick={() => router.push('/')}
+                className="absolute right-3 top-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
+                HOME
+            </button>
+
             <div className="w-full max-w-md">
                 <form className="space-y-6">
                     <h2 className="text-center pt-4 text-2xl font-bold leading-9 tracking-tight text-gray-900">
