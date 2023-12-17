@@ -42,7 +42,7 @@ export async function DELETE(request) {
 
         const comercios = JSON.parse(readFileSync("data/comercios.txt"))
         
-        const comercioFilter = comercios.filter(comercio => comercio.emailComercio != data.email)
+        const comercioFilter = comercios.filter(comercio => comercio.idComercio != data.idComercio)
         
         writeFileSync("data/comercios.txt", JSON.stringify(comercioFilter, null, 4))
         

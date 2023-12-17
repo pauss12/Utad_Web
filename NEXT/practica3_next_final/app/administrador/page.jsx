@@ -27,12 +27,6 @@ function Administrador() {
     //Añadir router -----------------------------------
     const router = useRouter();
 
-    // Definir useForceUpdate dentro de Administrador ---------------
-    const useForceUpdate = () => {
-        const [, setValue] = useState(0);
-        return () => setValue(value => value + 1);
-    };
-
     //Datos del comercio --------------------------------------------
     const [datosComercio, setDatosComercio] = useState({
 
@@ -53,24 +47,24 @@ function Administrador() {
     const [listaComerciosGuardados, setListaComerciosGuardados] = useState([]);
 
     //Obtener los comercios -----------------------------------------
+    const obtenerComercios = async () => {
+
+        try {
+
+            const response = await fetch('http://localhost:3000/api/comercios')
+
+            const data = await response.json()
+
+            setListaComerciosGuardados(data.comercios)
+
+        } catch (error) {
+
+            console.log(error);
+            alert("Ha habido un problema a la hora de obtener los comercios");
+        }
+    };
+    
     useEffect(() => {
-
-        const obtenerComercios = async () => {
-
-            try {
-
-                const response = await fetch('http://localhost:3000/api/comercios')
-
-                const data = await response.json()
-
-                setListaComerciosGuardados(data.comercios)
-
-            } catch (error) {
-
-                console.log(error);
-                alert("Ha habido un problema a la hora de obtener los comercios");
-            }
-        };
 
         obtenerComercios();
 
@@ -78,7 +72,7 @@ function Administrador() {
    
 
     //Handle eliminar comercio
-    const handleDelete = async (emailComercio) => {
+    const handleDelete = async (idComercio) => {
       
         try {
             
@@ -87,20 +81,17 @@ function Administrador() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify( {email: emailComercio} ),
+                body: JSON.stringify({ idComercio: idComercio } ),
             });
 
-            //Comprobar si se ha eliminado el comerciante
             if (response.ok) {
 
                 alert("Comercio eliminado correctamente");
-
-                useForceUpdate();
+                obtenerComercios()
 
             } else {
 
                 console.error("HTTP error! Status: ${response.status}");
-
                 alert("Ha habido un problema a la hora de eliminar el comercio");
 
             }
@@ -108,7 +99,6 @@ function Administrador() {
         } catch (error) {
             
             console.error(error);
-
             alert(" -- Ha habido un problema a la hora de eliminar el comercio -- ");
 
         }
@@ -126,7 +116,7 @@ function Administrador() {
             </button>
 
             <div className="crearComercio">
-                <CrearComercio datosComercio={datosComercio} setDatosComercio={setDatosComercio} />
+                <CrearComercio datosComercio={datosComercio} setDatosComercio={setDatosComercio}  obtenerComercios={obtenerComercios}/>
             </div>
 
             <div className="busquedaComercios">

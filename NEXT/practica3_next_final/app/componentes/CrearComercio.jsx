@@ -1,13 +1,14 @@
 "use client"
 
-import React, { useState } from 'react'; import { v4 as uuidv4 } from 'uuid';
+import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
-function CrearComercio({datosComercio, setDatosComercio}) {
+function CrearComercio({datosComercio, setDatosComercio, obtenerComercios}) {
 
-    //Funcion para guardar los datos de un comercio
     const handleCrearComercio = async (e) => {
-        
+
         e.preventDefault();
+           
         try {
 
             const response = await fetch('http://localhost:3000/api/comercios', {
@@ -17,14 +18,13 @@ function CrearComercio({datosComercio, setDatosComercio}) {
                 },
                 body: JSON.stringify(datosComercio),
             });
+
             const data = await response.json();
-            console.log(data);
 
             if (response.ok)
             {
                 alert('Datos guardados exitosamente');
 
-                //Limpiar el setter
                 setDatosComercio({
                     idComercio: uuidv4(),
                     nombreComercio: '',
@@ -35,6 +35,8 @@ function CrearComercio({datosComercio, setDatosComercio}) {
                     puntuacion: 0,
                     comentarios: '',
                 });
+
+                obtenerComercios()
 
             } else {
                 console.error(`HTTP error! Status: ${response.status}`);
@@ -60,7 +62,7 @@ function CrearComercio({datosComercio, setDatosComercio}) {
                 </div>
 
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form className="space-y-6" action="#" method="POST">
+                    <form className="space-y-6">
                         <div>
                             <div className="mt-2">
                                 Nombre Comercio
