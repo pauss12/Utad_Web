@@ -5,7 +5,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function Buscador({lista, setLista}) {
 
-    const [originalTasks, setOriginalTasks] = useState([]);
+    const [originalTasks, setOriginalTasks] = useState([])
 
     const handleSearch = (searchTerm) => {
         
@@ -27,8 +27,10 @@ function Buscador({lista, setLista}) {
             });
 
             setLista(filteredTasks);
+            
         }
-    };
+    }; 
+
 
     return (
 
