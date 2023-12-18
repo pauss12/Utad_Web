@@ -35,6 +35,7 @@ function CrearComercio({datosComercio, setDatosComercio, obtenerComercios}) {
                     emailComercio: '',
                     telefonoComercio: '',
                     puntuacion: '',
+                    numeroPuntuaciones: 0,
                     comentarios: '',
                 });
 
