@@ -4,23 +4,13 @@ import React, { useState, useEffect } from 'react';
 
 function EditarComercio( {comercio} ) {
 
-    /*
-    //Const para la URL de la foto
-    const [foto, setFoto] = useState("");
-
-    //Handle change foto
-    const handleChangeFoto = (event) => {
-        setFoto(event.target.value);
-    };
-    */
-    
-    
+  
     //Const para el comercio ------------------------
-    const [comercioIndividual, setComercioIndividual] = useState(comercio);
+    const [comercioIndividual, setComercioIndividual] = useState(comercio || {});
 
     useEffect(() => {
 
-        setComercioIndividual(comercio);
+        setComercioIndividual(comercio || {});
 
     }, [comercio]);
 
@@ -43,11 +33,14 @@ function EditarComercio( {comercio} ) {
 
 
     const handleInputChange = (event) => {
-        const { name, value } = event.target;
+
+        const { name, value } = event.target
+
         setComercioIndividual({
             ...comercioIndividual,
             [name]: value,
         });
+
     };
 
     //Actualizar comercio ---------------------------------
@@ -98,7 +91,7 @@ function EditarComercio( {comercio} ) {
                             <input
                                 type="text"
                                 name="nombreComercio"
-                                value={comercioIndividual.nombreComercio}
+                                value={comercioIndividual.nombreComercio || ''}
                                 onChange={handleInputChange}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />
@@ -111,7 +104,7 @@ function EditarComercio( {comercio} ) {
                                 type="text"
                                 name="actividadComercio"
                                 placeholder="Actividad Comercio"
-                                value={comercioIndividual.actividadComercio}
+                                value={comercioIndividual.actividadComercio || ''}
                                 onChange={handleInputChange}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />
@@ -123,7 +116,7 @@ function EditarComercio( {comercio} ) {
                             <input
                                 type="text"
                                 name="cifComercio"
-                                value={comercioIndividual.cifComercio}
+                                value={comercioIndividual.cifComercio || ''}
                                 onChange={handleInputChange}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />
@@ -136,7 +129,7 @@ function EditarComercio( {comercio} ) {
                             <input
                                 type="text"
                                 name="DireccionComercio"
-                                value={comercioIndividual.direccionComercio}
+                                value={comercioIndividual.ciudadComercio || ''}
                                 onChange={handleInputChange}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />
@@ -149,7 +142,7 @@ function EditarComercio( {comercio} ) {
                             <input
                                 type="text"
                                 name="emailComercio"
-                                value={comercioIndividual.emailComercio}
+                                value={comercioIndividual.emailComercio || ''}
                                 onChange={handleInputChange}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />
@@ -163,7 +156,7 @@ function EditarComercio( {comercio} ) {
                                 type="text"
                                 placeholder='Foto'
                                 name="fotos"
-                                value={comercioIndividual.fotos}
+                                value={comercioIndividual.fotos || ''}
                                 onChange={handleInputChange}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />
@@ -177,7 +170,7 @@ function EditarComercio( {comercio} ) {
                                 type="text"
                                 placeholder='Texto'
                                 name="textos"
-                                value={comercioIndividual.textos}
+                                value={comercioIndividual.textos || ''}
                                 onChange={handleInputChange}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />
@@ -190,7 +183,7 @@ function EditarComercio( {comercio} ) {
                             <input
                                 type="text"
                                 name="telefonoComercio"
-                                value={comercioIndividual.telefonoComercio}
+                                value={comercioIndividual.telefonoComercio || ''}
                                 onChange={handleInputChange}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />

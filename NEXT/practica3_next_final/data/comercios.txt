@@ -4,7 +4,7 @@
         "nombreComercio": "a",
         "actividadComercio": "",
         "cifComercio": "a",
-        "fotos": "imagenes/logo.jpg",
+        "fotos": "/imagenes/logo.jpg",
         "textos": "hola buenas",
         "ciudadComercio": "a",
         "emailComercio": "a",

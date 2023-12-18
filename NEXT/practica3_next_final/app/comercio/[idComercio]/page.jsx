@@ -23,7 +23,7 @@ function Page({ params }) {
     const router = useRouter();
 
     //Const para el comercio ------------------------
-    const [comercio, setComercio] = useState({});
+    const [comercio, setComercio] = useState([]);
 
     //Obtener el Comercio -------------------------------------
     useEffect(() => {
@@ -72,21 +72,21 @@ function Page({ params }) {
         return (
 
             <div style={estilo}>
-                <strong>Puntuación:</strong> {comercio.puntuacion || 'N/A'}
+                <p>Puntuación:</p> {comercio.puntuacion || 'N/A'}
 
                 <br />
 
-                <strong>Número de Puntuaciones:</strong> {comercio.numeroPuntuaciones || 0}
+                <p>Número de Puntuaciones:</p> {comercio.numeroPuntuaciones || 0}
 
                 <br />
 
-                <strong>Reseñas:</strong> {comercio.comentarios || 'N/A'}
+                <p>Reseñas:</p> {comercio.comentarios || 'N/A'}
 
                 <br />
 
-                <strong>Foto:</strong>
+                <p>Foto:</p>
 
-                {comercio.foto && <img src={comercio.fotos} alt="Foto del comercio" style={{ maxWidth: '100%', maxHeight: '100px' }} />}
+                {comercio.fotos && <img src={comercio.fotos} alt="Foto del comercio" style={{ maxWidth: '100%', maxHeight: '100px' }} />}
 
             </div>
         );
