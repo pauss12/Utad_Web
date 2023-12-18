@@ -193,9 +193,15 @@ function Page({ params }) {
             if (nuevaNota === null || nuevaNota.trim() === "") {
 
                 alert("No has introducido ninguna nota");
-                
                 return; 
                 
+            }
+
+            //Comprobar que este entre 0 y 10
+            if ( isNaN(notaValue) || nuevaNota < 0 || nuevaNota > 10) {
+
+                alert("La nota debe estar entre 0 y 10");
+                return;
             }
 
             const nota = {
@@ -218,6 +224,9 @@ function Page({ params }) {
                 console.log('Nota actualizada con éxito')
                 alert('Nota actualizada con éxito')
 
+                //ACTUALIZAR CONTADOR DE PUNTUACIONES ----
+                
+
             } else {
 
                 console.error('Error al actualizar la nota. Código de estado:', response.status);
@@ -231,6 +240,8 @@ function Page({ params }) {
             alert('ERROR! ', error)
 
         }
+
+        
     };
 
   
@@ -238,7 +249,7 @@ function Page({ params }) {
 
     return (
 
-        <div className="flex flex-row bg-blue-200">
+        <div className="flex flex-row">
 
             <EditarUsuario user={usuario} />
 
@@ -259,7 +270,8 @@ function Page({ params }) {
 
                         <button type="button"
                             className="bg-orange-500 text-white rounded-md px-4 py-2 mt-4"
-                            onClick={() => ponerResena(comercio)}
+                            onClick={() => ponerResena(comercio)}                       
+
                         >
                             Poner reseña
                         </button>
