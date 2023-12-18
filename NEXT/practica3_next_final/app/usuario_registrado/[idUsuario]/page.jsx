@@ -198,7 +198,7 @@ function Page({ params }) {
             }
 
             //Comprobar que este entre 0 y 10
-            if ( isNaN(notaValue) || nuevaNota < 0 || nuevaNota > 10) {
+            if (isNaN(nuevaNota) || nuevaNota < 0 || nuevaNota > 10) {
 
                 alert("La nota debe estar entre 0 y 10");
                 return;
@@ -207,7 +207,7 @@ function Page({ params }) {
             const nota = {
 
                 idComercio: comercio.idComercio,
-                puntuacion: nuevaNota
+                puntuacion: nuevaNota,
             };
 
             const response = await fetch(`http://localhost:3000/api/comercios/${comercio.idComercio}`, {

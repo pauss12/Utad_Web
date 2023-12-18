@@ -1,6 +1,6 @@
 [
     {
-        "idComercio": "1e8adca5-de04-4279-9348-fb25145777c4",
+        "idComercio": "7f893b95-8fde-43a9-917f-2f470bf57a77",
         "nombreComercio": "a",
         "actividadComercio": "",
         "cifComercio": "a",
@@ -9,12 +9,11 @@
         "ciudadComercio": "a",
         "emailComercio": "a",
         "telefonoComercio": "a",
-        "puntuacion": "0",
-        "numeroPuntuaciones": 0,
-        "comentarios": "muy buenas"
+        "puntuacion": "10",
+        "comentarios": "buen trabajo"
     },
     {
-        "idComercio": "c6c60c19-86d8-42cb-aead-1999fa4c8be0",
+        "idComercio": "d86cfd1c-6088-41be-b6bc-4a497695671b",
         "nombreComercio": "b",
         "cifComercio": "b",
         "fotos": "",
@@ -22,8 +21,7 @@
         "ciudadComercio": "b",
         "emailComercio": "b",
         "telefonoComercio": "b",
-        "puntuacion": "",
-        "numeroPuntuaciones": 0,
+        "puntuacion": "6",
         "comentarios": ""
     }
 ]
