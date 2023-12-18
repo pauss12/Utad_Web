@@ -24,7 +24,8 @@ function Buscador(props) {
 
                 return (
                     
-                    task.nombreComercio.toLowerCase().includes(searchTerm.toLowerCase()) 
+                    task.nombreComercio.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    task.ciudadComercio.toLowerCase().includes(searchTerm.toLowerCase()) 
 
                 );
             });
