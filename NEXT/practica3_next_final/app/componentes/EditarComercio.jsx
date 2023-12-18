@@ -89,7 +89,7 @@ function EditarComercio( {comercio} ) {
 
         <div style={estilo}>
 
-            <div className="container mx-auto mt-8">
+            <div className="container mx-auto mt-8 pr-4">
                 <h2 className="text-2xl font-semibold mb-4">Editar Comercio</h2>
                 <form className="max-w-md">
                     <div className="mb-4">
@@ -110,6 +110,7 @@ function EditarComercio( {comercio} ) {
                             <input
                                 type="text"
                                 name="actividadComercio"
+                                placeholder="Actividad Comercio"
                                 value={comercioIndividual.actividadComercio}
                                 onChange={handleInputChange}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
@@ -149,6 +150,34 @@ function EditarComercio( {comercio} ) {
                                 type="text"
                                 name="emailComercio"
                                 value={comercioIndividual.emailComercio}
+                                onChange={handleInputChange}
+                                className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+                            />
+                        </label>
+                    </div>
+
+                    <div className="mb-4">
+                        <label className="block text-gray-700 text-sm font-bold mb-2">
+                            Foto:
+                            <input
+                                type="text"
+                                placeholder='Foto'
+                                name="fotos"
+                                value={comercioIndividual.fotos}
+                                onChange={handleInputChange}
+                                className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+                            />
+                        </label>
+                    </div>
+
+                    <div className="mb-4">
+                        <label className="block text-gray-700 text-sm font-bold mb-2">
+                            Texto:
+                            <input
+                                type="text"
+                                placeholder='Texto'
+                                name="textos"
+                                value={comercioIndividual.textos}
                                 onChange={handleInputChange}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />
