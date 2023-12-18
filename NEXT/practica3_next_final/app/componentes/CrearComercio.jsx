@@ -29,10 +29,12 @@ function CrearComercio({datosComercio, setDatosComercio, obtenerComercios}) {
                     idComercio: uuidv4(),
                     nombreComercio: '',
                     cifComercio: '',
-                    direccionComercio: '',
+                    fotos: '',
+                    textos: '',
+                    ciudadComercio: '',
                     emailComercio: '',
                     telefonoComercio: '',
-                    puntuacion: 0,
+                    puntuacion: '',
                     comentarios: '',
                 });
 
@@ -96,14 +98,14 @@ function CrearComercio({datosComercio, setDatosComercio, obtenerComercios}) {
 
                         <div>
                             <div className="mt-2">
-                                Direccion
+                                Ciudad
                                 <input
-                                    id="Direccion"
-                                    name="Direccion"
-                                    autoComplete="Direccion"
-                                    placeholder=" Direccion"
-                                    value={datosComercio.direccionComercio}
-                                    onChange={(e) => setDatosComercio({...datosComercio, direccionComercio: e.target.value})}
+                                    id="ciudad"
+                                    name="ciudad"
+                                    autoComplete="ciudad"
+                                    placeholder=" ciudad"
+                                    value={datosComercio.ciudadComercio}
+                                    onChange={(e) => setDatosComercio({...datosComercio, ciudadComercio: e.target.value})}
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                             </div>
