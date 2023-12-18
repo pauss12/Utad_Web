@@ -222,10 +222,7 @@ function Page({ params }) {
             if (response.ok) {
 
                 console.log('Nota actualizada con éxito')
-                alert('Nota actualizada con éxito')
-
-                //ACTUALIZAR CONTADOR DE PUNTUACIONES ----
-                
+                alert('Nota actualizada con éxito')         
 
             } else {
 
