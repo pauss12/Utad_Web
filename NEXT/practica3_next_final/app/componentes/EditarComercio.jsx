@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 
-function EditarComercio( {comercio} ) {
+function EditarComercio({ comercio, showUnmodifiableData} ) {
 
   
     //Const para el comercio ------------------------
@@ -69,6 +69,8 @@ function EditarComercio( {comercio} ) {
                 alert('Error al actualizar el Comercio')
 
             }
+
+            showUnmodifiableData()
 
         } catch (error) {
 

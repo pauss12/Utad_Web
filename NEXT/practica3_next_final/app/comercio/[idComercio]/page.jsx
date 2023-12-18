@@ -50,7 +50,8 @@ function Page({ params }) {
 
     const estilo = {
 
-        height: '60vh',
+        height: '20vh',
+        width: '20vw',
         marginLeft: '30px',
         marginTop: '45px',
         paddingLeft: '30px',
@@ -106,22 +107,21 @@ function Page({ params }) {
         return (
 
             <div style={estilo}>
-                <p>Puntuación:</p> {comercio.puntuacion || 'N/A'}
-
+                <p>Puntuación: {comercio.puntuacion || 'N/A'} </p> 
                 <br />
+                <p>Reseñas: {comercio.comentarios || 'N/A'} </p>
+                
+                {mostrarFoto()}
+            </div>
+        );
+    }
 
-                <p>Número de Puntuaciones:</p> {comercio.numeroPuntuaciones || 0}
+    function mostrarFoto() {
 
-                <br />
+        return (
 
-                <p>Reseñas:</p> {comercio.comentarios || 'N/A'}
-
-                <br />
-
-                <p>Foto:</p>
-
-                {comercio.fotos && <img src={comercio.fotos} alt="Foto del comercio" style={{ maxWidth: '100%', maxHeight: '100px' }} />}
-
+            <div className="mt-10">
+                <img src={comercio.fotos} alt="Foto del comercio" style={{ maxWidth: '100%', maxHeight: '200px' }} />
             </div>
         );
     }
@@ -134,7 +134,7 @@ function Page({ params }) {
 
         <div className="flex flex-row bg-blue-200">
 
-            <EditarComercio comercio={comercio} className="mr-5" />
+            <EditarComercio comercio={comercio} className="mr-5" showUnmodifiableData={showUnmodifiableData} />
 
             {showUnmodifiableData()}
 

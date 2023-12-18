@@ -3,12 +3,13 @@
         "idComercio": "d86cfd1c-6088-41be-b6bc-4a497695671b",
         "nombreComercio": "b",
         "cifComercio": "b",
-        "fotos": "",
-        "textos": "",
+        "fotos": "/imagenes/logo.jpg",
+        "textos": "hola",
         "ciudadComercio": "b",
         "emailComercio": "b",
-        "telefonoComercio": "b",
+        "telefonoComercio": "611452480",
         "puntuacion": "6",
-        "comentarios": ""
+        "comentarios": "",
+        "actividadComercio": "a"
     }
 ]
