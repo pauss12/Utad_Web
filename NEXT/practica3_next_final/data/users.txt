@@ -1,27 +1,5 @@
 [
     {
-        "idUsuario": "4b483b5b-5014-4c61-ae41-c857a26020ca",
-        "nombreUsuario": "elena",
-        "emailUsuario": "elena@mail.com",
-        "passwordUsuario": "1234",
-        "edadUsuario": "12",
-        "ciudadUsuario": "Madrid",
-        "interesesUsuario": "progr",
-        "permiteOfertas": true,
-        "tipoUsuario": "Usuarios Registrados"
-    },
-    {
-        "idUsuario": "311f09f2-78ee-45b8-b574-da1e0409c89d",
-        "nombreUsuario": "lucia",
-        "emailUsuario": "camaroapache@gmail.hotmail.outlook.yahoo.txt.com",
-        "passwordUsuario": "si osy",
-        "edadUsuario": "201",
-        "ciudadUsuario": "Madrid",
-        "interesesUsuario": "deporte",
-        "permiteOfertas": true,
-        "tipoUsuario": ""
-    },
-    {
         "idUsuario": "8bbfc055-2a28-4d15-8446-7c25fa14f7da",
         "nombreUsuario": "paula",
         "emailUsuario": "paula@globaltg.es",

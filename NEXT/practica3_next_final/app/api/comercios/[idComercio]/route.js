@@ -68,3 +68,32 @@ export async function PUT(request, { params }) {
 
     }
 }
+
+export async function DELETE(request, { params }) {
+
+    try {
+
+        const comercios = JSON.parse(readFileSync("data/comercios.txt"))
+
+        const indiceComercio = comercios.findIndex((comercio) => comercio.idUsuario === params.idUsuario)
+
+        if (indiceComercio === -1) {
+
+            return NextResponse.json({ message: "API:Comercio not found", status: 404 });
+
+        }
+
+        comercios.splice(indiceComercio, 1);
+
+        writeFileSync("data/comercios.txt", JSON.stringify(comercios, null, 4));
+
+        return NextResponse.json({ message: "API:Comercio deleted" });
+
+    } catch (error) {
+
+        console.error("API: Error fetching Comercio:", error);
+
+        return NextResponse.json({ message: "API: Error fetching Comercio", status: 500 });
+
+    }
+}

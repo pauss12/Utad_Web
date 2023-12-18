@@ -66,6 +66,40 @@ function Page({ params }) {
 
     };
 
+    //ELIMINAR COMERCIO -------------------------------------
+    const darseDeBajaComercio = async () => {
+
+        try {
+
+            const response = await fetch(`http://localhost:3000/api/comercios/${comercio.idComercio}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (response.ok) {
+
+                console.log('Comercio dado de baja con éxito');
+                alert('Comercio dado de baja con éxito');
+            } else {
+
+                console.error('Error al darse de baja');
+                alert('Error al darse de baja');
+
+            }
+
+            router.push('/comercio')
+
+        } catch (error) {
+
+            console.error('Error en la solicitud de darse de baja:', error);
+            alert('ERROR! ', error)
+
+        }
+
+    };
+
     //Mostrar los datos no modificables del comercio (puntuacion, foto, textos, numero de puntuaciones, reseñas)
     function showUnmodifiableData() {
 
@@ -105,6 +139,7 @@ function Page({ params }) {
             {showUnmodifiableData()}
 
             <button
+                onClick={() => darseDeBajaComercio()}
                 className="absolute right-4 top-12 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                 Darse de baja
             </button>

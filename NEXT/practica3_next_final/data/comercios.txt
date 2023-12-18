@@ -1,18 +1,5 @@
 [
     {
-        "idComercio": "7f893b95-8fde-43a9-917f-2f470bf57a77",
-        "nombreComercio": "a",
-        "actividadComercio": "",
-        "cifComercio": "a",
-        "fotos": "",
-        "textos": "",
-        "ciudadComercio": "a",
-        "emailComercio": "a",
-        "telefonoComercio": "a",
-        "puntuacion": "10",
-        "comentarios": "buen trabajo"
-    },
-    {
         "idComercio": "d86cfd1c-6088-41be-b6bc-4a497695671b",
         "nombreComercio": "b",
         "cifComercio": "b",
