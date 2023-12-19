@@ -1,10 +1,9 @@
 "use client"
 
 import React, { useState, useEffect } from 'react';
-import Buscador from '../componentes/Buscador.jsx';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import CartaComercio from '../componentes/cartas/cartaComercio.jsx';
 
 import "../styles/anonimo.css"
@@ -86,8 +85,7 @@ function anonimo() {
                 <Link href="../registro">Registrarse</Link>
             </button>
 
-            
-
+        
             <div className="contenedorBuscadores">
                 
                 <div className="busqueda">

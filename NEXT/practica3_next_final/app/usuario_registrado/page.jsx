@@ -2,9 +2,13 @@
 
 import { useState, useEffect } from "react";
 import CartaUsuario from '../componentes/cartas/cartaUsuario.jsx';
+import { useRouter } from 'next/navigation';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 import "../styles/usuarioRegistrado.css"
 
-import { useRouter } from 'next/navigation';
+
+
 
 function usuario_registrado() {
 
@@ -45,6 +49,32 @@ function usuario_registrado() {
 
     
     return (
+
+        <>
+
+            <button
+                onClick={() => router.push('/')}
+                className="absolute right-4 top-12 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                HOME
+            </button>
+
+            <div className="contenedorBuscadores">
+    
+                <div className="busqueda">
+
+                    <span className="fa-solid fa-magnifying-glass" style={{ marginRight: '3px' }}></span>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="floatingInputGroup1"
+                        style={{ border: 'none', background: 'none' }}
+                        placeholder="Buscador"
+                        onChange={(e) => handleSearch(e.target.value)} 
+                    />
+
+                </div>
+
+            </div>
         
         <ul className="flex flex-wrap mt-5">
             {usuarios && usuarios.map((usuario) => (
@@ -55,7 +85,9 @@ function usuario_registrado() {
                     onChange={() => handleChange(usuario)} />
 
             ))}
-        </ul>
+            </ul>
+            
+        </>
     );
 }
 

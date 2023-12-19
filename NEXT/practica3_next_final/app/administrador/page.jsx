@@ -13,11 +13,9 @@ se podrá registrar un comercio
 import CrearComercio from '../componentes/CrearComercio.jsx';
 import Buscador from '../componentes/Buscador.jsx';
 import { v4 as uuidv4 } from 'uuid';
-
 import { useRouter } from 'next/navigation';
-
 import CartaComercio from '../componentes/cartas/cartaComercio.jsx';
-
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import React, { useState, useEffect } from "react";
 
 import "../styles/admin.css"
