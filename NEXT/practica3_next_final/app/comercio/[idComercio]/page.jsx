@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import EditarComercio from '@/app/componentes/EditarComercio';
+import CartaUsuario from '@/app/componentes/cartas/cartaUsuario.jsx';
 
 import { useRouter } from 'next/navigation';
 
@@ -25,6 +26,9 @@ function Page({ params }) {
     //Const para el comercio ------------------------
     const [comercio, setComercio] = useState([]);
 
+    //Const para la lista de usuarios ------------------------
+    const [listaUsuarios, setListaUsuarios] = useState([]);
+
     //Obtener el Comercio -------------------------------------
     useEffect(() => {
 
@@ -45,6 +49,30 @@ function Page({ params }) {
         };
 
         fetchData();
+
+    }, []);
+
+    //Obtener la lista de usuarios -------------------------------
+    useEffect(() => {
+
+        const obtenerUsuarios = async () => {
+
+            try {
+
+                const response = await fetch('http://localhost:3000/api/usuarios')
+
+                const data = await response.json()
+
+                setListaUsuarios(data.users)
+
+            } catch (error) {
+
+                console.log(error);
+                alert("Ha habido un problema a la hora de obtener los Usuarios");
+            }
+        };
+
+        obtenerUsuarios();
 
     }, []);
 
@@ -137,7 +165,28 @@ function Page({ params }) {
 
 
 
+    //MOSTRAR LISTA DE USUARIOS DE SU CIUDAD INTERESADOS EN SU ACTIVIDAD
+    function mostrarListaUsuarios() {
 
+        return (
+
+            <div style={estilo}>
+
+                <h3>Lista de usuarios interesados en su actividad:</h3>
+
+                <ul className="flex flex-wrap mt-12">
+                    {listaUsuarios && listaUsuarios.map((usuario) => (
+
+                        <CartaUsuario
+                            key={usuario.idUsuario}
+                            usuario={usuario}
+                            onChange={null} />
+
+                    ))}
+                </ul>
+            </div>
+        );
+    }
 
 
     return (
@@ -147,6 +196,8 @@ function Page({ params }) {
             <EditarComercio comercio={comercio} className="mr-5" showUnmodifiableData={showUnmodifiableData} />
 
             {showUnmodifiableData()}
+
+            {mostrarListaUsuarios()}
 
             <button
                 onClick={() => darseDeBajaComercio()}
