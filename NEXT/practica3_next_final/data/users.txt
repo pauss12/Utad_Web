@@ -20,5 +20,16 @@
         "interesesUsuario": "b",
         "permiteOfertas": true,
         "tipoUsuario": "Usuarios Registrados"
+    },
+    {
+        "idUsuario": "f3d40e01-21b9-4976-96ae-798dc1240ab0",
+        "nombreUsuario": "c",
+        "emailUsuario": "c",
+        "passwordUsuario": "c",
+        "edadUsuario": "5",
+        "ciudadUsuario": "c",
+        "interesesUsuario": "c",
+        "permiteOfertas": false,
+        "tipoUsuario": "Usuarios Registrados"
     }
 ]

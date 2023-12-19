@@ -177,7 +177,7 @@ function Page({ params }) {
                 <ul className="flex flex-wrap mt-12">
                     {listaUsuarios &&
                         listaUsuarios
-                            .filter((usuario) => usuario.ciudadUsuario === comercio.ciudadComercio)
+                            .filter((usuario) => usuario.ciudadUsuario === comercio.ciudadComercio && usuario.permiteOfertas)
                             .map((usuario) => (
                                 <CartaUsuario key={usuario.idUsuario} usuario={usuario} onChange={null} />
                             ))}
