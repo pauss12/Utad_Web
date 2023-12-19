@@ -10,7 +10,7 @@ function cartaUsuario({ usuario, onChange }) {
             <p><b>ID: </b>       {usuario.idUsuario}</p>
             <p><b>Email:</b>  {usuario.emailUsuario}</p>
             <p><b>Edad:</b>  {usuario.edadUsuario}</p>
-            <p><b>Ciudad:</b>  {usuario.edadUsuario}</p>
+            <p><b>Ciudad:</b>  {usuario.ciudadUsuario}</p>
             <p><b>Intereses:</b>  {usuario.interesesUsuario}</p>
             <p><b>Permite ofertas:  </b>{usuario.permiteOfertas ? 'Sí' : 'No'}</p>
             <p><b>Tipo:</b> {usuario.tipoUsuario}</p>

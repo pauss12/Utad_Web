@@ -9,5 +9,16 @@
         "interesesUsuario": "programacion",
         "permiteOfertas": true,
         "tipoUsuario": "Administrador"
+    },
+    {
+        "idUsuario": "a5c781ca-3e94-46e5-9f41-c2de1b868e5f",
+        "nombreUsuario": "b",
+        "emailUsuario": "b",
+        "passwordUsuario": "b",
+        "edadUsuario": "2",
+        "ciudadUsuario": "b",
+        "interesesUsuario": "b",
+        "permiteOfertas": true,
+        "tipoUsuario": "Usuarios Registrados"
     }
 ]

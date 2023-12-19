@@ -175,14 +175,13 @@ function Page({ params }) {
                 <h3>Lista de usuarios interesados en su actividad:</h3>
 
                 <ul className="flex flex-wrap mt-12">
-                    {listaUsuarios && listaUsuarios.map((usuario) => (
+                    {listaUsuarios &&
+                        listaUsuarios
+                            .filter((usuario) => usuario.ciudadUsuario === comercio.ciudadComercio)
+                            .map((usuario) => (
+                                <CartaUsuario key={usuario.idUsuario} usuario={usuario} onChange={null} />
+                            ))}
 
-                        <CartaUsuario
-                            key={usuario.idUsuario}
-                            usuario={usuario}
-                            onChange={null} />
-
-                    ))}
                 </ul>
             </div>
         );

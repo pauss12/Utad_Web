@@ -15,5 +15,18 @@
         "comentarios": "",
         "actividadComercio": "Tienda de Tecnologia",
         "DireccionComercio": "aM"
+    },
+    {
+        "idComercio": "f3b1df4c-fb64-446e-b787-1ab0ae3bf663",
+        "nombreComercio": "b",
+        "actividadComercio": "",
+        "cifComercio": "b",
+        "fotos": [],
+        "textos": "",
+        "ciudadComercio": "b",
+        "emailComercio": "b",
+        "telefonoComercio": "b",
+        "puntuacion": "",
+        "comentarios": ""
     }
 ]

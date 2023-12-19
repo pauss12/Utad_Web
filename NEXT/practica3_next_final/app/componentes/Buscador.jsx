@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
@@ -38,6 +38,7 @@ function Buscador(props) {
 
     return (
 
+
         <div className="input-group mb-3">
 
             <span className="fa-solid fa-magnifying-glass" style={{ marginRight: '3px' }}></span>
@@ -45,7 +46,6 @@ function Buscador(props) {
                 type="text"
                 className="form-control"
                 id="floatingInputGroup1"
-                style={{border: 'none', background: 'none'}}
                 placeholder="Buscador"
                 value={props.searchTerm}
                 onChange={(e) => handleSearch(e.target.value)}
