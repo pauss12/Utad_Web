@@ -62,9 +62,9 @@ function comercio() {
                     <h2>Nombre: {comercio.nombreComercio}</h2>
                     <p>ID: {comercio.idComercio}</p>
                     <p>CIF: {comercio.cifComercio}</p>
-                    <p>Dirección: {comercio.direccionComercio}</p>
+                    <p>Ciudad: {comercio.ciudadComercio}</p>
                     <p>Actividad: {comercio.actividadComercio}</p>
-                    <p>Foto: {comercio.fotos}</p>
+                    <p>Fotos: {comercio.fotos}</p>
                     <p>Email: {comercio.emailComercio}</p>
                     <p>Teléfono: {comercio.telefonoComercio}</p>
                     <p>Puntuación: {comercio.puntuacion}</p>
