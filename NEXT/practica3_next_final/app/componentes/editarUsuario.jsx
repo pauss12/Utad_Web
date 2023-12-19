@@ -37,6 +37,7 @@ function EditarUsuario({ user }) {
         marginTop: '50px',
         marginLeft: '50px',
         paddingLeft: '30px',
+        paddingRight: '30px',
         border: '1px solid black',
         borderRadius: '10px',
         backgroundColor: '#fff',
