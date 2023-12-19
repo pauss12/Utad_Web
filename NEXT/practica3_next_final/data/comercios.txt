@@ -1,15 +1,19 @@
 [
     {
-        "idComercio": "d86cfd1c-6088-41be-b6bc-4a497695671b",
-        "nombreComercio": "b",
-        "cifComercio": "b",
-        "fotos": "/imagenes/logo.jpg",
-        "textos": "hola",
-        "ciudadComercio": "b",
-        "emailComercio": "b",
-        "telefonoComercio": "611452480",
-        "puntuacion": "6",
+        "idComercio": "d4bd84ee-b845-4f70-9724-da44a9e8ec7c",
+        "nombreComercio": "Apple",
+        "cifComercio": "B-23514759",
+        "fotos": [
+            "/imagenes/logo.jpg",
+            "/imagenes/fondo_paginaRegistro.avif"
+        ],
+        "textos": "Somos Apple",
+        "ciudadComercio": "Madrid",
+        "emailComercio": "apple@icloud.com",
+        "telefonoComercio": "624153248",
+        "puntuacion": "",
         "comentarios": "",
-        "actividadComercio": "a"
+        "actividadComercio": "Tienda de Tecnologia",
+        "DireccionComercio": "aM"
     }
 ]

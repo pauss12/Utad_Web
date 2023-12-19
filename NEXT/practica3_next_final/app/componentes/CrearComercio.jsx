@@ -29,7 +29,7 @@ function CrearComercio({datosComercio, setDatosComercio, obtenerComercios}) {
                     idComercio: uuidv4(),
                     nombreComercio: '',
                     cifComercio: '',
-                    fotos: '',
+                    fotos: [],
                     textos: '',
                     ciudadComercio: '',
                     emailComercio: '',

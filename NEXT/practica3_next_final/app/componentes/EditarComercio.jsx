@@ -50,12 +50,17 @@ function EditarComercio({ comercio, showUnmodifiableData} ) {
 
             console.log('Updating Comercio:', comercioIndividual);
 
+            // Verificación si fotos es un array o una cadena de texto
+            const fotosArray = Array.isArray(comercioIndividual.fotos)
+                ? comercioIndividual.fotos
+                : comercioIndividual.fotos.split(',').map((url) => url.trim());
+
             const response = await fetch(`http://localhost:3000/api/comercios/${comercioIndividual.idComercio}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(comercioIndividual),
+                body: JSON.stringify({...comercioIndividual, fotos: fotosArray}),
             });
 
             if (response.ok) {
@@ -70,7 +75,7 @@ function EditarComercio({ comercio, showUnmodifiableData} ) {
 
             }
 
-            showUnmodifiableData()
+            showUnmodifiableData();
 
         } catch (error) {
 
@@ -127,10 +132,10 @@ function EditarComercio({ comercio, showUnmodifiableData} ) {
                     
                     <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2">
-                            Direccion Comercio:
+                            Ciudad Comercio:
                             <input
                                 type="text"
-                                name="DireccionComercio"
+                                name="ciudadComercio"
                                 value={comercioIndividual.ciudadComercio || ''}
                                 onChange={handleInputChange}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
@@ -158,7 +163,7 @@ function EditarComercio({ comercio, showUnmodifiableData} ) {
                                 type="text"
                                 placeholder='Foto'
                                 name="fotos"
-                                value={comercioIndividual.fotos || ''}
+                                value={Array.isArray(comercioIndividual.fotos) ? comercioIndividual.fotos.join(', ') : comercioIndividual.fotos}
                                 onChange={handleInputChange}
                                 className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />

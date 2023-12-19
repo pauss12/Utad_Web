@@ -34,7 +34,7 @@ function Administrador() {
         nombreComercio: "",
         actividadComercio: "",
         cifComercio: "",
-        fotos: "",
+        fotos: [],
         textos: "",
         ciudadComercio: "",
         emailComercio: "",
@@ -64,13 +64,14 @@ function Administrador() {
             alert("Ha habido un problema a la hora de obtener los comercios");
         }
     };
+
     
     useEffect(() => {
 
         obtenerComercios();
 
-    }, []);
-   
+    }, [datosComercio]);
+
 
     //Handle eliminar comercio
     const handleDelete = async (idComercio) => {

@@ -111,20 +111,30 @@ function Page({ params }) {
                 <br />
                 <p>Reseñas: {comercio.comentarios || 'N/A'} </p>
                 
-                {mostrarFoto()}
+                {mostrarFotos()}
             </div>
         );
     }
 
-    function mostrarFoto() {
+    function mostrarFotos() {
+        if (!comercio.fotos || comercio.fotos.length === 0) {
+            return <p>No hay fotos disponibles.</p>;
+        }
 
         return (
-
             <div className="mt-10">
-                <img src={comercio.fotos} alt="Foto del comercio" style={{ maxWidth: '100%', maxHeight: '200px' }} />
+                <h3>Fotos del comercio:</h3>
+                <ul style={{ listStyleType: 'none', padding: 0 }}>
+                    {comercio.fotos.map((foto, index) => (
+                        <li key={index} style={{ marginBottom: '10px' }}>
+                            <img src={foto} alt={`Foto ${index + 1}`} style={{ maxWidth: '100%', maxHeight: '200px' }} />
+                        </li>
+                    ))}
+                </ul>
             </div>
         );
     }
+
 
 
 
