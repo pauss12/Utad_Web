@@ -51,6 +51,7 @@ export async function DELETE(request) {
     } catch (e) {
 
         console.log(e)
+        return NextResponse.json({ message: "ERROR...", status: 404 })
     }
 }
 

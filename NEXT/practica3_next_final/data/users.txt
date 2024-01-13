@@ -31,5 +31,16 @@
         "interesesUsuario": "c",
         "permiteOfertas": false,
         "tipoUsuario": "Usuarios Registrados"
+    },
+    {
+        "idUsuario": "61e9565e-f7df-4d7f-aa32-865fc1445b8c",
+        "nombreUsuario": "ricardo",
+        "emailUsuario": "ricardo@gmail.com",
+        "passwordUsuario": "4567",
+        "edadUsuario": "30",
+        "ciudadUsuario": "Madrid",
+        "interesesUsuario": "Web5",
+        "permiteOfertas": false,
+        "tipoUsuario": "Usuarios Registrados"
     }
 ]
