@@ -1,0 +1,67 @@
+#lista-tareas {
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.una-tarea {
+
+    background-color: pink;
+    width: 30vw;
+    height: 25vh;
+    margin: 1vw;
+    padding-left: 1vw;
+    padding-bottom: 0.5vw;
+    padding-top: 1vw;
+    border-radius: 14px;
+
+    /*Establecer el tamaño normal para que luego se haga mas grande */
+    transition: transform 0.2s ease-in-out;
+    transform-origin: center center;
+    transform: scale(1);
+
+    /*BOX SHADOW*/
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.50);
+
+}
+
+.una-tarea:hover {
+    
+    transform: scale(1.1);
+    background-color: aqua;
+}
+
+.boton-eliminar {
+
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    
+}
+
+.boton-eliminar:hover {
+
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.boton-home {
+
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 20px;
+    float: right;
+    margin-right: 20px;
+
+    /*BOX SHADOW*/
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}

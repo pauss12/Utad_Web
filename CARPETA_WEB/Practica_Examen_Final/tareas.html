@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="tareas.css">
+        <script src="javascript_tareas.js"></script>
+
+        <title>Tareas</title>
+    </head>
+
+    <body onload="obtenerTareas()">
+
+        <button class="boton-home" onclick="location.href='index.html'">HOME</button>
+
+        <div class="contenedor">
+
+            <h1>Lista de Tareas</h1>
+
+            <!--BUSCADOR DE TAREAS-->
+            <div class="buscador">
+                <input class="input-buscador" id="texto-buscar" type="text" placeholder="Buscar tarea" name="text">
+            </div>
+
+            <div id="lista-tareas"></div>
+            
+        </div>
+
+
+    </body>
+
+</html>
