@@ -1,0 +1,60 @@
+
+.contenedor {
+
+    max-width: 800px;
+    margin: 5% auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+   
+}
+
+.form-todo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: lightgrey;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.button-todo {
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+
+}
+
+.button-todo:hover {
+    background-color: white;
+    color: blue;
+    border: 1px solid blue;
+}
+
+.input-titulo {
+
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+
+}
+
+.button-tareas {
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+  
+}

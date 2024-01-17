@@ -1,0 +1,57 @@
+/* Estilo para la lista de álbumes */
+#lista-albumes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+    /* Agregamos un espacio entre los elementos */
+}
+
+/* Estilo para cada álbum en la lista */
+.una-tarea {
+    background-color: pink;
+    width: calc(30% - 20px);
+    /* Calcular el ancho con un espacio de 20px entre elementos */
+    margin: 10px;
+    /* Agregamos márgenes entre los elementos */
+    padding: 10px;
+    border-radius: 14px;
+    transition: transform 0.2s ease-in-out;
+    transform-origin: center center;
+    transform: scale(1);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.50);
+}
+
+/* Estilo al pasar el ratón sobre un álbum */
+.una-tarea:hover {
+    transform: scale(1.1);
+    background-color: aqua;
+}
+
+/* Estilo para el botón de eliminar en cada álbum */
+.boton-eliminar {
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.boton-eliminar:hover {
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Estilo para el botón HOME */
+.boton-home {
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 20px;
+    float: right;
+    margin-right: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}

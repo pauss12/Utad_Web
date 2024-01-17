@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="albumes.css">
+    <title>Lista de Álbumes</title>
+</head>
+
+<body>
+    <button class="boton-home" onclick="location.href='index.html'">HOME</button>
+
+    <div class="contenedor">
+
+        <h1>Lista de Álbumes</h1>
+
+        <!-- BUSCADOR DE ÁLBUMES -->
+        <div class="buscador">
+            <input class="input-buscador" id="texto-buscar" type="text" placeholder="Buscar Álbum" name="text">
+            <button class="boton-filtrar" onclick="filtrarAlbumes()">Filtrar</button>
+        </div>
+
+        <div id="lista-albumes"></div>
+    </div>
+
+    <script src="javascript_albumes.js"></script>
+</body>
+
+</html>

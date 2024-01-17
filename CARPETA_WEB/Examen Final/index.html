@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="javascript.js"></script>
+    <title>Lista de Albumes</title>
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <form class='form-todo' action="javascript:addAlbum()">
+            <h2>Escribe una Nota:</h2>
+            <input class="input-titulo" type="text" placeholder="Escribe un titulo" name="text">
+            <button class="button-todo" type="submit">Añadir Album</button>
+        </form>
+
+        <!-- BOTON PARA IR A LA PAGINA QUE TE MUESTRE LAS TAREAS -->
+        <div class="boton">
+            <button class="button-tareas" onclick="window.location.href = 'albumes.html'">Ver Albumes</button>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
